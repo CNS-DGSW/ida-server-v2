@@ -1,6 +1,7 @@
 package com.dgswiphak.ida.persistence.entity.notion.entity
 
 import jakarta.persistence.*
+import java.time.LocalDateTime
 import java.time.LocalTime
 
 @Entity
@@ -14,6 +15,6 @@ class NotionEntity(
 
     val content: String,
 
-    val createDate: LocalTime
+    val createDate: LocalDateTime
 
 )
