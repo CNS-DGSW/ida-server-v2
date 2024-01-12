@@ -1,14 +1,16 @@
 package com.dgswiphak.ida.persistence.entity.notion.mapper
 
-import com.dgswiphak.ida.domain.notion.domain.Notion
+import com.dgswiphak.ida.domain.notion.domain.Notice
 import com.dgswiphak.ida.persistence.common.mapper.Mapper
-import com.dgswiphak.ida.persistence.entity.notion.entity.NotionEntity
+import com.dgswiphak.ida.persistence.entity.notion.entity.NoticeEntity
+import org.springframework.stereotype.Component
 
-class NotionMapper : Mapper<Notion, NotionEntity> {
+@Component
+class NotionMapper : Mapper<Notice, NoticeEntity> {
 
-    override fun toDomain(entity: NotionEntity?): Notion? {
+    override fun toDomain(entity: NoticeEntity?): Notice? {
         return entity?.let {
-            Notion(
+            Notice(
                 id = it.id,
                 title = it.title,
                 content = it.content,
@@ -17,8 +19,8 @@ class NotionMapper : Mapper<Notion, NotionEntity> {
         }
     }
 
-    override fun toEntity(domain: Notion): NotionEntity {
-        return NotionEntity(
+    override fun toEntity(domain: Notice): NoticeEntity {
+        return NoticeEntity(
             id = domain.id,
             title = domain.title,
             content = domain.content,

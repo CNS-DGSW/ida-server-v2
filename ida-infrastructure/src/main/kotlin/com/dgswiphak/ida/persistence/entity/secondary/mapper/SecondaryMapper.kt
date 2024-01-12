@@ -7,7 +7,9 @@ import com.dgswiphak.ida.persistence.common.mapper.Mapper
 import com.dgswiphak.ida.persistence.entity.secondary.entity.SecondaryEntity
 import com.dgswiphak.ida.persistence.entity.secondary.entity.value.AptitudeVO
 import com.dgswiphak.ida.persistence.entity.secondary.entity.value.InterviewVO
+import org.springframework.stereotype.Component
 
+@Component
 class SecondaryMapper(
     private val aptitudeMapper: AptitudeMapper,
     private val interviewMapper: InterviewMapper
