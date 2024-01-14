@@ -1,7 +1,7 @@
-package com.dgswiphak.ida.persistence.entity.secondary.entity
+package com.dgswiphak.ida.persistence.secondary.entity
 
-import com.dgswiphak.ida.persistence.entity.secondary.entity.value.AptitudeVO
-import com.dgswiphak.ida.persistence.entity.secondary.entity.value.InterviewVO
+import com.dgswiphak.ida.persistence.secondary.entity.value.AptitudeVO
+import com.dgswiphak.ida.persistence.secondary.entity.value.InterviewVO
 import jakarta.persistence.*
 
 @Entity

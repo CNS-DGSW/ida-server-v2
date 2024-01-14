@@ -1,4 +1,4 @@
-package com.dgswiphak.ida.persistence.entity.secondary.entity.value
+package com.dgswiphak.ida.persistence.secondary.entity.value
 
 import jakarta.persistence.Embeddable
 import java.io.Serial

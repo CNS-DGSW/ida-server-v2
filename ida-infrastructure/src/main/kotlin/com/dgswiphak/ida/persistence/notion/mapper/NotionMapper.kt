@@ -1,8 +1,8 @@
-package com.dgswiphak.ida.persistence.entity.notion.mapper
+package com.dgswiphak.ida.persistence.notion.mapper
 
 import com.dgswiphak.ida.domain.notion.domain.Notice
-import com.dgswiphak.ida.persistence.common.mapper.Mapper
-import com.dgswiphak.ida.persistence.entity.notion.entity.NoticeEntity
+import com.dgswiphak.ida.common.mapper.Mapper
+import com.dgswiphak.ida.persistence.notion.entity.NoticeEntity
 import org.springframework.stereotype.Component
 
 @Component

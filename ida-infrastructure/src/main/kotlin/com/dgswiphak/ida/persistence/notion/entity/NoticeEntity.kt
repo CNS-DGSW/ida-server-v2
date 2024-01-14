@@ -1,4 +1,4 @@
-package com.dgswiphak.ida.persistence.entity.notion.entity
+package com.dgswiphak.ida.persistence.notion.entity
 
 import jakarta.persistence.*
 import java.time.LocalDateTime

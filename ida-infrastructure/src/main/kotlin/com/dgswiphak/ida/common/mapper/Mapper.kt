@@ -1,4 +1,4 @@
-package com.dgswiphak.ida.persistence.common.mapper
+package com.dgswiphak.ida.common.mapper
 
 /**
  * Domain 클래스를 Entity 클래스로, Entity 클래스를 Domain 클래스로 변환해주는 인터페이스 <br>

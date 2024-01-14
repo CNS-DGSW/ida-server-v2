@@ -1,4 +1,4 @@
-package com.dgswiphak.ida.persistence.common.config
+package com.dgswiphak.ida.common.config
 
 import com.querydsl.jpa.impl.JPAQueryFactory
 import jakarta.persistence.EntityManager

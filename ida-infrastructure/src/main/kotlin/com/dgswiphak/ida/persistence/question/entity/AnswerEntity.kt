@@ -1,4 +1,4 @@
-package com.dgswiphak.ida.persistence.entity.question.entity
+package com.dgswiphak.ida.persistence.question.entity
 
 import jakarta.persistence.*
 import java.time.LocalTime
