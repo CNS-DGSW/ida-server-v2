@@ -49,12 +49,12 @@ interface Libraries {
     }
 
     object Querydsl : Libraries {
-        private const val QUERYDSL_JPA = "com.querydsl:querydsl-jpa:${DependencyVersions.QUERYDSL_VERSION}"
-        private const val QUERYDSL_APT = "com.querydsl:querydsl-apt:${DependencyVersions.QUERYDSL_VERSION}:jpa"
+        private const val QUERYDSL_JPA = "com.querydsl:querydsl-jpa:5.0.0:jakarta"
+        private const val QUERYDSL_APT = "com.querydsl:querydsl-apt:5.0.0:jakarta"
 
         override fun dependencies(): List<Dependency> = listOf(
                 Dependency(QUERYDSL_JPA, DependencyScope.IMPLEMENTATION),
-                Dependency(QUERYDSL_APT,  DependencyScope.KAPT)
+                Dependency(QUERYDSL_APT, DependencyScope.KAPT)
         )
     }
 
