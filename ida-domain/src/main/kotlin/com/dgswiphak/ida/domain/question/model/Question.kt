@@ -1,8 +1,8 @@
-package com.dgswiphak.ida.domain.question.domain
+package com.dgswiphak.ida.domain.question.model
 
 import java.time.LocalDateTime
 
-class Question(
+data class Question(
 
     val id: Int,
     

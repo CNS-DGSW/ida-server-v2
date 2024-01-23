@@ -1,8 +1,8 @@
-package com.dgswiphak.ida.domain.notion.domain
+package com.dgswiphak.ida.domain.notion.model
 
 import java.time.LocalDateTime
 
-class Notice(
+data class Notice(
 
     val id: Long,
 
