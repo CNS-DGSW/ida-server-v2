@@ -3,7 +3,7 @@ package com.dgswiphak.ida.persistence.member.repository
 import com.dgswiphak.ida.common.identity.MemberId
 import com.dgswiphak.ida.domain.member.model.Member
 import com.dgswiphak.ida.domain.member.spi.query.QueryMemberSpi
-import com.dgswiphak.ida.persistence.entity.member.entity.QMemberEntity
+import com.dgswiphak.ida.persistence.member.entity.QMemberEntity
 import com.dgswiphak.ida.persistence.member.mapper.MemberMapper
 import com.querydsl.jpa.impl.JPAQueryFactory
 import org.springframework.stereotype.Repository
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository
 class MemberQueryRepository(
         private val jpaQueryFactory: JPAQueryFactory,
         private val memberMapper: MemberMapper
-) : QueryMemberSpi  {
+) : QueryMemberSpi {
     override fun findById(id: MemberId): Member? {
         val memberEntity = QMemberEntity.memberEntity
         val member = jpaQueryFactory.selectFrom(memberEntity)

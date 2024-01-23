@@ -1,8 +1,8 @@
 package com.dgswiphak.ida.persistence.secondary.mapper
 
-import com.dgswiphak.ida.domain.secondary.domain.Secondary
-import com.dgswiphak.ida.domain.secondary.domain.value.Aptitude
-import com.dgswiphak.ida.domain.secondary.domain.value.Interview
+import com.dgswiphak.ida.domain.secondary.model.Secondary
+import com.dgswiphak.ida.domain.secondary.model.value.Aptitude
+import com.dgswiphak.ida.domain.secondary.model.value.Interview
 import com.dgswiphak.ida.common.mapper.Mapper
 import com.dgswiphak.ida.persistence.secondary.entity.SecondaryEntity
 import com.dgswiphak.ida.persistence.secondary.entity.value.AptitudeVO

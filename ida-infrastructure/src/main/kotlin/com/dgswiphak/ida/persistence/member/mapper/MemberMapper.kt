@@ -1,7 +1,7 @@
 package com.dgswiphak.ida.persistence.member.mapper
 
 import com.dgswiphak.ida.domain.member.model.Member
-import com.dgswiphak.ida.persistence.common.mapper.Mapper
+import com.dgswiphak.ida.common.mapper.Mapper
 import com.dgswiphak.ida.persistence.member.entity.MemberEntity
 import org.springframework.stereotype.Component
 

@@ -1,6 +1,6 @@
 package com.dgswiphak.ida.persistence.question.mapper
 
-import com.dgswiphak.ida.domain.question.domain.Question
+import com.dgswiphak.ida.domain.question.model.Question
 import com.dgswiphak.ida.common.mapper.Mapper
 import com.dgswiphak.ida.persistence.question.entity.QuestionEntity
 import org.springframework.stereotype.Component
