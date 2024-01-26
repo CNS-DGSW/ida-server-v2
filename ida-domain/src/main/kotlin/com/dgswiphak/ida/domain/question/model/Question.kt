@@ -8,10 +8,5 @@ data class Question(
     
     val title: String,
 
-    val content: String,
-
-    val createdAt: LocalDateTime,
-
-    val updatedAt: LocalDateTime
-
+    val content: String
 )
