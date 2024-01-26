@@ -8,11 +8,14 @@ import java.time.LocalDateTime
 class QuestionEntity(
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Int,
+    val id: Long? = null,
 
     val title: String,
 
     val content: String,
 
-    val createDate: LocalDateTime,
+    val createdAt: LocalDateTime,
+
+    val updatedAt: LocalDateTime
+
 )
