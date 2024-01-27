@@ -5,5 +5,7 @@ plugins {
 }
 
 dependencies {
+	implementation(project(":ida-domain"))
+	implementation(project(":ida-infrastructure"))
 	implementationDependencies(Libraries.SpringBoot)
 }

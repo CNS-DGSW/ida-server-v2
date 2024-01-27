@@ -13,8 +13,7 @@ class QuestionMapper : Mapper<Question, QuestionEntity> {
             Question(
                 id = it.id,
                 title = it.title,
-                content = it.content,
-                createDate = it.createDate
+                content = it.content
             )
         }
     }
@@ -23,8 +22,7 @@ class QuestionMapper : Mapper<Question, QuestionEntity> {
         return QuestionEntity(
             id = domain.id,
             title = domain.title,
-            content = domain.content,
-            createDate = domain.createDate
+            content = domain.content
         )
     }
 }

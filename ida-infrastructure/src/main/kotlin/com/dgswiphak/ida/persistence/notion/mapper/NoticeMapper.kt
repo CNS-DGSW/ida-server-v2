@@ -14,7 +14,8 @@ class NoticeMapper : Mapper<Notice, NoticeEntity> {
                 id = it.id,
                 title = it.title,
                 content = it.content,
-                createDate = it.createDate
+                isMajor = it.isMajor,
+                createdAt = it.createdAt
             )
         }
     }
@@ -24,7 +25,8 @@ class NoticeMapper : Mapper<Notice, NoticeEntity> {
             id = domain.id,
             title = domain.title,
             content = domain.content,
-            createDate = domain.createDate
+            isMajor = domain.isMajor,
+            createdAt = domain.createdAt
         )
     }
 }

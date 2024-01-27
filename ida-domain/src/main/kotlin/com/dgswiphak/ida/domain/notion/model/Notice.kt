@@ -4,12 +4,13 @@ import java.time.LocalDateTime
 
 data class Notice(
 
-    val id: Long,
+    val id: Long? = null,
 
     val title: String,
 
     val content: String,
 
-    val createDate: LocalDateTime
+    val isMajor: Boolean,
 
+    val createdAt: LocalDateTime
 )

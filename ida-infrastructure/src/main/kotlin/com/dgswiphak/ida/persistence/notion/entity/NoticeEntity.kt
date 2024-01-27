@@ -8,12 +8,13 @@ import java.time.LocalDateTime
 class NoticeEntity(
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    val id: Long? = null,
 
     val title: String,
 
     val content: String,
 
-    val createDate: LocalDateTime
+    val isMajor: Boolean,
 
+    val createdAt: LocalDateTime
 )

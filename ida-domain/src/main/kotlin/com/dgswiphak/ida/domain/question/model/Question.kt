@@ -4,11 +4,9 @@ import java.time.LocalDateTime
 
 data class Question(
 
-    val id: Int,
+    val id: Long? = null,
     
     val title: String,
-
-    val createDate: LocalDateTime,
 
     val content: String
 )
