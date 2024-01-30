@@ -21,7 +21,7 @@ class QuestionWebAdapter(
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun createNotice(request: CreateQuestionRequest) {
+    fun createNotice(@RequestBody request: CreateQuestionRequest) {
         createQuestionUseCase.execute(request)
     }
 
