@@ -10,13 +10,13 @@ import org.springframework.stereotype.Repository
 
 @Repository
 class MemberQueryRepository(
-        private val jpaQueryFactory: JPAQueryFactory,
-        private val memberMapper: MemberMapper
+    private val jpaQueryFactory: JPAQueryFactory,
+    private val memberMapper: MemberMapper
 ) : QueryMemberSpi {
     override fun findById(id: MemberId): Member? {
         val memberEntity = QMemberEntity.memberEntity
         val member = jpaQueryFactory.selectFrom(memberEntity)
-                    .where(memberEntity.id.id.eq(id.id))
+                 .where(memberEntity.id.value.eq(id.value))
                 .fetchOne()
 
         return memberMapper.toDomain(member)
@@ -29,6 +29,15 @@ class MemberQueryRepository(
                 .fetchOne()
 
         return memberMapper.toDomain(member)
+    }
+
+    override fun existByEmail(email: String): Boolean {
+        val memberEntity = QMemberEntity.memberEntity
+        val member = jpaQueryFactory
+            .selectFrom(memberEntity)
+            .where(memberEntity.email.eq(email))
+            .fetchFirst()
+        return member != null
     }
 
 }
