@@ -9,12 +9,12 @@ import org.springframework.stereotype.Component
 class MemberIdMapper: Mapper<MemberId, EmbeddedMemberId> {
     override fun toDomain(entity: EmbeddedMemberId?): MemberId? {
         return entity?.let {
-            MemberId(entity.id)
+            MemberId(entity.value)
         }
     }
 
     override fun toEntity(domain: MemberId): EmbeddedMemberId {
-        return EmbeddedMemberId.of(domain.id)
+        return EmbeddedMemberId.of(domain.value)
     }
 
 }
