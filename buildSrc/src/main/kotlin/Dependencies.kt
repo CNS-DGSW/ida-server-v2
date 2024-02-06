@@ -49,12 +49,23 @@ interface Libraries {
     }
 
     object Querydsl : Libraries {
-        private const val QUERYDSL_JPA = "com.querydsl:querydsl-jpa:5.0.0:jakarta"
-        private const val QUERYDSL_APT = "com.querydsl:querydsl-apt:5.0.0:jakarta"
+        private const val QUERYDSL_JPA = "com.querydsl:querydsl-jpa:${DependencyVersions.QUERYDSL_VERSION}:jakarta"
+        private const val QUERYDSL_APT = "com.querydsl:querydsl-apt:${DependencyVersions.QUERYDSL_VERSION}:jakarta"
 
         override fun dependencies(): List<Dependency> = listOf(
                 Dependency(QUERYDSL_JPA, DependencyScope.IMPLEMENTATION),
                 Dependency(QUERYDSL_APT, DependencyScope.KAPT)
+        )
+    }
+
+    object JWT : Libraries {
+        private const val JJWT_API = "io.jsonwebtoken:jjwt-api:0.11.5"
+        private const val JJWT_IMPL = "io.jsonwebtoken:jjwt-impl:0.11.5"
+        private const val JJWT_JACKSON = "io.jsonwebtoken:jjwt-jackson:0.11.5"
+        override fun dependencies(): List<Dependency> = listOf(
+            Dependency(JJWT_API, DependencyScope.IMPLEMENTATION),
+            Dependency(JJWT_IMPL, DependencyScope.RUNTIME_ONLY),
+            Dependency(JJWT_JACKSON, DependencyScope.RUNTIME_ONLY)
         )
     }
 
@@ -63,6 +74,15 @@ interface Libraries {
 
         override fun dependencies(): List<Dependency> = listOf(
                 Dependency(MYSQL_CONNECTOR, DependencyScope.RUNTIME_ONLY)
+        )
+    }
+
+    object Redis : Libraries {
+        private const val SPRING_REDIS = "org.springframework.boot:spring-boot-starter-data-redis:${PluginVersions.SPRINGBOOT_VERSION}"
+        private const val DATA_REDIS = "org.springframework.data:spring-data-redis:${DependencyVersions.REDIS_VERSION}"
+        override fun dependencies(): List<Dependency> = listOf(
+            Dependency(SPRING_REDIS, DependencyScope.IMPLEMENTATION),
+            Dependency(DATA_REDIS, DependencyScope.IMPLEMENTATION)
         )
     }
 
