@@ -1,4 +1,4 @@
-package com.dgswiphak.ida.domain.member
+package com.dgswiphak.ida.aggregate.member
 
 import com.dgswiphak.ida.domain.member.dto.SingUpMemberRequest
 import com.dgswiphak.ida.domain.member.usecase.SingUpMemberUseCase

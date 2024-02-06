@@ -1,4 +1,4 @@
-package com.dgswiphak.ida.domain.auth
+package com.dgswiphak.ida.aggregate.auth
 
 import com.dgswiphak.ida.domain.auth.dto.SignInRequest
 import com.dgswiphak.ida.domain.auth.dto.SignInResponse
