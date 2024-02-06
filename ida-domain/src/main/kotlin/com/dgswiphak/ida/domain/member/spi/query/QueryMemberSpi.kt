@@ -8,4 +8,6 @@ interface QueryMemberSpi: QuerySpi<Member, MemberId> {
     override fun findById(id: MemberId): Member?
 
     fun findByEmail(email: String): Member?
+
+    fun existByEmail(email: String): Boolean
 }

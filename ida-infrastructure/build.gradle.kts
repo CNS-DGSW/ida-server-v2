@@ -6,6 +6,8 @@ plugins {
 dependencies {
 	implementation(project(":ida-domain"))
 	implementationDependencies(Libraries.Database)
+	implementationDependencies(Libraries.Redis)
+	implementationDependencies(Libraries.JWT)
 	implementationDependencies(Libraries.JPA)
 	implementationDependencies(Libraries.Querydsl)
 	implementationDependencies(Libraries.Test)
@@ -21,8 +23,4 @@ noArg {
 	annotation("jakarta.persistence.Entity")
 	annotation("jakarta.persistence.MappedSuperclass")
 	annotation("jakarta.persistence.Embeddable")
-}
-
-tasks.getByName<Jar>("jar") {
-	enabled = false
 }
