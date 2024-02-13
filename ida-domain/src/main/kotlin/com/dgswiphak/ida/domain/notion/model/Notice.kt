@@ -1,5 +1,6 @@
 package com.dgswiphak.ida.domain.notion.model
 
+import com.dgswiphak.ida.domain.notion.model.value.Attached
 import java.time.LocalDateTime
 
 data class Notice(
@@ -12,5 +13,7 @@ data class Notice(
 
     val isMajor: Boolean,
 
-    val createdAt: LocalDateTime
+    val createdAt: LocalDateTime,
+
+    val attached: List<Attached>
 )

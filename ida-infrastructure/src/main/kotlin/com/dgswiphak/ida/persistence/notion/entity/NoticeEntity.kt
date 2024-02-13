@@ -1,5 +1,6 @@
 package com.dgswiphak.ida.persistence.notion.entity
 
+import com.dgswiphak.ida.persistence.notion.entity.value.AttachedVO
 import jakarta.persistence.*
 import java.time.LocalDateTime
 
@@ -16,5 +17,8 @@ class NoticeEntity(
 
     val isMajor: Boolean,
 
-    val createdAt: LocalDateTime
+    val createdAt: LocalDateTime,
+
+    @ElementCollection(fetch = FetchType.LAZY)
+    val attachedVO: List<AttachedVO>
 )
