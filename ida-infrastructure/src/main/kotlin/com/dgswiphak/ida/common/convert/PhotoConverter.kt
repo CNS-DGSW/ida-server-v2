@@ -7,7 +7,7 @@ import jakarta.persistence.Converter
 @Converter
 class PhotoConverter : AttributeConverter<Photo, String> {
     override fun convertToDatabaseColumn(photo: Photo?): String? {
-        return photo?.fileName
+        return photo?.filename
     }
 
     override fun convertToEntityAttribute(vlaue: String?): Photo? {
