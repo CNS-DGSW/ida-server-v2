@@ -1,6 +1,7 @@
 package com.dgswiphak.ida.common.file
 
 import com.dgswiphak.ida.common.dto.FileRequest
+import org.springframework.core.io.Resource
 
 interface FileService {
 
@@ -10,5 +11,10 @@ interface FileService {
      * @param path 저장할 파일 경로
      * */
     fun save(path: String, fileRequest: FileRequest): String
+
+    /**
+     *
+     */
+    fun download(path: String): Resource
 
 }
