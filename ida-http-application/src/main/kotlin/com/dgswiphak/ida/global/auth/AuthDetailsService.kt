@@ -1,6 +1,6 @@
 package com.dgswiphak.ida.global.auth
 
-import com.dgswiphak.ida.common.identity.MemberId
+import com.dgswiphak.ida.common.model.MemberId
 import com.dgswiphak.ida.domain.member.spi.query.QueryMemberSpi
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService

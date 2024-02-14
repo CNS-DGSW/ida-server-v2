@@ -1,6 +1,6 @@
 package com.dgswiphak.ida.domain.member.spi.query
 
-import com.dgswiphak.ida.common.identity.MemberId
+import com.dgswiphak.ida.common.model.MemberId
 import com.dgswiphak.ida.common.spi.QuerySpi
 import com.dgswiphak.ida.domain.member.model.Member
 
