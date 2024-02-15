@@ -1,6 +1,6 @@
 package com.dgswiphak.ida.persistence.member.repository
 
-import com.dgswiphak.ida.common.identity.MemberId
+import com.dgswiphak.ida.common.model.MemberId
 import com.dgswiphak.ida.domain.member.model.Member
 import com.dgswiphak.ida.domain.member.spi.query.QueryMemberSpi
 import com.dgswiphak.ida.persistence.member.entity.QMemberEntity
@@ -16,8 +16,8 @@ class MemberQueryRepository(
     override fun findById(id: MemberId): Member? {
         val memberEntity = QMemberEntity.memberEntity
         val member = jpaQueryFactory.selectFrom(memberEntity)
-                 .where(memberEntity.id.value.eq(id.value))
-                .fetchOne()
+            .where(memberEntity.id.value.eq(id.value))
+            .fetchOne()
 
         return memberMapper.toDomain(member)
     }

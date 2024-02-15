@@ -6,10 +6,8 @@ import java.io.Serializable
 
 @Embeddable
 data class EmbeddedMemberId(
-
-        @Column(name = "member_id")
-        val value: Long
-
+    @Column(name = "member_id")
+    val value: Long
 ): Serializable {
     companion object {
         private const val serialVersionUID: Long = -7305105972131878927L

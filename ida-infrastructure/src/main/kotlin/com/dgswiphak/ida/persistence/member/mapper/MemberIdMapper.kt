@@ -1,6 +1,6 @@
 package com.dgswiphak.ida.persistence.member.mapper
 
-import com.dgswiphak.ida.common.identity.MemberId
+import com.dgswiphak.ida.common.model.MemberId
 import com.dgswiphak.ida.common.embbed.EmbeddedMemberId
 import com.dgswiphak.ida.common.mapper.Mapper
 import org.springframework.stereotype.Component
