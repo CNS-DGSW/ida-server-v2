@@ -21,7 +21,7 @@ class SignInUseCase(
 
         return SignInResponse(
             tokenService.generateAccessToken(member.id.value),
-            tokenService.generateAccessToken(member.id.value)
+            tokenService.generateRefreshToken(member.id.value)
         )
     }
 }

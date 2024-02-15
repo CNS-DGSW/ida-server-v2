@@ -26,7 +26,7 @@ class TokenServiceImpl(
     }
 
     override fun generateRefreshToken(memberId: Long): String {
-        val refreshToken = generateToken(memberId, TokenType.REFRESH_TOKEN, 1L)
+        val refreshToken = generateToken(memberId, TokenType.REFRESH_TOKEN, jwtProperties.refreshExpirationMillis)
         refreshTokenRepository.save(
             RefreshTokenEntity(
                 refreshToken,
