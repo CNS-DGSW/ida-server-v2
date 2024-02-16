@@ -12,9 +12,8 @@ interface FileService {
      * */
     fun save(path: String, fileRequest: FileRequest): String
 
-    /**
-     *
-     */
-    fun download(path: String): Resource
+    fun read(path: String): Resource
+
+    fun delete(path: String)
 
 }

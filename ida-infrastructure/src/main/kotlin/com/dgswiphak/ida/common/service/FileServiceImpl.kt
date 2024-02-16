@@ -33,7 +33,7 @@ class FileServiceImpl: FileService {
         }
     }
 
-    override fun download(path: String): Resource {
+    override fun read(path: String): Resource {
         val filePath: Path = Paths.get(path)
         try {
             val resource: Resource = UrlResource(filePath.toUri())
@@ -44,6 +44,16 @@ class FileServiceImpl: FileService {
         } catch (e: MalformedURLException) {
             throw RuntimeException()
         }
+    }
+
+    override fun delete(path: String) {
+        val file = File(path)
+
+        if(!file.exists()) {
+            throw RuntimeException("file not found")
+        }
+
+        file.delete()
     }
 
     private fun getFileExtension(contentType: String): String {
