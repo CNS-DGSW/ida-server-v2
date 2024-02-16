@@ -11,10 +11,12 @@ class NoticeCommandRepository(
     private val noticeMapper: NoticeMapper
 ) : CommandNoticeSpi {
 
-    override fun save(notice: Notice) {
-        noticeRepository.save(
-            noticeMapper.toEntity(notice)
-        )
+    override fun save(notice: Notice): Notice {
+        return noticeMapper.toDomain(
+            noticeRepository.save(
+                noticeMapper.toEntity(notice)
+            )
+        ) ?: throw RuntimeException()
     }
 
     override fun delete(notice: Notice) {

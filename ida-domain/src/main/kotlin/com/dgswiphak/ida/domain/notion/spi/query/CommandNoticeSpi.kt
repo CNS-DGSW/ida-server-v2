@@ -4,7 +4,7 @@ import com.dgswiphak.ida.domain.notion.model.Notice
 
 interface CommandNoticeSpi {
 
-    fun save(notice: Notice)
+    fun save(notice: Notice): Notice
 
     fun delete(notice: Notice)
 
