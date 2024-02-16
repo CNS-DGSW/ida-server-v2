@@ -4,6 +4,7 @@ import com.dgswiphak.ida.common.dto.FileRequest
 import com.dgswiphak.ida.domain.notion.dto.response.ImageResponse
 import com.dgswiphak.ida.domain.notion.usecase.NoticeImageUseCase
 import org.springframework.core.io.Resource
+import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -17,7 +18,8 @@ class NoticeImageController(
     private val noticeImageUseCase: NoticeImageUseCase
 ) {
 
-    @PostMapping("/save")
+    @PutMapping("/save")
+    @ResponseStatus(HttpStatus.CREATED)
     fun imageSave(@RequestPart("file") multipartFile: MultipartFile): ImageResponse {
         return noticeImageUseCase.saveImage(
             FileRequest(

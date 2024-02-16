@@ -54,6 +54,7 @@ class NoticeAttachedController(
         }
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{notice-id}/{fileName}")
     fun deleteAttached(
         @PathVariable("notice-id") @NotNull noticeId: Long,
