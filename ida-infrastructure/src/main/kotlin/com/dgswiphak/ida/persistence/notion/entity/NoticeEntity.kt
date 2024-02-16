@@ -20,5 +20,5 @@ class NoticeEntity(
     val createdAt: LocalDateTime,
 
     @ElementCollection(fetch = FetchType.LAZY)
-    val attachedVO: List<AttachedVO>
+    val attachedVO: List<AttachedVO>? = null
 )
