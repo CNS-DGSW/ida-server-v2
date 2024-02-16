@@ -36,10 +36,10 @@ class NoticeAttachedController(
         noticeAttachedUseCase.save(noticeId, fileRequest)
     }
 
-    @GetMapping("/{notice-id}/{fileName}")
+    @GetMapping("/{notice-id}/{file-name}")
     fun downloadAttached(
         @PathVariable("notice-id") @NotNull noticeId: Long,
-        @PathVariable("fileName") @NotNull fileName: String
+        @PathVariable("file-name") @NotNull fileName: String
     ): ResponseEntity<Resource> {
         val resource = noticeAttachedUseCase.download(noticeId, fileName)
         try {
@@ -55,10 +55,10 @@ class NoticeAttachedController(
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping("/{notice-id}/{fileName}")
+    @DeleteMapping("/{notice-id}/{file-name}")
     fun deleteAttached(
         @PathVariable("notice-id") @NotNull noticeId: Long,
-        @PathVariable("fileName") @NotNull fileName: String
+        @PathVariable("file-name") @NotNull fileName: String
     ) {
         noticeAttachedUseCase.delete(noticeId, fileName)
     }
