@@ -27,6 +27,8 @@ class WebSecurityConfiguration(
                 .requestMatchers("/member/signUp").permitAll()
                 .requestMatchers("/notice/**").permitAll()
                 .requestMatchers("/question/**").permitAll()
+                .requestMatchers("/attached/**").permitAll()
+                .requestMatchers("/image/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter::class.java)
