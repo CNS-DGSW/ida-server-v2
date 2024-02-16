@@ -15,5 +15,5 @@ data class Notice(
 
     val createdAt: LocalDateTime,
 
-    val attached: List<Attached>
+    val attached: List<Attached>? = null
 )

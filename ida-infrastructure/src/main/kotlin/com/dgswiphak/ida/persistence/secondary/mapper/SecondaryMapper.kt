@@ -10,10 +10,10 @@ import com.dgswiphak.ida.persistence.secondary.entity.value.InterviewVO
 import org.springframework.stereotype.Component
 
 @Component
-class SecondaryMapper(
-    private val aptitudeMapper: AptitudeMapper,
-    private val interviewMapper: InterviewMapper
-) : Mapper<Secondary, SecondaryEntity> {
+class SecondaryMapper : Mapper<Secondary, SecondaryEntity> {
+
+    private val aptitudeMapper = AptitudeMapper()
+    private val interviewMapper = InterviewMapper()
 
     override fun toDomain(entity: SecondaryEntity?): Secondary? {
         return entity?.let {
@@ -32,40 +32,39 @@ class SecondaryMapper(
             interviewVO = interviewMapper.toEntity(domain.interview)
         )
     }
-}
 
-@Component
-class AptitudeMapper : Mapper<Aptitude, AptitudeVO> {
-    override fun toDomain(entity: AptitudeVO?): Aptitude? {
-        return entity?.let {
-            Aptitude(
-                jopScore = it.jopScore
+    class AptitudeMapper : Mapper<Aptitude, AptitudeVO> {
+        override fun toDomain(entity: AptitudeVO?): Aptitude? {
+            return entity?.let {
+                Aptitude(
+                    jopScore = it.jopScore
+                )
+            }
+        }
+
+        override fun toEntity(domain: Aptitude): AptitudeVO {
+            return AptitudeVO(
+                jopScore = domain.jopScore
             )
         }
     }
 
-    override fun toEntity(domain: Aptitude): AptitudeVO {
-        return AptitudeVO(
-            jopScore = domain.jopScore
-        )
-    }
-}
+    @Component
+    class InterviewMapper : Mapper<Interview, InterviewVO> {
+        override fun toDomain(entity: InterviewVO?): Interview? {
+            return entity?.let {
+                Interview(
+                    studyCompetence = it.studyCompetence,
+                    computingCompetence = it.computingCompetence
+                )
+            }
+        }
 
-@Component
-class InterviewMapper : Mapper<Interview, InterviewVO> {
-    override fun toDomain(entity: InterviewVO?): Interview? {
-        return entity?.let {
-            Interview(
-                studyCompetence = it.studyCompetence,
-                computingCompetence = it.computingCompetence
+        override fun toEntity(domain: Interview): InterviewVO {
+            return InterviewVO(
+                studyCompetence = domain.studyCompetence,
+                computingCompetence = domain.computingCompetence
             )
         }
-    }
-
-    override fun toEntity(domain: Interview): InterviewVO {
-        return InterviewVO(
-            studyCompetence = domain.studyCompetence,
-            computingCompetence = domain.computingCompetence
-        )
     }
 }

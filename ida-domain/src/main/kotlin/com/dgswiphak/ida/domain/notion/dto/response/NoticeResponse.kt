@@ -35,7 +35,7 @@ data class NoticeResponse(
                 content = notice.content,
                 isMajor = notice.isMajor,
                 createDate = notice.createdAt,
-                fileResponse = notice.attached.map {
+                fileResponse = notice.attached?.map {
                     attached -> AttachedResponse(attached.originalName)
                 }
             )

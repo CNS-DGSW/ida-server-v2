@@ -8,9 +8,9 @@ import com.dgswiphak.ida.persistence.notion.entity.value.AttachedVO
 import org.springframework.stereotype.Component
 
 @Component
-class NoticeMapper(
-    private val fileMapper: FileMapper
-) : Mapper<Notice, NoticeEntity> {
+class NoticeMapper: Mapper<Notice, NoticeEntity> {
+
+    private val attachedMapper = AttachedMapper()
 
     override fun toDomain(entity: NoticeEntity?): Notice? {
         return entity?.let {
@@ -20,7 +20,7 @@ class NoticeMapper(
                 content = it.content,
                 isMajor = it.isMajor,
                 createdAt = it.createdAt,
-                attached = fileMapper.toDomain(it.attachedVO)
+                attached = attachedMapper.toDomain(it.attachedVO)
             )
         }
     }
@@ -32,30 +32,28 @@ class NoticeMapper(
             content = domain.content,
             isMajor = domain.isMajor,
             createdAt = domain.createdAt,
-            attachedVO = fileMapper.toEntity(domain.attached)
+            attachedVO = domain.attached?.let { attachedMapper.toEntity(it) }
         )
     }
-}
 
-@Component
-class FileMapper : Mapper<List<Attached>, List<AttachedVO>> {
+    inner class AttachedMapper : Mapper<List<Attached>, List<AttachedVO>> {
 
-    override fun toDomain(entity: List<AttachedVO>?): List<Attached> {
-        return entity!!.map { vo ->
-            Attached(
-                vo.originalName,
-                vo.filePath
-            )
+        override fun toDomain(entity: List<AttachedVO>?): List<Attached>? {
+            return entity?.map { vo ->
+                Attached(
+                    vo.originalName,
+                    vo.filePath
+                )
+            }
         }
 
-    }
-
-    override fun toEntity(domain: List<Attached>): List<AttachedVO> {
-        return domain.map { attached ->
-            AttachedVO(
-                attached.originalName,
-                attached.filePath
-            )
+        override fun toEntity(domain: List<Attached>): List<AttachedVO> {
+            return domain.map { attached ->
+                AttachedVO(
+                    attached.originalName,
+                    attached.filePath
+                )
+            }
         }
     }
 }
