@@ -29,6 +29,12 @@ class NoticeImageUseCase(
         return fileService.read(filePath.toUri().path)
     }
 
+    fun deleteImage(imageName: String) {
+        val filePath = Paths.get(FILE_DIR, imageName)
+
+        fileService.delete(filePath.toUri().path)
+    }
+
     companion object {
         const val FILE_DIR = "static/notice/image"
     }

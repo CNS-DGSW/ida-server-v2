@@ -38,4 +38,10 @@ class NoticeImageController(
             .contentType(MediaType.parseMediaType(Files.probeContentType(Path(image.url.path))))
             .body(noticeImageUseCase.readImage(imageName))
     }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{image-name}")
+    fun imageDelete(@PathVariable("image-name") imageName: String) {
+        noticeImageUseCase.deleteImage(imageName)
+    }
 }
