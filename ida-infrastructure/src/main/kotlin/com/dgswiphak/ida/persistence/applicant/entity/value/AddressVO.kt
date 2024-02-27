@@ -8,7 +8,7 @@ import java.io.Serializable
 class AddressVO(
     val detailAddress: String,
     val streetAddress: String,
-    val zipCode: Short
+    val zipCode: Short? = -1
 ): Serializable {
     companion object {
         @Serial
