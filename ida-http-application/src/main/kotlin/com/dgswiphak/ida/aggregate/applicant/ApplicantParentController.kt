@@ -4,9 +4,8 @@ import com.dgswiphak.ida.common.model.MemberId
 import com.dgswiphak.ida.domain.applicant.dto.request.UpdateParentInfoRequest
 import com.dgswiphak.ida.domain.applicant.dto.response.ApplicantParentInfoResponse
 import com.dgswiphak.ida.domain.applicant.usecase.ApplicantParentUseCase
-import com.dgswiphak.ida.global.auth.AuthDetails
+import com.dgswiphak.ida.global.auth.annotation.AuthenticatedPrincipalId
 import org.springframework.http.HttpStatus
-import org.springframework.security.core.annotation.AuthenticationPrincipal
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -22,17 +21,17 @@ class ApplicantParentController(
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
     fun updateParentInfo(
-        @AuthenticationPrincipal auth: AuthDetails,
+        @AuthenticatedPrincipalId memberId: MemberId,
         @RequestBody request: UpdateParentInfoRequest
     ) {
-        applicantParentUseCase.updateParentInfo(auth.getId(), request)
+        applicantParentUseCase.updateParentInfo(memberId, request)
     }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     fun findParentInfo(
-        @AuthenticationPrincipal auth: AuthDetails
+        @AuthenticatedPrincipalId memberId: MemberId
     ): ApplicantParentInfoResponse {
-        return applicantParentUseCase.findParentInfo(auth.getId())
+        return applicantParentUseCase.findParentInfo(memberId)
     }
 }

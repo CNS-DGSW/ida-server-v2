@@ -1,11 +1,11 @@
 package com.dgswiphak.ida.aggregate.applicant
 
+import com.dgswiphak.ida.common.model.MemberId
 import com.dgswiphak.ida.domain.applicant.dto.request.UpdateApplicantInfoRequest
 import com.dgswiphak.ida.domain.applicant.dto.response.ApplicantInfoResponse
 import com.dgswiphak.ida.domain.applicant.usecase.ApplicantInfoUseCase
-import com.dgswiphak.ida.global.auth.AuthDetails
+import com.dgswiphak.ida.global.auth.annotation.AuthenticatedPrincipalId
 import org.springframework.http.HttpStatus
-import org.springframework.security.core.annotation.AuthenticationPrincipal
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -21,18 +21,18 @@ class ApplicantInfoController(
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
     fun updateInfo(
-        @AuthenticationPrincipal auth: AuthDetails,
+        @AuthenticatedPrincipalId memberId: MemberId,
         @RequestBody request: UpdateApplicantInfoRequest
     ) {
-        applicantInfoUseCase.updateInformation(auth.getId(), request)
+        applicantInfoUseCase.updateInformation(memberId, request)
     }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     fun findInfo(
-        @AuthenticationPrincipal auth: AuthDetails
+        @AuthenticatedPrincipalId memberId: MemberId,
     ) : ApplicantInfoResponse {
-        return applicantInfoUseCase.findInformation(auth.getId())
+        return applicantInfoUseCase.findInformation(memberId)
     }
 
 }
