@@ -22,10 +22,10 @@ class ApplicantParentController(
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
     fun updateParentInfo(
-        @AuthenticationPrincipal memberId: MemberId,
+        @AuthenticationPrincipal auth: AuthDetails,
         @RequestBody request: UpdateParentInfoRequest
     ) {
-        applicantParentUseCase.updateParentInfo(memberId, request)
+        applicantParentUseCase.updateParentInfo(auth.getId(), request)
     }
 
     @GetMapping
