@@ -3,5 +3,5 @@ package com.dgswiphak.ida.domain.applicant.domain.value
 data class Address(
     val detailAddress: String,
     val streetAddress: String,
-    val zipCode: Short? = -1
+    val zipCode: Int? = -1
 )

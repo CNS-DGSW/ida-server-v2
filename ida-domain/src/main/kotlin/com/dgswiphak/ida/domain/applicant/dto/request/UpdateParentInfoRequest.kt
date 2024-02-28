@@ -19,7 +19,7 @@ data class UpdateParentInfoRequest(
 
     var detailAddress: String,
 
-    var zipCode: Short
+    var zipCode: Int
 ) {
     fun toParent(): Parent {
         return Parent(

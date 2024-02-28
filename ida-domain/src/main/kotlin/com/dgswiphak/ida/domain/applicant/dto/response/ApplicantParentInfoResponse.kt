@@ -13,7 +13,7 @@ data class ApplicantParentInfoResponse(
     val telephone: String,
     val streetAddress: String,
     val detailAddress: String,
-    val zipCode: Short
+    val zipCode: Int
 ) {
     constructor(parent: Parent?, address: Address?) : this(
         name = parent?.name ?: "",
