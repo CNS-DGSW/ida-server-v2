@@ -1,4 +1,4 @@
-package com.dgswiphak.ida.persistence.notion.entity.value
+package com.dgswiphak.ida.persistence.notice.entity.value
 
 import jakarta.persistence.Embeddable
 import java.io.Serial

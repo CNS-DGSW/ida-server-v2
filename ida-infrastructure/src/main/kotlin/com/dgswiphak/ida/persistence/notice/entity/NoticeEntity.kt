@@ -1,6 +1,6 @@
-package com.dgswiphak.ida.persistence.notion.entity
+package com.dgswiphak.ida.persistence.notice.entity
 
-import com.dgswiphak.ida.persistence.notion.entity.value.AttachedVO
+import com.dgswiphak.ida.persistence.notice.entity.value.AttachedVO
 import jakarta.persistence.*
 import java.time.LocalDateTime
 

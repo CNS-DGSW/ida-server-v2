@@ -1,10 +1,10 @@
-package com.dgswiphak.ida.persistence.notion.mapper
+package com.dgswiphak.ida.persistence.notice.mapper
 
 import com.dgswiphak.ida.common.mapper.Mapper
 import com.dgswiphak.ida.domain.notion.model.Notice
 import com.dgswiphak.ida.domain.notion.model.value.Attached
-import com.dgswiphak.ida.persistence.notion.entity.NoticeEntity
-import com.dgswiphak.ida.persistence.notion.entity.value.AttachedVO
+import com.dgswiphak.ida.persistence.notice.entity.NoticeEntity
+import com.dgswiphak.ida.persistence.notice.entity.value.AttachedVO
 import org.springframework.stereotype.Component
 
 @Component

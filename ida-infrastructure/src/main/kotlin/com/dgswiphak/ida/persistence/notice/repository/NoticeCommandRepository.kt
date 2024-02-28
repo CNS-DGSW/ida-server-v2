@@ -1,8 +1,8 @@
-package com.dgswiphak.ida.persistence.notion.repository
+package com.dgswiphak.ida.persistence.notice.repository
 
 import com.dgswiphak.ida.domain.notion.model.Notice
 import com.dgswiphak.ida.domain.notion.spi.query.CommandNoticeSpi
-import com.dgswiphak.ida.persistence.notion.mapper.NoticeMapper
+import com.dgswiphak.ida.persistence.notice.mapper.NoticeMapper
 import org.springframework.stereotype.Repository
 
 @Repository
