@@ -86,6 +86,14 @@ interface Libraries {
         )
     }
 
+    object Feign : Libraries {
+        private const val FEIGN = "org.springframework.cloud:spring-cloud-starter-openfeign"
+
+        override fun dependencies() = listOf(
+            Dependency(FEIGN, DependencyScope.IMPLEMENTATION)
+        )
+    }
+
     object Test : Libraries {
         private const val SPRING_TEST = "org.springframework.boot:spring-boot-starter-test:${PluginVersions.SPRINGBOOT_VERSION}"
         private const val MOCKITO_JUNIT = "org.mockito:mockito-junit-jupiter:${DependencyVersions.MOCKITO_VERSION}"
