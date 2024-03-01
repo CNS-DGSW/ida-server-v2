@@ -1,11 +1,11 @@
 package com.dgswiphak.ida.aggregate.applicant
 
 import com.dgswiphak.ida.common.dto.FileRequest
+import com.dgswiphak.ida.common.model.MemberId
 import com.dgswiphak.ida.domain.applicant.dto.response.ApplicantPhotoResponse
 import com.dgswiphak.ida.domain.applicant.usecase.ApplicantPhotoUseCase
-import com.dgswiphak.ida.global.auth.AuthDetails
+import com.dgswiphak.ida.global.auth.annotation.AuthenticatedPrincipalId
 import org.springframework.http.HttpStatus
-import org.springframework.security.core.annotation.AuthenticationPrincipal
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -22,11 +22,11 @@ class ApplicantPhotoController(
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
     fun updatePhoto(
-        @AuthenticationPrincipal auth: AuthDetails,
+        @AuthenticatedPrincipalId memberId: MemberId,
         @RequestParam(value = "photo", required = true) photo: MultipartFile
     ) {
         return applicantPhotoUseCase.updatePhoto(
-            auth.getId(),
+            memberId,
             FileRequest(photo.originalFilename!!, photo.contentType!!, photo.bytes)
         )
     }
@@ -34,8 +34,8 @@ class ApplicantPhotoController(
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     fun findPhoto(
-        @AuthenticationPrincipal auth: AuthDetails,
+        @AuthenticatedPrincipalId memberId: MemberId,
     ): ApplicantPhotoResponse {
-        return applicantPhotoUseCase.findPhoto(auth.getId())
+        return applicantPhotoUseCase.findPhoto(memberId)
     }
 }
