@@ -1,14 +1,14 @@
-package com.dgswiphak.ida.persistence.applicant.entity
+package com.dgswiphak.ida.persistence.applicant.entity.value.privacy
 
 import com.dgswiphak.ida.common.convert.PhoneNumberConvert
 import com.dgswiphak.ida.common.convert.PhotoConverter
 import com.dgswiphak.ida.common.model.PhoneNumber
 import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.Photo
 import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.type.Gender
-import com.dgswiphak.ida.persistence.applicant.entity.value.AddressVO
-import com.dgswiphak.ida.persistence.applicant.entity.value.MeritVO
-import com.dgswiphak.ida.persistence.applicant.entity.value.ParentVO
-import com.dgswiphak.ida.persistence.applicant.entity.value.SchoolCodeVO
+import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.value.AddressVO
+import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.value.MeritVO
+import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.value.ParentVO
+import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.value.SchoolCodeVO
 import jakarta.persistence.*
 import java.io.Serial
 import java.io.Serializable

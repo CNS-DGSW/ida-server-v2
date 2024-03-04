@@ -1,6 +1,6 @@
 package com.dgswiphak.ida.persistence.school.entity
 
-import com.dgswiphak.ida.persistence.applicant.entity.value.SchoolCodeVO
+import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.value.SchoolCodeVO
 import jakarta.persistence.*
 
 @Entity

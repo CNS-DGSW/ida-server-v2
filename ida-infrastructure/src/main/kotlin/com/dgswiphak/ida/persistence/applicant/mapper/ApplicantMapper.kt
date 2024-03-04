@@ -11,11 +11,11 @@ import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.Merit
 import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.Parent
 import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.SchoolCode
 import com.dgswiphak.ida.persistence.applicant.entity.ApplicantEntity
-import com.dgswiphak.ida.persistence.applicant.entity.EmbeddedPrivacy
-import com.dgswiphak.ida.persistence.applicant.entity.value.AddressVO
-import com.dgswiphak.ida.persistence.applicant.entity.value.MeritVO
-import com.dgswiphak.ida.persistence.applicant.entity.value.ParentVO
-import com.dgswiphak.ida.persistence.applicant.entity.value.SchoolCodeVO
+import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.EmbeddedPrivacy
+import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.value.AddressVO
+import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.value.MeritVO
+import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.value.ParentVO
+import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.value.SchoolCodeVO
 import org.springframework.stereotype.Component
 
 @Component
