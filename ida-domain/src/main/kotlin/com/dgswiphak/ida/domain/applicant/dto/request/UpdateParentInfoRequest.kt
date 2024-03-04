@@ -1,8 +1,8 @@
 package com.dgswiphak.ida.domain.applicant.dto.request
 
 import com.dgswiphak.ida.common.model.PhoneNumber
-import com.dgswiphak.ida.domain.applicant.domain.value.Address
-import com.dgswiphak.ida.domain.applicant.domain.value.Parent
+import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.Address
+import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.Parent
 import com.fasterxml.jackson.annotation.JsonFormat
 import java.time.LocalDate
 

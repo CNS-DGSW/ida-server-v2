@@ -1,6 +1,6 @@
 package com.dgswiphak.ida.domain.applicant.dto.response
 
-import com.dgswiphak.ida.domain.applicant.domain.value.Privacy
+import com.dgswiphak.ida.domain.applicant.domain.value.privacy.Privacy
 import java.time.LocalDate
 
 data class ApplicantInfoResponse(

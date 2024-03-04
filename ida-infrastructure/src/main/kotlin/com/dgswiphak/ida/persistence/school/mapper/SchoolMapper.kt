@@ -1,7 +1,7 @@
 package com.dgswiphak.ida.persistence.school.mapper
 
 import com.dgswiphak.ida.common.mapper.Mapper
-import com.dgswiphak.ida.domain.applicant.domain.value.SchoolCode
+import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.SchoolCode
 import com.dgswiphak.ida.domain.school.model.School
 import com.dgswiphak.ida.persistence.applicant.entity.value.SchoolCodeVO
 import com.dgswiphak.ida.persistence.school.entity.SchoolEntity

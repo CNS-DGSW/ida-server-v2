@@ -1,7 +1,8 @@
-package com.dgswiphak.ida.domain.applicant.domain.value
+package com.dgswiphak.ida.domain.applicant.domain.value.privacy
 
 import com.dgswiphak.ida.common.model.PhoneNumber
-import com.dgswiphak.ida.domain.applicant.domain.value.type.Gender
+import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.type.Gender
+import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.*
 import java.time.LocalDate
 
 data class Privacy(

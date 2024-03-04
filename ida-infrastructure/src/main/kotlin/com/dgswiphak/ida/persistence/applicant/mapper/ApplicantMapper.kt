@@ -5,7 +5,11 @@ import com.dgswiphak.ida.common.model.MemberId
 import com.dgswiphak.ida.common.mapper.Mapper
 import com.dgswiphak.ida.common.util.MapperUtils
 import com.dgswiphak.ida.domain.applicant.domain.Applicant
-import com.dgswiphak.ida.domain.applicant.domain.value.*
+import com.dgswiphak.ida.domain.applicant.domain.value.privacy.Privacy
+import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.Address
+import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.Merit
+import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.Parent
+import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.SchoolCode
 import com.dgswiphak.ida.persistence.applicant.entity.ApplicantEntity
 import com.dgswiphak.ida.persistence.applicant.entity.EmbeddedPrivacy
 import com.dgswiphak.ida.persistence.applicant.entity.value.AddressVO
