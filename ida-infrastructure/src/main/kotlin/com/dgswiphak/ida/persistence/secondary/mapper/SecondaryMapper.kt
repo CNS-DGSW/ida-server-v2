@@ -1,9 +1,11 @@
 package com.dgswiphak.ida.persistence.secondary.mapper
 
+import com.dgswiphak.ida.common.embbed.EmbeddedMemberId
 import com.dgswiphak.ida.domain.secondary.model.Secondary
 import com.dgswiphak.ida.domain.secondary.model.value.Aptitude
 import com.dgswiphak.ida.domain.secondary.model.value.Interview
 import com.dgswiphak.ida.common.mapper.Mapper
+import com.dgswiphak.ida.common.model.MemberId
 import com.dgswiphak.ida.persistence.secondary.entity.SecondaryEntity
 import com.dgswiphak.ida.persistence.secondary.entity.value.AptitudeVO
 import com.dgswiphak.ida.persistence.secondary.entity.value.InterviewVO
@@ -18,7 +20,7 @@ class SecondaryMapper : Mapper<Secondary, SecondaryEntity> {
     override fun toDomain(entity: SecondaryEntity?): Secondary? {
         return entity?.let {
             Secondary(
-                id = it.id,
+                id = MemberId(it.id.value),
                 aptitude = aptitudeMapper.toDomain(it.aptitudeVO)!!,
                 interview = interviewMapper.toDomain(it.interviewVO)!!
             )
@@ -27,7 +29,7 @@ class SecondaryMapper : Mapper<Secondary, SecondaryEntity> {
 
     override fun toEntity(domain: Secondary): SecondaryEntity {
         return SecondaryEntity(
-            id = domain.id,
+            id = EmbeddedMemberId(domain.id.value),
             aptitudeVO = aptitudeMapper.toEntity(domain.aptitude),
             interviewVO = interviewMapper.toEntity(domain.interview)
         )

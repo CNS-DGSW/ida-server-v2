@@ -7,7 +7,7 @@ import java.io.Serializable
 @Embeddable
 class AptitudeVO(
     
-    var jopScore: Int
+    var jopScore: Int? = 0
 
 ) : Serializable {
 

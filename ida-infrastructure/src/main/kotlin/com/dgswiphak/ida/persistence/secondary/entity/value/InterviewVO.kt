@@ -7,9 +7,9 @@ import java.io.Serializable
 @Embeddable
 class InterviewVO(
 
-    val studyCompetence: Int,
+    val studyCompetence: Int? = 0,
 
-    val computingCompetence: Int
+    val computingCompetence: Int? = 0
 
 ) : Serializable {
 
