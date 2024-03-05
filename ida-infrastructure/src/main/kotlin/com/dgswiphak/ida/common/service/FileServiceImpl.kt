@@ -3,10 +3,12 @@ package com.dgswiphak.ida.common.service
 import com.dgswiphak.ida.common.dto.FileRequest
 import com.dgswiphak.ida.common.file.FileService
 import com.dgswiphak.ida.common.util.IdGenerator
+import org.apache.commons.io.IOUtils
 import org.springframework.core.io.Resource
 import org.springframework.core.io.UrlResource
 import org.springframework.stereotype.Service
 import java.io.File
+import java.io.InputStream
 import java.net.MalformedURLException
 import java.nio.file.Files
 import java.nio.file.Path
@@ -44,6 +46,10 @@ class FileServiceImpl: FileService {
         } catch (e: MalformedURLException) {
             throw RuntimeException()
         }
+    }
+
+    override fun toByteArray(stream: InputStream): ByteArray {
+        return IOUtils.toByteArray(stream)
     }
 
     override fun delete(path: String) {

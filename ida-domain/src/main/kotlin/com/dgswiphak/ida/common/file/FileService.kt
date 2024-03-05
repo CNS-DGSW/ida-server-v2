@@ -2,6 +2,7 @@ package com.dgswiphak.ida.common.file
 
 import com.dgswiphak.ida.common.dto.FileRequest
 import org.springframework.core.io.Resource
+import java.io.InputStream
 
 interface FileService {
 
@@ -13,6 +14,8 @@ interface FileService {
     fun save(path: String, fileRequest: FileRequest): String
 
     fun read(path: String): Resource
+
+    fun toByteArray(stream: InputStream): ByteArray
 
     fun delete(path: String)
 
