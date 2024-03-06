@@ -24,7 +24,7 @@ class NoticeAttachedController(
     @ResponseStatus(HttpStatus.CREATED)
     fun saveAttached(
         @PathVariable("notice-id") @NotNull noticeId: Long,
-        @RequestPart multipartFile: List<MultipartFile>
+        @RequestPart(value = "files") multipartFile: List<MultipartFile>
     ) {
         val fileRequest = multipartFile.map {
             FileRequest(
