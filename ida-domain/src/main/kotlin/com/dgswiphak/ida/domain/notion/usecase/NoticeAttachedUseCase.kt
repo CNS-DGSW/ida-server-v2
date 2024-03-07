@@ -22,15 +22,19 @@ class NoticeAttachedUseCase(
         val notice = queryNoticeSpi.findById(noticeId)
             ?: throw RuntimeException()
 
-        val attached = request.map {
-            Attached(
-                originalName = it.filename,
-                filePath = fileService.save(
-                    FILE_DIR,
-                    it
+        var attached = notice.attached
+
+        attached = attached?.plus(
+            request.map { req ->
+                Attached(
+                    originalName = req.filename,
+                    filePath = fileService.save(
+                        FILE_DIR,
+                        req
+                    )
                 )
-            )
-        }
+            }
+        )
 
         commandNoticeSpi.save(
             notice.copy(
