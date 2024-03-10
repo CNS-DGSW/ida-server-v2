@@ -1,6 +1,7 @@
 package com.dgswiphak.ida.persistence.applicant.event
 
 import com.dgswiphak.ida.domain.applicant.domain.Applicant
+import com.dgswiphak.ida.domain.applicant.domain.value.detail.Education
 import com.dgswiphak.ida.domain.applicant.domain.value.privacy.Privacy
 import com.dgswiphak.ida.domain.applicant.spi.event.ApplicantEvent
 import com.dgswiphak.ida.domain.applicant.spi.query.CommandApplicantSpi
@@ -17,7 +18,8 @@ class ApplicantEventHandler(
         commandApplicantSpi.save(
             Applicant(
                 id = event.memberId,
-                privacy = Privacy()
+                privacy = Privacy(),
+                education = Education()
             )
         )
     }
