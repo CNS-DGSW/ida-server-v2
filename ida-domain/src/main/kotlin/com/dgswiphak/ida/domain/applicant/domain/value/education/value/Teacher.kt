@@ -1,4 +1,4 @@
-package com.dgswiphak.ida.domain.applicant.domain.value.detail.value
+package com.dgswiphak.ida.domain.applicant.domain.value.education.value
 
 import com.dgswiphak.ida.common.model.PhoneNumber
 

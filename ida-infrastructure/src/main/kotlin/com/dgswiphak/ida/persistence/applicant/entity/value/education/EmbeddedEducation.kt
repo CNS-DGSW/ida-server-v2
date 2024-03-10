@@ -1,7 +1,7 @@
-package com.dgswiphak.ida.persistence.applicant.entity.value.detail
+package com.dgswiphak.ida.persistence.applicant.entity.value.education
 
-import com.dgswiphak.ida.domain.applicant.domain.value.detail.value.type.GraduationType
-import com.dgswiphak.ida.persistence.applicant.entity.value.detail.value.TeacherVO
+import com.dgswiphak.ida.domain.applicant.domain.value.education.value.type.GraduationType
+import com.dgswiphak.ida.persistence.applicant.entity.value.education.value.TeacherVO
 import com.dgswiphak.ida.persistence.school.entity.SchoolEntity
 import jakarta.persistence.CascadeType
 import jakarta.persistence.Column
@@ -9,7 +9,6 @@ import jakarta.persistence.Embeddable
 import jakarta.persistence.Embedded
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.ManyToOne
-import jakarta.persistence.criteria.CriteriaBuilder.Case
 import java.io.Serial
 import java.io.Serializable
 

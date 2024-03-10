@@ -1,7 +1,7 @@
 package com.dgswiphak.ida.domain.applicant.domain
 
 import com.dgswiphak.ida.common.model.MemberId
-import com.dgswiphak.ida.domain.applicant.domain.value.detail.Education
+import com.dgswiphak.ida.domain.applicant.domain.value.education.Education
 import com.dgswiphak.ida.domain.applicant.domain.value.privacy.Privacy
 
 data class Applicant(
