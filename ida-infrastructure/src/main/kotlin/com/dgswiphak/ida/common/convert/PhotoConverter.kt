@@ -1,6 +1,6 @@
 package com.dgswiphak.ida.common.convert
 
-import com.dgswiphak.ida.domain.applicant.domain.value.Photo
+import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.Photo
 import jakarta.persistence.AttributeConverter
 import jakarta.persistence.Converter
 

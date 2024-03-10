@@ -1,6 +1,8 @@
 package com.dgswiphak.ida.persistence.school.entity
 
-import com.dgswiphak.ida.persistence.applicant.entity.value.SchoolCodeVO
+import com.dgswiphak.ida.common.convert.PhoneNumberConvert
+import com.dgswiphak.ida.common.model.PhoneNumber
+import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.value.SchoolCodeVO
 import jakarta.persistence.*
 
 @Entity
@@ -18,5 +20,6 @@ class SchoolEntity(
     @Embedded
     val code: SchoolCodeVO,
 
-    val contact: String
+    @Convert(converter = PhoneNumberConvert::class)
+    val contact: PhoneNumber
 )

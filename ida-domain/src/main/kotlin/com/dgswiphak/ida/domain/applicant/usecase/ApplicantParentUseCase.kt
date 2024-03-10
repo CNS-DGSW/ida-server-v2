@@ -3,7 +3,7 @@ package com.dgswiphak.ida.domain.applicant.usecase
 import com.dgswiphak.ida.common.annotation.UseCase
 import com.dgswiphak.ida.common.model.MemberId
 import com.dgswiphak.ida.domain.applicant.domain.Applicant
-import com.dgswiphak.ida.domain.applicant.domain.value.Privacy
+import com.dgswiphak.ida.domain.applicant.domain.value.privacy.Privacy
 import com.dgswiphak.ida.domain.applicant.dto.request.UpdateParentInfoRequest
 import com.dgswiphak.ida.domain.applicant.dto.response.ApplicantParentInfoResponse
 import com.dgswiphak.ida.domain.applicant.spi.query.CommandApplicantSpi

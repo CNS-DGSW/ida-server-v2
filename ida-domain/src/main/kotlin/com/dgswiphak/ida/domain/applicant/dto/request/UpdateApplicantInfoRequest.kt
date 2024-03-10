@@ -1,6 +1,6 @@
 package com.dgswiphak.ida.domain.applicant.dto.request
 
-import com.dgswiphak.ida.domain.applicant.domain.value.type.Gender
+import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.type.Gender
 import com.fasterxml.jackson.annotation.JsonFormat
 import java.time.LocalDate
 

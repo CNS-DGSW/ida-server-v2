@@ -1,9 +1,10 @@
 package com.dgswiphak.ida.persistence.school.mapper
 
 import com.dgswiphak.ida.common.mapper.Mapper
-import com.dgswiphak.ida.domain.applicant.domain.value.SchoolCode
+import com.dgswiphak.ida.common.model.PhoneNumber
+import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.SchoolCode
 import com.dgswiphak.ida.domain.school.model.School
-import com.dgswiphak.ida.persistence.applicant.entity.value.SchoolCodeVO
+import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.value.SchoolCodeVO
 import com.dgswiphak.ida.persistence.school.entity.SchoolEntity
 import org.springframework.stereotype.Component
 
@@ -17,7 +18,7 @@ class SchoolMapper: Mapper<School, SchoolEntity> {
                 state = it.state,
                 city = it.city,
                 code = SchoolCode.of(it.code.code),
-                contact = it.contact
+                contact = PhoneNumber.of(it.contact.number)
             )
         }
     }

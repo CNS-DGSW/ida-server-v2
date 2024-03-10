@@ -1,4 +1,4 @@
-package com.dgswiphak.ida.domain.applicant.domain.value
+package com.dgswiphak.ida.domain.applicant.domain.value.privacy.value
 
 data class Photo(
     val filepath: String

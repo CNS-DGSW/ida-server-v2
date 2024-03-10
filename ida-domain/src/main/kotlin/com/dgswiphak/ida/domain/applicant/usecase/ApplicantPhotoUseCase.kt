@@ -5,7 +5,7 @@ import com.dgswiphak.ida.common.dto.FileRequest
 import com.dgswiphak.ida.common.file.FileService
 import com.dgswiphak.ida.common.model.MemberId
 import com.dgswiphak.ida.common.util.FileUtil
-import com.dgswiphak.ida.domain.applicant.domain.value.Photo
+import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.Photo
 import com.dgswiphak.ida.domain.applicant.spi.query.CommandApplicantSpi
 import com.dgswiphak.ida.domain.applicant.spi.query.QueryApplicantSpi
 import java.io.FileInputStream

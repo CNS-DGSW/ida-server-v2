@@ -1,4 +1,4 @@
-package com.dgswiphak.ida.persistence.applicant.entity.value
+package com.dgswiphak.ida.persistence.applicant.entity.value.privacy.value
 
 import com.dgswiphak.ida.common.convert.PhoneNumberConvert
 import com.dgswiphak.ida.common.model.PhoneNumber
