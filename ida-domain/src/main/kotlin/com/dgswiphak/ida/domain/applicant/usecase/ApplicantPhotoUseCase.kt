@@ -6,9 +6,10 @@ import com.dgswiphak.ida.common.file.FileService
 import com.dgswiphak.ida.common.model.MemberId
 import com.dgswiphak.ida.common.util.FileUtil
 import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.Photo
-import com.dgswiphak.ida.domain.applicant.dto.response.ApplicantPhotoResponse
 import com.dgswiphak.ida.domain.applicant.spi.query.CommandApplicantSpi
 import com.dgswiphak.ida.domain.applicant.spi.query.QueryApplicantSpi
+import java.io.FileInputStream
+import java.io.InputStream
 
 @UseCase
 class ApplicantPhotoUseCase(
@@ -30,10 +31,15 @@ class ApplicantPhotoUseCase(
 
     fun findPhoto(
         memberId: MemberId
-    ): ApplicantPhotoResponse {
+    ): ByteArray? {
         val applicant = queryApplicantSpi.findById(memberId) ?: throw RuntimeException()
         val photo = applicant.privacy.photo
-        return ApplicantPhotoResponse(if ((photo== null)) null else photo.filename)
+        if (photo?.filepath == null) {
+            return null
+        }
+        val inputStream: InputStream = FileInputStream(photo.filepath)
+
+        return fileService.toByteArray(inputStream)
     }
 
 

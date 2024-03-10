@@ -2,10 +2,10 @@ package com.dgswiphak.ida.aggregate.applicant
 
 import com.dgswiphak.ida.common.dto.FileRequest
 import com.dgswiphak.ida.common.model.MemberId
-import com.dgswiphak.ida.domain.applicant.dto.response.ApplicantPhotoResponse
 import com.dgswiphak.ida.domain.applicant.usecase.ApplicantPhotoUseCase
 import com.dgswiphak.ida.global.auth.annotation.AuthenticatedPrincipalId
 import org.springframework.http.HttpStatus
+import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -31,11 +31,11 @@ class ApplicantPhotoController(
         )
     }
 
-    @GetMapping
+    @GetMapping(produces = [MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE])
     @ResponseStatus(HttpStatus.OK)
     fun findPhoto(
         @AuthenticatedPrincipalId memberId: MemberId,
-    ): ApplicantPhotoResponse {
+    ): ByteArray? {
         return applicantPhotoUseCase.findPhoto(memberId)
     }
 }
