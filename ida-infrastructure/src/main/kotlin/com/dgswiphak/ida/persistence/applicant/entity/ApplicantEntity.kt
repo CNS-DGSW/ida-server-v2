@@ -1,6 +1,7 @@
 package com.dgswiphak.ida.persistence.applicant.entity
 
 import com.dgswiphak.ida.common.embbed.EmbeddedMemberId
+import com.dgswiphak.ida.persistence.applicant.entity.value.detail.EmbeddedEducation
 import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.EmbeddedPrivacy
 import jakarta.persistence.Embedded
 import jakarta.persistence.EmbeddedId
@@ -12,5 +13,8 @@ class ApplicantEntity(
     val id: EmbeddedMemberId,
 
     @Embedded
-    val privacy: EmbeddedPrivacy?
+    val privacy: EmbeddedPrivacy?,
+
+    @Embedded
+    val education: EmbeddedEducation?
 )
