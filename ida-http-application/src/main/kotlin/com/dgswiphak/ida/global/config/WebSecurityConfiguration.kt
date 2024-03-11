@@ -1,5 +1,6 @@
 package com.dgswiphak.ida.global.config
 
+import com.dgswiphak.ida.domain.member.model.value.Role
 import com.dgswiphak.ida.global.filter.JwtFilter
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -23,13 +24,8 @@ class WebSecurityConfiguration(
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 
         http.authorizeHttpRequests()
-            .requestMatchers("/auth/**").permitAll()
-            .requestMatchers("/member/signUp").permitAll()
-            .requestMatchers("/notice/**").permitAll()
-            .requestMatchers("/question/**").permitAll()
-            .requestMatchers("/attached/**").permitAll()
-            .requestMatchers("/image/**").permitAll()
-            .anyRequest().authenticated()
+            .requestMatchers("/applicant/**").hasRole(Role.ROLE_APPLICANT.role)
+            .anyRequest().permitAll()
             .and()
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter::class.java)
         return http.build()
