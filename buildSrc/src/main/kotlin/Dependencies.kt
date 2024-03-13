@@ -94,6 +94,14 @@ interface Libraries {
         )
     }
 
+    object Aws : Libraries {
+        private const val SPRING_AWS = "io.awspring.cloud:spring-cloud-starter-aws:${DependencyVersions.AWS_VERSION}"
+
+        override fun dependencies() = listOf (
+            Dependency(SPRING_AWS, DependencyScope.IMPLEMENTATION)
+        )
+    }
+
     object Test : Libraries {
         private const val SPRING_TEST = "org.springframework.boot:spring-boot-starter-test:${PluginVersions.SPRINGBOOT_VERSION}"
         private const val MOCKITO_JUNIT = "org.mockito:mockito-junit-jupiter:${DependencyVersions.MOCKITO_VERSION}"
