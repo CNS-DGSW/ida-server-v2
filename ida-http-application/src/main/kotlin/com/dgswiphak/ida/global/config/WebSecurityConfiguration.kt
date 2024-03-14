@@ -1,7 +1,9 @@
 package com.dgswiphak.ida.global.config
 
 import com.dgswiphak.ida.domain.member.model.value.Role
+import com.dgswiphak.ida.global.filter.ExceptionFilter
 import com.dgswiphak.ida.global.filter.JwtFilter
+import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.HttpMethod
@@ -15,7 +17,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 class WebSecurityConfiguration(
-    private val jwtFilter: JwtFilter
+    private val jwtFilter: JwtFilter,
+    private val exceptionFilter: ExceptionFilter
 ) {
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
@@ -37,8 +40,10 @@ class WebSecurityConfiguration(
             .requestMatchers(HttpMethod.PUT,"/attached/{notice-id}").hasRole(Role.ROLE_TEACHER.role)
             .requestMatchers(HttpMethod.DELETE,"/attached/{notice-id}/{file-name}").hasRole(Role.ROLE_TEACHER.role)
             .anyRequest().permitAll()
-            .and()
+
+        http
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter::class.java)
+            .addFilterBefore(exceptionFilter, JwtFilter::class.java)
         return http.build()
     }
 }
