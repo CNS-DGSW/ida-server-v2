@@ -6,7 +6,6 @@ import com.dgswiphak.ida.common.file.FileService
 import com.dgswiphak.ida.domain.notion.model.value.Attached
 import com.dgswiphak.ida.domain.notion.spi.query.CommandNoticeSpi
 import com.dgswiphak.ida.domain.notion.spi.query.QueryNoticeSpi
-import org.springframework.core.io.Resource
 
 @UseCase
 class NoticeAttachedUseCase(
@@ -28,9 +27,8 @@ class NoticeAttachedUseCase(
             request.map { req ->
                 Attached(
                     originalName = req.filename,
-                    filePath = fileService.save(
-                        FILE_DIR,
-                        req
+                    filePath = fileService.upload(
+                        fileRequest = req
                     )
                 )
             }
@@ -41,20 +39,6 @@ class NoticeAttachedUseCase(
                 attached = attached
             )
         )
-    }
-
-    fun download(
-        noticeId: Long,
-        fileName: String
-    ): Resource {
-        val notice = queryNoticeSpi.findById(noticeId)
-            ?: throw RuntimeException()
-
-        val attached = notice.attached!!.firstOrNull {
-            it.originalName == fileName
-        } ?: throw RuntimeException()
-
-        return fileService.read(attached.filePath)
     }
 
     fun delete(
@@ -75,9 +59,5 @@ class NoticeAttachedUseCase(
         fileService.delete(attached.filePath)
 
         commandNoticeSpi.save(notice.copy(attached = mutableAttached.toList()))
-    }
-
-    companion object {
-        const val FILE_DIR = "static/notice/file"
     }
 }
