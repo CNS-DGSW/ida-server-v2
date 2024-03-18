@@ -1,6 +1,7 @@
 package com.dgswiphak.ida.global.auth
 
 import com.dgswiphak.ida.common.model.MemberId
+import com.dgswiphak.ida.domain.member.exception.MemberNotFoundException
 import com.dgswiphak.ida.domain.member.spi.query.QueryMemberSpi
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
@@ -11,7 +12,7 @@ class AuthDetailsService(
         private val queryMemberSpi: QueryMemberSpi
 ) : UserDetailsService {
     override fun loadUserByUsername(memberId: String): UserDetails {
-        val member = queryMemberSpi.findById(MemberId(memberId.toLong())) ?: throw RuntimeException()
+        val member = queryMemberSpi.findById(MemberId(memberId.toLong())) ?: throw MemberNotFoundException
         return AuthDetails(member)
     }
 }
