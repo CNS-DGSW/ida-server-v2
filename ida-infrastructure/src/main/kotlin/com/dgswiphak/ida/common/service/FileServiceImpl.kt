@@ -1,68 +1,52 @@
 package com.dgswiphak.ida.common.service
 
+import com.amazonaws.services.s3.AmazonS3Client
+import com.amazonaws.services.s3.internal.Mimetypes
+import com.amazonaws.services.s3.model.CannedAccessControlList
+import com.amazonaws.services.s3.model.DeleteObjectRequest
+import com.amazonaws.services.s3.model.ObjectMetadata
+import com.amazonaws.services.s3.model.PutObjectRequest
 import com.dgswiphak.ida.common.dto.FileRequest
 import com.dgswiphak.ida.common.file.FileService
-import com.dgswiphak.ida.common.util.IdGenerator
-import org.apache.commons.io.IOUtils
-import org.springframework.core.io.Resource
-import org.springframework.core.io.UrlResource
+import com.dgswiphak.ida.common.property.AwsS3Properties
 import org.springframework.stereotype.Service
-import java.io.File
-import java.io.InputStream
-import java.net.MalformedURLException
-import java.nio.file.Files
-import java.nio.file.Path
-import java.nio.file.Paths
-
+import java.io.IOException
 
 @Service
-class FileServiceImpl: FileService {
-    override fun save(path: String, fileRequest: FileRequest): String {
-        val directory = File(path)
+class FileServiceImpl(
+    private val awsProperties: AwsS3Properties,
+    private val amazonS3Client: AmazonS3Client
+): FileService {
 
-        if (!directory.exists()) {
-            directory.mkdirs()
-        }
+    override fun upload(fileRequest: FileRequest): String {
+        uploadS3(fileRequest)
 
-        val filename = IdGenerator.generateUUIDWithString() + getFileExtension(fileRequest.contentType)
-
-        val filePath = Paths.get(directory.absolutePath, filename)
-        try {
-            Files.write(filePath, fileRequest.fileData)
-            return filePath.toString()
-        } catch (e: Exception) {
-            throw RuntimeException("Failed to save file", e)
-        }
+        return getResourceUrl(fileRequest.filename)
     }
 
-    override fun read(path: String): Resource {
-        val filePath: Path = Paths.get(path)
+    private fun uploadS3(fileRequest: FileRequest) {
         try {
-            val resource: Resource = UrlResource(filePath.toUri())
-            if (!resource.exists() || !resource.isFile) {
-                throw RuntimeException("file not found : $filePath")
+            val inputStream = fileRequest.fileData.inputStream()
+            val objectMetadata = ObjectMetadata().apply {
+                this.contentType = Mimetypes.getInstance().getMimetype(fileRequest.contentType)
             }
-            return resource
-        } catch (e: MalformedURLException) {
-            throw RuntimeException()
+
+            amazonS3Client.putObject(
+                PutObjectRequest(awsProperties.bucket, fileRequest.filename, inputStream, objectMetadata)
+                    .withCannedAcl(
+                        CannedAccessControlList.PublicRead
+                    )
+            )
+        } catch (e: IOException) {
+            throw RuntimeException(e)
         }
     }
 
-    override fun toByteArray(stream: InputStream): ByteArray {
-        return IOUtils.toByteArray(stream)
+    override fun getResourceUrl(fileName: String): String {
+        return amazonS3Client.getResourceUrl(awsProperties.bucket, fileName)
     }
 
-    override fun delete(path: String) {
-        val file = File(path)
-
-        if(!file.exists()) {
-            throw RuntimeException("file not found")
-        }
-
-        file.delete()
-    }
-
-    private fun getFileExtension(contentType: String): String {
-        return "." + contentType.substringAfter('/')
+    override fun delete(fileName: String) {
+        amazonS3Client.deleteObject(DeleteObjectRequest(awsProperties.bucket, fileName))
     }
 }

@@ -10,7 +10,6 @@ import jakarta.servlet.http.HttpServletResponse
 import org.springframework.http.MediaType
 import org.springframework.web.filter.OncePerRequestFilter
 import java.nio.charset.StandardCharsets
-
 class ExceptionFilter(
     private val objectMapper: ObjectMapper
 ) : OncePerRequestFilter(){

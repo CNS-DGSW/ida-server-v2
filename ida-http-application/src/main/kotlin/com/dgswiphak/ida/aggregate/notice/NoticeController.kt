@@ -1,11 +1,11 @@
 package com.dgswiphak.ida.aggregate.notice
 
-import com.dgswiphak.ida.domain.notion.dto.request.CreateNoticeRequest
-import com.dgswiphak.ida.domain.notion.dto.request.UpdateNoticeRequest
-import com.dgswiphak.ida.domain.notion.dto.response.NoticeResponse
-import com.dgswiphak.ida.domain.notion.dto.response.NoticesResponse
-import com.dgswiphak.ida.domain.notion.model.Notice
-import com.dgswiphak.ida.domain.notion.usecase.*
+import com.dgswiphak.ida.domain.notice.dto.request.CreateNoticeRequest
+import com.dgswiphak.ida.domain.notice.dto.request.UpdateNoticeRequest
+import com.dgswiphak.ida.domain.notice.dto.response.NoticeResponse
+import com.dgswiphak.ida.domain.notice.dto.response.NoticesResponse
+import com.dgswiphak.ida.domain.notice.model.Notice
+import com.dgswiphak.ida.domain.notice.usecase.*
 import org.jetbrains.annotations.NotNull
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*

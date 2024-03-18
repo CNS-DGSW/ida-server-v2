@@ -1,4 +1,4 @@
-package com.dgswiphak.ida.domain.notion.model.value
+package com.dgswiphak.ida.domain.notice.model.value
 
 data class Attached(
     val originalName: String,
