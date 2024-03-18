@@ -1,13 +1,13 @@
-package com.dgswiphak.ida.global.error
+package com.dgswiphak.ida.domain.member.exception.error
 
 import com.dgswiphak.ida.common.error.ErrorProperty
 import com.dgswiphak.ida.common.error.ErrorStatus
 
-enum class GlobalErrorCode(
+enum class MemberErrorCode(
     private val status: Int,
     private val message: String
 ) : ErrorProperty {
-    INTERNATIONAL_SERVER_ERROR(ErrorStatus.INTERNATIONAL_SERVER_ERROR, "International Sever Error");
+    NOT_FOUND(ErrorStatus.NOT_FOUND, "유저를 찾지 못하였습니다.");
 
     override fun status(): Int = status
     override fun message(): String = message

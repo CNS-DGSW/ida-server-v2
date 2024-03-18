@@ -1,9 +1,7 @@
 package com.dgswiphak.ida.global.config
 
 import com.dgswiphak.ida.domain.member.model.value.Role
-import com.dgswiphak.ida.global.filter.ExceptionFilter
-import com.dgswiphak.ida.global.filter.JwtFilter
-import com.fasterxml.jackson.databind.ObjectMapper
+import com.dgswiphak.ida.global.filter.FilterConfiguration
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.HttpMethod
@@ -12,13 +10,11 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.security.web.SecurityFilterChain
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
 
 @Configuration
 @EnableWebSecurity
 class WebSecurityConfiguration(
-    private val jwtFilter: JwtFilter,
-    private val exceptionFilter: ExceptionFilter
+    private val filterConfiguration: FilterConfiguration
 ) {
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
@@ -42,8 +38,7 @@ class WebSecurityConfiguration(
             .anyRequest().permitAll()
 
         http
-            .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter::class.java)
-            .addFilterBefore(exceptionFilter, JwtFilter::class.java)
+            .apply(filterConfiguration)
         return http.build()
     }
 }

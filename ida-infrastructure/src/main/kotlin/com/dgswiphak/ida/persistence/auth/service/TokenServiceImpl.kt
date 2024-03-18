@@ -1,12 +1,13 @@
 package com.dgswiphak.ida.persistence.auth.service
 
 import com.dgswiphak.ida.common.property.JwtProperties
+import com.dgswiphak.ida.domain.auth.exception.ExpiredTokenException
+import com.dgswiphak.ida.domain.auth.exception.InvalidTokenException
 import com.dgswiphak.ida.domain.auth.model.TokenType
 import com.dgswiphak.ida.domain.auth.spi.service.TokenService
 import com.dgswiphak.ida.persistence.auth.entity.RefreshTokenEntity
 import com.dgswiphak.ida.persistence.auth.repository.RefreshTokenRepository
 import io.jsonwebtoken.Claims
-import io.jsonwebtoken.ExpiredJwtException
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
 import io.jsonwebtoken.security.Keys
@@ -45,7 +46,7 @@ class TokenServiceImpl(
     }
 
     override fun extractIdFromToken(token: String): String {
-            return extractAllClaims(token).get("memberId").toString()
+            return extractAllClaims(token)["memberId"].toString()
     }
 
     private fun generateToken(memberId: Long, tokenType: TokenType, time: Long): String {
@@ -76,10 +77,11 @@ class TokenServiceImpl(
                 .build()
                 .parseClaimsJws(token)
                 .body
-        } catch (e: ExpiredJwtException) {
-            throw RuntimeException("만료된 토큰")
+        } catch (e: ExpiredTokenException) {
+            println(e.cause)
+            throw ExpiredTokenException
         } catch (e: Exception) {
-            throw RuntimeException("알수없음")
+            throw InvalidTokenException
         }
     }
 
