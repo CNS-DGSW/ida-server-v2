@@ -1,9 +1,9 @@
-package com.dgswiphak.ida.domain.notion.usecase
+package com.dgswiphak.ida.domain.notice.usecase
 
 import com.dgswiphak.ida.common.annotation.UseCase
-import com.dgswiphak.ida.domain.notion.dto.request.CreateNoticeRequest
-import com.dgswiphak.ida.domain.notion.model.Notice
-import com.dgswiphak.ida.domain.notion.spi.query.CommandNoticeSpi
+import com.dgswiphak.ida.domain.notice.dto.request.CreateNoticeRequest
+import com.dgswiphak.ida.domain.notice.model.Notice
+import com.dgswiphak.ida.domain.notice.spi.query.CommandNoticeSpi
 import java.time.LocalDateTime
 
 @UseCase

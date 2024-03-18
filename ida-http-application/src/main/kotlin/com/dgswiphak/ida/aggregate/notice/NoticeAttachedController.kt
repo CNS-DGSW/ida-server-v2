@@ -1,12 +1,10 @@
 package com.dgswiphak.ida.aggregate.notice
 
-import com.dgswiphak.ida.common.dto.FileRequest
-import com.dgswiphak.ida.domain.notion.usecase.NoticeAttachedUseCase
+import com.dgswiphak.ida.common.dto.FileRequest import com.dgswiphak.ida.domain.notice.usecase.NoticeAttachedUseCase
 import org.jetbrains.annotations.NotNull
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.multipart.MultipartFile
-import java.io.UnsupportedEncodingException
 
 @RestController
 @RequestMapping("/attached")

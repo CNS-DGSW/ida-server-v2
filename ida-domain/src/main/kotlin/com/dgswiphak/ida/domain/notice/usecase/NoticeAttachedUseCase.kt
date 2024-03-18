@@ -1,11 +1,11 @@
-package com.dgswiphak.ida.domain.notion.usecase
+package com.dgswiphak.ida.domain.notice.usecase
 
 import com.dgswiphak.ida.common.annotation.UseCase
 import com.dgswiphak.ida.common.dto.FileRequest
 import com.dgswiphak.ida.common.file.FileService
-import com.dgswiphak.ida.domain.notion.model.value.Attached
-import com.dgswiphak.ida.domain.notion.spi.query.CommandNoticeSpi
-import com.dgswiphak.ida.domain.notion.spi.query.QueryNoticeSpi
+import com.dgswiphak.ida.domain.notice.model.value.Attached
+import com.dgswiphak.ida.domain.notice.spi.query.CommandNoticeSpi
+import com.dgswiphak.ida.domain.notice.spi.query.QueryNoticeSpi
 
 @UseCase
 class NoticeAttachedUseCase(
