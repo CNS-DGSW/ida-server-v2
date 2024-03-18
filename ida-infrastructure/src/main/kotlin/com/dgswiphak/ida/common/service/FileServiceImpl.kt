@@ -9,10 +9,10 @@ import com.amazonaws.services.s3.model.PutObjectRequest
 import com.dgswiphak.ida.common.dto.FileRequest
 import com.dgswiphak.ida.common.file.FileService
 import com.dgswiphak.ida.common.property.AwsS3Properties
-import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 import java.io.IOException
 
-@Component
+@Service
 class FileServiceImpl(
     private val awsProperties: AwsS3Properties,
     private val amazonS3Client: AmazonS3Client
