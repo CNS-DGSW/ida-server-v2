@@ -1,6 +1,6 @@
-package com.dgswiphak.ida.domain.notion.model
+package com.dgswiphak.ida.domain.notice.model
 
-import com.dgswiphak.ida.domain.notion.model.value.Attached
+import com.dgswiphak.ida.domain.notice.model.value.Attached
 import java.time.LocalDateTime
 
 data class Notice(

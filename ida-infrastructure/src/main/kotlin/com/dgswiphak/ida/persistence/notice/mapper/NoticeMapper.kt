@@ -1,8 +1,8 @@
 package com.dgswiphak.ida.persistence.notice.mapper
 
 import com.dgswiphak.ida.common.mapper.Mapper
-import com.dgswiphak.ida.domain.notion.model.Notice
-import com.dgswiphak.ida.domain.notion.model.value.Attached
+import com.dgswiphak.ida.domain.notice.model.Notice
+import com.dgswiphak.ida.domain.notice.model.value.Attached
 import com.dgswiphak.ida.persistence.notice.entity.NoticeEntity
 import com.dgswiphak.ida.persistence.notice.entity.value.AttachedVO
 import org.springframework.stereotype.Component

@@ -1,9 +1,9 @@
-package com.dgswiphak.ida.domain.notion.usecase
+package com.dgswiphak.ida.domain.notice.usecase
 
 import com.dgswiphak.ida.common.annotation.UseCase
-import com.dgswiphak.ida.domain.notion.dto.response.NoticeResponse
-import com.dgswiphak.ida.domain.notion.dto.response.NoticesResponse
-import com.dgswiphak.ida.domain.notion.spi.query.QueryNoticeSpi
+import com.dgswiphak.ida.domain.notice.dto.response.NoticeResponse
+import com.dgswiphak.ida.domain.notice.dto.response.NoticesResponse
+import com.dgswiphak.ida.domain.notice.spi.query.QueryNoticeSpi
 
 @UseCase
 class QueryNoticeAllUseCase(
