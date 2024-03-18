@@ -36,7 +36,10 @@ data class NoticeResponse(
                 isMajor = notice.isMajor,
                 createDate = notice.createdAt,
                 fileResponse = notice.attached?.map {
-                    attached -> AttachedResponse(attached.originalName)
+                    AttachedResponse(
+                    it.originalName,
+                    it.filePath
+                    )
                 }
             )
         }
@@ -48,5 +51,6 @@ data class NoticesResponse(
 )
 
 data class AttachedResponse(
-    val originalName: String
+    val originalName: String,
+    val filePath: String
 )
