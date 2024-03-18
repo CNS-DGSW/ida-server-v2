@@ -1,8 +1,8 @@
 package com.dgswiphak.ida.persistence.notice.repository
 
 
-import com.dgswiphak.ida.domain.notion.model.Notice
-import com.dgswiphak.ida.domain.notion.spi.query.QueryNoticeSpi
+import com.dgswiphak.ida.domain.notice.model.Notice
+import com.dgswiphak.ida.domain.notice.spi.query.QueryNoticeSpi
 import com.dgswiphak.ida.persistence.notice.entity.QNoticeEntity
 import com.dgswiphak.ida.persistence.notice.mapper.NoticeMapper
 import com.querydsl.jpa.impl.JPAQueryFactory

@@ -10,7 +10,6 @@ dependencyManagement {
 	}
 }
 
-
 dependencies {
 	implementation(project(":ida-domain"))
 	implementationDependencies(Libraries.Feign)
@@ -20,6 +19,7 @@ dependencies {
 	implementationDependencies(Libraries.JPA)
 	implementationDependencies(Libraries.Querydsl)
 	implementationDependencies(Libraries.Test)
+	implementationDependencies(Libraries.Aws)
 }
 
 allOpen {

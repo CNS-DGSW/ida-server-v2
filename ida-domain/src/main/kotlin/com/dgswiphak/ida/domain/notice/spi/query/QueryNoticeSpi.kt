@@ -1,7 +1,7 @@
-package com.dgswiphak.ida.domain.notion.spi.query
+package com.dgswiphak.ida.domain.notice.spi.query
 
 import com.dgswiphak.ida.common.spi.QuerySpi
-import com.dgswiphak.ida.domain.notion.model.Notice
+import com.dgswiphak.ida.domain.notice.model.Notice
 
 interface QueryNoticeSpi: QuerySpi<Notice, Long> {
 

@@ -35,7 +35,7 @@ class ApplicantPhotoController(
     @ResponseStatus(HttpStatus.OK)
     fun findPhoto(
         @AuthenticatedPrincipalId memberId: MemberId,
-    ): ByteArray? {
+    ): String? {
         return applicantPhotoUseCase.findPhoto(memberId)
     }
 }

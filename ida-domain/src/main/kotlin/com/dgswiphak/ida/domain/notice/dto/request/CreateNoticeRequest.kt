@@ -1,4 +1,4 @@
-package com.dgswiphak.ida.domain.notion.dto.request
+package com.dgswiphak.ida.domain.notice.dto.request
 
 data class CreateNoticeRequest(
 
