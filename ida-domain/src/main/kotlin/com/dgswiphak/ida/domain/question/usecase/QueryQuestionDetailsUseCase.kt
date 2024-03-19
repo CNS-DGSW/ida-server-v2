@@ -2,8 +2,8 @@ package com.dgswiphak.ida.domain.question.usecase
 
 import com.dgswiphak.ida.common.annotation.UseCase
 import com.dgswiphak.ida.domain.question.dto.response.QuestionResponse
+import com.dgswiphak.ida.domain.question.exception.QuestionNotFoundException
 import com.dgswiphak.ida.domain.question.spi.query.QueryQuestionSpi
-import java.lang.RuntimeException
 
 @UseCase
 class QueryQuestionDetailsUseCase(
@@ -12,7 +12,7 @@ class QueryQuestionDetailsUseCase(
 
     fun execute(questionId: Long): QuestionResponse {
         val entity = queryQuestionSpi.findById(questionId)
-            ?: throw RuntimeException()
+            ?: throw QuestionNotFoundException
 
         return QuestionResponse.detailOf(entity)
     }
