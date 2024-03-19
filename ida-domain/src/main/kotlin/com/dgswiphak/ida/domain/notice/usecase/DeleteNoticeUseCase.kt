@@ -1,9 +1,9 @@
 package com.dgswiphak.ida.domain.notice.usecase
 
 import com.dgswiphak.ida.common.annotation.UseCase
+import com.dgswiphak.ida.domain.notice.exception.NoticeNotFoundException
 import com.dgswiphak.ida.domain.notice.spi.query.CommandNoticeSpi
 import com.dgswiphak.ida.domain.notice.spi.query.QueryNoticeSpi
-import java.lang.RuntimeException
 
 @UseCase
 class DeleteNoticeUseCase(
@@ -13,7 +13,7 @@ class DeleteNoticeUseCase(
 
     fun execute(noticeId: Long) {
         val notice = queryNoticeSpi.findById(noticeId)
-            ?: throw RuntimeException()
+            ?: throw NoticeNotFoundException
 
         commandNoticeSpi.delete(notice)
     }

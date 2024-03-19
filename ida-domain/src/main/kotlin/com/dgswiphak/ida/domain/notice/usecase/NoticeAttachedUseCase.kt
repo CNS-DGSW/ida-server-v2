@@ -3,6 +3,8 @@ package com.dgswiphak.ida.domain.notice.usecase
 import com.dgswiphak.ida.common.annotation.UseCase
 import com.dgswiphak.ida.common.dto.FileRequest
 import com.dgswiphak.ida.common.file.FileService
+import com.dgswiphak.ida.domain.notice.exception.AttachedNotFoundException
+import com.dgswiphak.ida.domain.notice.exception.NoticeNotFoundException
 import com.dgswiphak.ida.domain.notice.model.value.Attached
 import com.dgswiphak.ida.domain.notice.spi.query.CommandNoticeSpi
 import com.dgswiphak.ida.domain.notice.spi.query.QueryNoticeSpi
@@ -19,7 +21,7 @@ class NoticeAttachedUseCase(
         request: List<FileRequest>
     ) {
         val notice = queryNoticeSpi.findById(noticeId)
-            ?: throw RuntimeException()
+            ?: throw NoticeNotFoundException
 
         var attached = notice.attached
 
@@ -46,13 +48,13 @@ class NoticeAttachedUseCase(
         fileName: String
     ) {
         val notice = queryNoticeSpi.findById(noticeId)
-            ?: throw RuntimeException()
+            ?: throw NoticeNotFoundException
 
         val mutableAttached = notice.attached!!.toMutableList()
 
         val attached = notice.attached.firstOrNull {
             it.originalName == fileName
-        } ?: throw RuntimeException()
+        } ?: throw AttachedNotFoundException
 
         mutableAttached.remove(attached)
 
