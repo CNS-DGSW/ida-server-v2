@@ -4,7 +4,6 @@ import com.dgswiphak.ida.common.annotation.UseCase
 import com.dgswiphak.ida.domain.question.dto.request.CreateQuestionRequest
 import com.dgswiphak.ida.domain.question.model.Question
 import com.dgswiphak.ida.domain.question.spi.query.CommandQuestionSpi
-import java.time.LocalDateTime
 
 @UseCase
 class CreateQuestionUseCase(

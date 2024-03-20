@@ -2,6 +2,7 @@ package com.dgswiphak.ida.domain.question.usecase
 
 import com.dgswiphak.ida.common.annotation.UseCase
 import com.dgswiphak.ida.domain.question.dto.request.UpdateQuestionRequest
+import com.dgswiphak.ida.domain.question.exception.QuestionNotFoundException
 import com.dgswiphak.ida.domain.question.spi.query.CommandQuestionSpi
 import com.dgswiphak.ida.domain.question.spi.query.QueryQuestionSpi
 
@@ -13,7 +14,7 @@ class UpdateQuestionUseCase(
 
     fun execute(questionId: Long, request: UpdateQuestionRequest) {
         val question = queryQuestionSpi.findById(questionId)
-            ?: throw RuntimeException()
+            ?: throw QuestionNotFoundException
 
         commandQuestionSpi.save(
             question.copy(
