@@ -18,27 +18,28 @@ class WebSecurityConfiguration(
 ) {
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
-        http.csrf().disable()
+        http.csrf { it.disable() }
+            .formLogin { it.disable() }
+            .sessionManagement { it.sessionCreationPolicy(SessionCreationPolicy.STATELESS) }
             .cors(Customizer.withDefaults())
-            .formLogin().disable()
-            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 
-        http.authorizeHttpRequests()
-            .requestMatchers("/applicant/**").hasRole(Role.ROLE_APPLICANT.role)
+        http.authorizeHttpRequests {
+            it
+                .requestMatchers("/applicant/**").hasRole(Role.ROLE_APPLICANT.role)
+                .requestMatchers(HttpMethod.POST,"/notice").hasRole(Role.ROLE_TEACHER.role)
+                .requestMatchers(HttpMethod.PATCH,"/notice/{notice-id}").hasRole(Role.ROLE_TEACHER.role)
+                .requestMatchers(HttpMethod.DELETE,"/notice/{notice-id}").hasRole(Role.ROLE_TEACHER.role)
 
-            .requestMatchers(HttpMethod.POST,"/notice").hasRole(Role.ROLE_TEACHER.role)
-            .requestMatchers(HttpMethod.PATCH,"/notice/{notice-id}").hasRole(Role.ROLE_TEACHER.role)
-            .requestMatchers(HttpMethod.DELETE,"/notice/{notice-id}").hasRole(Role.ROLE_TEACHER.role)
+                .requestMatchers(HttpMethod.PUT,"/image/save").hasRole(Role.ROLE_TEACHER.role)
+                .requestMatchers(HttpMethod.DELETE,"/image/{image-name}").hasRole(Role.ROLE_TEACHER.role)
 
-            .requestMatchers(HttpMethod.PUT,"/image/save").hasRole(Role.ROLE_TEACHER.role)
-            .requestMatchers(HttpMethod.DELETE,"/image/{image-name}").hasRole(Role.ROLE_TEACHER.role)
+                .requestMatchers(HttpMethod.PUT,"/attached/{notice-id}").hasRole(Role.ROLE_TEACHER.role)
+                .requestMatchers(HttpMethod.DELETE,"/attached/{notice-id}/{file-name}").hasRole(Role.ROLE_TEACHER.role)
+                .anyRequest().permitAll()
+        }
 
-            .requestMatchers(HttpMethod.PUT,"/attached/{notice-id}").hasRole(Role.ROLE_TEACHER.role)
-            .requestMatchers(HttpMethod.DELETE,"/attached/{notice-id}/{file-name}").hasRole(Role.ROLE_TEACHER.role)
-            .anyRequest().permitAll()
+        http.apply(filterConfiguration)
 
-        http
-            .apply(filterConfiguration)
         return http.build()
     }
 }
