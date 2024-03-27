@@ -1,25 +1,26 @@
 plugins {
-	kotlin("plugin.jpa") version PluginVersions.JPA_PLUGIN_VERSION
-	kotlin("plugin.spring") version PluginVersions.SPRING_PLUGIN_VERSION
-	id("io.spring.dependency-management") version PluginVersions.DEPENDENCY_MANAGER_VERSION
+	alias(libs.plugins.kotlin.spring)
+	alias(libs.plugins.kotlin.jpa)
+	alias(libs.plugins.spring.management)
 }
 
-dependencyManagement {
-	imports {
-		mavenBom("org.springframework.cloud:spring-cloud-dependencies:2022.0.5")
-	}
-}
 
 dependencies {
 	implementation(project(":ida-domain"))
-	implementationDependencies(Libraries.Feign)
-	implementationDependencies(Libraries.Database)
-	implementationDependencies(Libraries.Redis)
-	implementationDependencies(Libraries.JWT)
-	implementationDependencies(Libraries.JPA)
-	implementationDependencies(Libraries.Querydsl)
-	implementationDependencies(Libraries.Test)
-	implementationDependencies(Libraries.Aws)
+
+	implementation(libs.connector.mysql)
+	implementation(libs.redis)
+
+	implementation(libs.bundles.jjwt.impl)
+	runtimeOnly(libs.bundles.jjwt.runtime)
+
+	implementation(libs.spring.data.jpa)
+	implementation(variantOf(libs.querydsl.jpa) { classifier("jakarta") } )
+	kapt(variantOf(libs.querydsl.apt) { classifier("jakarta") } )
+
+	implementation(libs.spring.aws.s3)
+
+	testImplementation(libs.bundles.test)
 }
 
 allOpen {

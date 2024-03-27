@@ -1,0 +1,65 @@
+[versions]
+spring-boot = "3.2.0"
+kotlin = "1.9.21"
+spring-management = "1.1.4"
+jackson = "2.13.4"
+mokito = "3.11.2"
+querydsl = "5.0.0"
+mysql = "8.2.0"
+jjwt = "0.11.5"
+aws = "2.4.4"
+
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+spring-management = { id = "io.spring.dependency-management", version.ref = "spring-management" }
+allopen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlin" }
+
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
+kotlin-jpa = { id = "org.jetbrains.kotlin.plugin.jpa", version.ref = "kotlin" }
+
+[libraries]
+
+#spring boot
+spring-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "spring-boot" }
+spring-security = { module = "org.springframework.boot:spring-boot-starter-security", version.ref = "spring-boot" }
+spring-validation = { module = "org.springframework.boot:spring-boot-starter-validation", version.ref = "spring-boot" }
+spring-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa", version.ref = "spring-boot" }
+
+#kotlin
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8"}
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect"}
+
+#jjwt
+jjwt-api = { module = "io.jsonwebtoken:jjwt-api", version.ref = "jjwt" }
+jjwt-implementation = { module = "io.jsonwebtoken:jjwt-impl", version.ref = "jjwt" }
+jjwt-jackson = { module = "io.jsonwebtoken:jjwt-jackson", version.ref = "jjwt" }
+
+#mysql
+connector-mysql = { module = "com.mysql:mysql-connector-j", version.ref = "mysql" }
+
+#redis
+redis = { module = "org.springframework.boot:spring-boot-starter-data-redis", version.ref = "spring-boot"}
+
+#qeury dsl
+querydsl-jpa = { module = "com.querydsl:querydsl-jpa", version.ref = "querydsl" }
+querydsl-apt = { module = "com.querydsl:querydsl-apt", version.ref = "querydsl" }
+
+## test
+spring-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "spring-boot" }
+mockito-junit = { module = "org.mockito:mockito-junit-jupiter", version.ref = "mokito"}
+mokito-core = {  module = "org.mockito:mockito-core", version.ref = "mokito"}
+#aws
+spring-aws = { module = "io.awspring.cloud:spring-cloud-starter-aws", version.ref="aws" }
+spring-aws-s3 = {module = "com.amazonaws:aws-java-sdk-s3", version = "1.12.619"}
+#jackson
+module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref =  "jackson" }
+
+[bundles]
+spring = ["spring-web", "spring-security", "spring-validation"]
+test = ["spring-starter-test", "mockito-junit", "mokito-core"]
+kotlin = ["kotlin-stdlib", "kotlin-reflect"]
+jackson = ["module-kotlin"]
+jjwt-impl = ["jjwt-api"]
+jjwt-runtime = ["jjwt-implementation", "jjwt-jackson"]

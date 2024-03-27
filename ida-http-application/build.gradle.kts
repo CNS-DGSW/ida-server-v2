@@ -1,18 +1,12 @@
 plugins {
-	id("org.springframework.boot") version PluginVersions.SPRINGBOOT_VERSION
-	id("io.spring.dependency-management") version PluginVersions.DEPENDENCY_MANAGER_VERSION
-	kotlin("plugin.spring") version PluginVersions.SPRING_PLUGIN_VERSION
-}
-
-dependencyManagement {
-	imports {
-		mavenBom("org.springframework.cloud:spring-cloud-dependencies:2022.0.5")
-	}
+	alias(libs.plugins.kotlin.spring)
+	alias(libs.plugins.spring.boot)
+	alias(libs.plugins.spring.management)
 }
 
 dependencies {
 	implementation(project(":ida-domain"))
 	implementation(project(":ida-infrastructure"))
-	implementationDependencies(Libraries.Feign)
-	implementationDependencies(Libraries.SpringBoot)
+	implementation(libs.bundles.spring)
+	implementation(libs.bundles.test)
 }
