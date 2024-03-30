@@ -8,7 +8,7 @@ import com.amazonaws.services.s3.model.ObjectMetadata
 import com.amazonaws.services.s3.model.PutObjectRequest
 import com.dgswiphak.ida.common.dto.FileRequest
 import com.dgswiphak.ida.common.file.FileService
-import com.dgswiphak.ida.common.property.AwsS3Properties
+import com.dgswiphak.ida.common.config.property.AwsS3Properties
 import org.springframework.stereotype.Service
 import java.io.IOException
 
