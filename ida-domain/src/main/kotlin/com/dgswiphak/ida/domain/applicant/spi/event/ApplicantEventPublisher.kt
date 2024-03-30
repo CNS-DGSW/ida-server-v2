@@ -1,7 +1,7 @@
 package com.dgswiphak.ida.domain.applicant.spi.event
 
-import com.dgswiphak.ida.domain.member.event.MemberSignedUpEvent
+import com.dgswiphak.ida.domain.member.spi.event.MemberSignedUpEvent
 
-interface ApplicantEvent {
+interface ApplicantEventPublisher {
     fun createApplicant(event: MemberSignedUpEvent)
 }

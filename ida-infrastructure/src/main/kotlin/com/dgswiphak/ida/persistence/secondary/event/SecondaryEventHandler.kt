@@ -1,6 +1,6 @@
 package com.dgswiphak.ida.persistence.secondary.event
 
-import com.dgswiphak.ida.domain.member.event.MemberSignedUpEvent
+import com.dgswiphak.ida.domain.member.spi.event.MemberSignedUpEvent
 import com.dgswiphak.ida.domain.secondary.model.Secondary
 import com.dgswiphak.ida.domain.secondary.model.value.Aptitude
 import com.dgswiphak.ida.domain.secondary.model.value.Interview

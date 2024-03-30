@@ -1,4 +1,4 @@
-package com.dgswiphak.ida.domain.member.event
+package com.dgswiphak.ida.domain.member.spi.event
 
 import com.dgswiphak.ida.common.model.MemberId
 
