@@ -14,7 +14,7 @@ data class Education(
         this.school = school
     }
 
-    fun updateTeacher(teacher: Teacher?) {
+    fun updateTeacher(teacher: Teacher) {
         this.teacher = teacher
     }
 }
