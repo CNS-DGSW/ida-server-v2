@@ -1,12 +1,13 @@
-package com.dgswiphak.ida.common.fegin.neis
+package com.dgswiphak.ida.client.neis
 
-import org.springframework.cloud.openfeign.FeignClient
-import org.springframework.web.bind.annotation.GetMapping
+import com.dgswiphak.ida.domain.school.dto.response.NeisSchoolResponse
 import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.service.annotation.GetExchange
+import org.springframework.web.service.annotation.HttpExchange
 
-@FeignClient(name = "neis", url = "https://open.neis.go.kr/hub")
+@HttpExchange(url = "https://open.neis.go.kr/hub")
 interface NeisClient {
-    @GetMapping("/schoolInfo?Type=json")
+    @GetExchange("/schoolInfo?Type=json")
     fun getSchoolInfo(
         @RequestParam("Key") key: String,
         @RequestParam("SCHUL_NM") schoolName: String,

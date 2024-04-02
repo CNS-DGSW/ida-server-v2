@@ -1,4 +1,4 @@
-package com.dgswiphak.ida.common.config
+package com.dgswiphak.ida.global.config
 
 import com.dgswiphak.ida.common.annotation.UseCase
 import org.springframework.context.annotation.ComponentScan

@@ -1,9 +1,9 @@
 package com.dgswiphak.ida.persistence.school.service
 
-import com.dgswiphak.ida.common.property.NeisProperties
-import com.dgswiphak.ida.domain.school.spi.service.SearchSchoolService
-import com.dgswiphak.ida.common.fegin.neis.NeisClient
+import com.dgswiphak.ida.client.neis.NeisClient
+import com.dgswiphak.ida.common.config.property.NeisProperties
 import com.dgswiphak.ida.domain.school.dto.response.NeisSchoolResponse
+import com.dgswiphak.ida.domain.school.spi.service.SearchSchoolService
 import com.dgswiphak.ida.domain.school.dto.response.SchoolResponse
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.stereotype.Service

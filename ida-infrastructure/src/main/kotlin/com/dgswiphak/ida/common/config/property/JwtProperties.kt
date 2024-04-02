@@ -1,4 +1,4 @@
-package com.dgswiphak.ida.common.property
+package com.dgswiphak.ida.common.config.property
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 

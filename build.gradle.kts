@@ -1,43 +1,21 @@
 plugins {
-    kotlin("jvm") version PluginVersions.JVM_VERSION
+    //alias(libs.plugins.kotlin.jvm)
+    kotlin("jvm") version "1.9.21"
 }
 
-repositories {
-    mavenCentral()
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
-
-tasks.withType<Test> {
-    useJUnitPlatform()
-}
-
-group = "com.dgswiphak"
-version = "1.0-SNAPSHOT"
+repositories { mavenCentral() }
 
 subprojects {
+    group = "com.dgswiphak"
+    version = "0.0.1-SNAPSHOT"
+
     apply {
         plugin("org.jetbrains.kotlin.jvm")
-        version = PluginVersions.JVM_VERSION
     }
 
     apply {
         plugin("org.jetbrains.kotlin.kapt")
-        version = PluginVersions.KAPT_VERSION
     }
-
-    dependencies {
-        implementationDependencies(Libraries.Kotlin)
-        implementationDependencies(Libraries.Jackson)
-        implementationDependencies(Libraries.Test)
-    }
-}
-
-allprojects {
-    group = "com.dgswiphak"
-    version = "0.0.1-SNAPSHOT"
 
     tasks {
         compileKotlin {
@@ -59,8 +37,11 @@ allprojects {
     repositories {
         mavenCentral()
     }
-}
 
-tasks.getByName<Jar>("jar") {
-    enabled = false
+    dependencies {
+        val libs = rootProject.libs
+
+        implementation(libs.bundles.kotlin)
+        implementation(libs.bundles.jackson)
+    }
 }

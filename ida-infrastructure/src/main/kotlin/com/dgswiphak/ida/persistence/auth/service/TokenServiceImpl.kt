@@ -1,6 +1,6 @@
 package com.dgswiphak.ida.persistence.auth.service
 
-import com.dgswiphak.ida.common.property.JwtProperties
+import com.dgswiphak.ida.common.config.property.JwtProperties
 import com.dgswiphak.ida.domain.auth.exception.ExpiredTokenException
 import com.dgswiphak.ida.domain.auth.exception.InvalidTokenException
 import com.dgswiphak.ida.domain.auth.model.TokenType

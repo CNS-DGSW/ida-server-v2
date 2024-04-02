@@ -1,7 +1,5 @@
 plugins {
-    kotlin("plugin.allopen") version PluginVersions.ALLOPEN_VERSION
+    alias(libs.plugins.allopen)
 }
 
-allOpen {
-    annotation("com.dgswiphak.ida.common.annotation.UseCase")
-}
+allOpen { annotation("com.dgswiphak.ida.common.annotation.UseCase") }
