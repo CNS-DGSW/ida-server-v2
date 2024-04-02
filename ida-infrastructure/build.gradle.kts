@@ -8,6 +8,8 @@ plugins {
 dependencies {
 	implementation(project(":ida-domain"))
 
+	implementation(libs.spring.web)
+
 	implementation(libs.connector.mysql)
 	implementation(libs.redis)
 
