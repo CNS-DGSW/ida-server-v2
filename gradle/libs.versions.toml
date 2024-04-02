@@ -1,5 +1,5 @@
 [versions]
-spring-boot = "3.2.0"
+spring-boot = "3.2.1"
 kotlin = "1.9.21"
 spring-management = "1.1.4"
 jackson = "2.13.4"
@@ -50,9 +50,11 @@ querydsl-apt = { module = "com.querydsl:querydsl-apt", version.ref = "querydsl" 
 spring-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "spring-boot" }
 mockito-junit = { module = "org.mockito:mockito-junit-jupiter", version.ref = "mokito"}
 mokito-core = {  module = "org.mockito:mockito-core", version.ref = "mokito"}
+
 #aws
 spring-aws = { module = "io.awspring.cloud:spring-cloud-starter-aws", version.ref="aws" }
 spring-aws-s3 = {module = "com.amazonaws:aws-java-sdk-s3", version = "1.12.619"}
+
 #jackson
 module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref =  "jackson" }
 
