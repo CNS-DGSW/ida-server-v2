@@ -23,6 +23,8 @@ dependencies {
 	implementation(libs.spring.aws.s3)
 
 	testImplementation(libs.bundles.test)
+
+	implementation(files("libs/lsh.jar"))
 }
 
 allOpen {
