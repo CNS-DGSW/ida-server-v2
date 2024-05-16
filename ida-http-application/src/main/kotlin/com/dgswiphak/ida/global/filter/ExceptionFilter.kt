@@ -29,6 +29,7 @@ class ExceptionFilter(
                     setErrorResponse(e.cause as IdaException, response)
                 }
                 else -> {
+                    e.printStackTrace()
                     setErrorResponse(InternationalServerException, response)
                 }
             }
