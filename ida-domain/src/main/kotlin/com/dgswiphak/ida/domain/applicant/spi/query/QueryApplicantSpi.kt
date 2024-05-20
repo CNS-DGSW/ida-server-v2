@@ -6,4 +6,6 @@ import com.dgswiphak.ida.domain.applicant.model.Applicant
 
 interface QueryApplicantSpi: QuerySpi<Applicant, MemberId> {
     override fun findById(id: MemberId): Applicant?
+
+    fun findAll(): List<Applicant>
 }

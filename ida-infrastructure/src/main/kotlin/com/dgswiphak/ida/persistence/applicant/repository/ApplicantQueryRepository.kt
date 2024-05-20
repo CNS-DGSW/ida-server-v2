@@ -21,4 +21,14 @@ class ApplicantQueryRepository(
 
         return applicantMapper.toDomain(applicant)
     }
+
+    override fun findAll(): List<Applicant> {
+        val applicantEntity = QApplicantEntity.applicantEntity
+        val applicant = jpaQueryFactory.selectFrom(applicantEntity)
+            .fetch()
+
+        return applicant.map {
+            applicantMapper.toDomain(it)
+        }
+    }
 }
