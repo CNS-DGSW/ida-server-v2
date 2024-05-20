@@ -26,6 +26,7 @@ class WebSecurityConfiguration(
         http.authorizeHttpRequests {
             it
                 .requestMatchers("/applicant/**").hasRole(Role.ROLE_APPLICANT.role)
+                .requestMatchers("/admin/**").hasRole(Role.ROLE_TEACHER.role)
                 .requestMatchers(HttpMethod.POST,"/notice").hasRole(Role.ROLE_TEACHER.role)
                 .requestMatchers(HttpMethod.PATCH,"/notice/{notice-id}").hasRole(Role.ROLE_TEACHER.role)
                 .requestMatchers(HttpMethod.DELETE,"/notice/{notice-id}").hasRole(Role.ROLE_TEACHER.role)
