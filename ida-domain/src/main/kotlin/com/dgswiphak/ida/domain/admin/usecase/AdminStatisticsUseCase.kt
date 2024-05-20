@@ -73,9 +73,6 @@ class AdminStatisticsUseCase(
                         else info.expectedFemale++
                     }
                 }
-                info.male = info.graduatedMale + info.expectedMale
-                info.female = info.graduatedFemale + info.expectedFemale
-                info.total = info.male + info.female
             }
         }
         userSchoolCityInfoList.sortBy { it.index }
