@@ -3,7 +3,7 @@ package com.dgswiphak.ida.domain.applicant.usecase
 import com.dgswiphak.ida.common.annotation.UseCase
 import com.dgswiphak.ida.common.model.MemberId
 import com.dgswiphak.ida.common.model.PhoneNumber
-import com.dgswiphak.ida.domain.applicant.domain.value.privacy.Privacy
+import com.dgswiphak.ida.domain.applicant.model.value.privacy.Privacy
 import com.dgswiphak.ida.domain.applicant.dto.request.UpdateApplicantInfoRequest
 import com.dgswiphak.ida.domain.applicant.dto.response.ApplicantInfoResponse
 import com.dgswiphak.ida.domain.applicant.spi.query.CommandApplicantSpi
@@ -20,7 +20,7 @@ class ApplicantInfoUseCase(
             Privacy(
                 name = request.name,
                 birth = request.birth,
-                phone = PhoneNumber.of(request.phoneNumber),
+                phone = PhoneNumber(request.phoneNumber),
                 gender = request.gender
             )
         )

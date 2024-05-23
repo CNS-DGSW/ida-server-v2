@@ -1,9 +1,9 @@
 package com.dgswiphak.ida.domain.applicant.dto.request
 
 import com.dgswiphak.ida.common.model.PhoneNumber
-import com.dgswiphak.ida.domain.applicant.domain.value.education.value.Teacher
-import com.dgswiphak.ida.domain.applicant.domain.value.education.value.type.GraduationType
-import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.SchoolCode
+import com.dgswiphak.ida.domain.applicant.model.value.education.value.Teacher
+import com.dgswiphak.ida.domain.applicant.model.value.education.value.type.GraduationType
+import com.dgswiphak.ida.common.model.SchoolCode
 import com.dgswiphak.ida.domain.school.model.School
 
 data class UpdateApplicantEducationRequest(
@@ -15,14 +15,14 @@ data class UpdateApplicantEducationRequest(
     val code: String,
     val contact: String,
     val teacherName: String,
-    val teacherContact: String
+    val teacherPhone: String
 ) {
     fun toSchool(): School {
         return School(
             name = schoolName,
             state = state,
             city = city,
-            code = SchoolCode.of(code),
+            code = SchoolCode(code),
             contact = PhoneNumber(contact)
         )
     }
@@ -30,7 +30,7 @@ data class UpdateApplicantEducationRequest(
     fun toTeacher(): Teacher {
         return Teacher(
             name = teacherName,
-            contact = PhoneNumber.of(teacherContact)
+            contact = PhoneNumber(teacherPhone)
         )
     }
 }

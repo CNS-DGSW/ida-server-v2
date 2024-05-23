@@ -5,7 +5,7 @@ import com.dgswiphak.ida.common.dto.FileRequest
 import com.dgswiphak.ida.common.file.FileService
 import com.dgswiphak.ida.common.model.MemberId
 import com.dgswiphak.ida.common.util.FileUtil
-import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.Photo
+import com.dgswiphak.ida.common.model.Photo
 import com.dgswiphak.ida.domain.applicant.spi.query.CommandApplicantSpi
 import com.dgswiphak.ida.domain.applicant.spi.query.QueryApplicantSpi
 
@@ -22,7 +22,11 @@ class ApplicantPhotoUseCase(
         if (!FileUtil.isValidPhotoExtension(file.contentType)) throw RuntimeException("Invalid photo extension: ${file.contentType}")
         val applicant = queryApplicantSpi.findById(memberId) ?: throw RuntimeException()
         fileService.upload(file).also {
-            applicant.privacy.updatePhoto(Photo.of(it))
+            applicant.privacy.updatePhoto(
+                Photo(
+                    value = it
+                )
+            )
         }
         commandApplicantSpi.save(applicant)
     }
@@ -32,10 +36,6 @@ class ApplicantPhotoUseCase(
     ): String? {
         val applicant = queryApplicantSpi.findById(memberId) ?: throw RuntimeException()
         val photo = applicant.privacy.photo
-        if (photo?.filepath == null) {
-            return null
-        }
-
-        return photo.filepath
+        return photo?.value
     }
 }
