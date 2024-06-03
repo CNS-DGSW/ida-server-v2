@@ -1,6 +1,5 @@
 package com.dgswiphak.ida.persistence.school.entity
 
-import com.dgswiphak.ida.common.convert.PhoneNumberConvert
 import com.dgswiphak.ida.common.model.PhoneNumber
 import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.value.SchoolCodeVO
 import jakarta.persistence.*
@@ -8,18 +7,29 @@ import jakarta.persistence.*
 @Entity
 @Table(name = "school")
 class SchoolEntity(
+    id: Long,
+    name: String,
+    state: String,
+    city: String,
+    code: SchoolCodeVO,
+    contact: PhoneNumber
+) {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
+    var id: Long? = id
 
-    val name: String,
+    var name: String = name
+        protected set
 
-    val state: String,
+    var state: String = state
+        protected set
 
-    val city: String,
+    var city: String = city
+        protected set
 
     @Embedded
-    val code: SchoolCodeVO,
+    var code: SchoolCodeVO = code
+        protected set
 
-    @Convert(converter = PhoneNumberConvert::class)
-    val contact: PhoneNumber
-)
+    var contact: PhoneNumber = contact
+        protected set
+}
