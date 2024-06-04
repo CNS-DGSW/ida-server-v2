@@ -1,13 +1,20 @@
 package com.dgswiphak.ida.domain.school.model
 
 import com.dgswiphak.ida.common.model.PhoneNumber
-import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.SchoolCode
+import com.dgswiphak.ida.common.model.SchoolCode
 
-data class School(
-    val id: Long? = null,
-    val name: String,
-    val state: String,
-    val city: String,
-    val code: SchoolCode,
-    val contact: PhoneNumber,
-)
+class School(
+    id: Long? = 0,
+    name: String,
+    state: String,
+    city: String,
+    code: SchoolCode,
+    contact: PhoneNumber,
+) {
+    val id = id
+    val name = name
+    val state = state
+    val city = city
+    val code = code
+    val contact = contact
+}

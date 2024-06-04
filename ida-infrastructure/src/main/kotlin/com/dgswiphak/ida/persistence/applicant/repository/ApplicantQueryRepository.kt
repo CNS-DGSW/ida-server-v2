@@ -1,7 +1,7 @@
 package com.dgswiphak.ida.persistence.applicant.repository
 
 import com.dgswiphak.ida.common.model.MemberId
-import com.dgswiphak.ida.domain.applicant.domain.Applicant
+import com.dgswiphak.ida.domain.applicant.model.Applicant
 import com.dgswiphak.ida.domain.applicant.spi.query.QueryApplicantSpi
 import com.dgswiphak.ida.persistence.applicant.entity.QApplicantEntity
 import com.dgswiphak.ida.persistence.applicant.mapper.ApplicantMapper

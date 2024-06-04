@@ -1,40 +1,46 @@
 package com.dgswiphak.ida.persistence.applicant.entity.value.privacy
 
-import com.dgswiphak.ida.common.convert.PhoneNumberConvert
-import com.dgswiphak.ida.common.convert.PhotoConverter
 import com.dgswiphak.ida.common.model.PhoneNumber
-import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.Photo
-import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.type.Gender
+import com.dgswiphak.ida.common.model.Photo
+import com.dgswiphak.ida.domain.applicant.model.value.privacy.value.type.Gender
 import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.value.AddressVO
 import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.value.MeritVO
 import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.value.ParentVO
 import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.value.SchoolCodeVO
 import jakarta.persistence.*
-import java.io.Serial
-import java.io.Serializable
-import java.time.LocalDate
+import java.time.Instant
 
 @Embeddable
-class EmbeddedPrivacy(
+data class EmbeddedPrivacy(
+    @Column
     val name: String?,
-    val birth: LocalDate?,
+
+    @Column
+    val birth: Instant?,
+
+    @Column
     @Enumerated(EnumType.STRING)
     val gender: Gender?,
-    @Convert(converter = PhoneNumberConvert::class)
+
+    @Column
     val phone: PhoneNumber?,
-    @Convert(converter = PhotoConverter::class)
+
+    @Column
     val photo: Photo?,
+
+    @Column
     @Embedded
-    val school: SchoolCodeVO?,
+    val schoolCode: SchoolCodeVO?,
+
+    @Column
     @Embedded
     val address: AddressVO?,
+
+    @Column
     @Embedded
     val parent: ParentVO?,
+
+    @Column
     @Embedded
-    val merit: MeritVO?,
-): Serializable {
-    companion object {
-        @Serial
-        private const val serialVersionUID: Long = -4349377963218637774L
-    }
-}
+    val merit: MeritVO?
+)

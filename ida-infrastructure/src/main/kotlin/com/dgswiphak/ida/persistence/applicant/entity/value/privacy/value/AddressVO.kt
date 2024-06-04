@@ -1,17 +1,16 @@
 package com.dgswiphak.ida.persistence.applicant.entity.value.privacy.value
 
+import jakarta.persistence.Column
 import jakarta.persistence.Embeddable
-import java.io.Serial
-import java.io.Serializable
 
 @Embeddable
-class AddressVO(
+data class AddressVO(
+    @Column()
     val detailAddress: String,
+
+    @Column
     val streetAddress: String,
-    val zipCode: Int? = -1
-): Serializable {
-    companion object {
-        @Serial
-        private const val serialVersionUID: Long = -33412312337772123L
-    }
-}
+
+    @Column
+    val zipCode: Int
+)

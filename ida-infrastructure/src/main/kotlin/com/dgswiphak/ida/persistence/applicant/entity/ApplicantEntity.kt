@@ -6,15 +6,24 @@ import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.EmbeddedPriv
 import jakarta.persistence.Embedded
 import jakarta.persistence.EmbeddedId
 import jakarta.persistence.Entity
+import jakarta.persistence.Table
 
-@Entity(name = "applicant")
+@Entity
+@Table(name = "applicant")
 class ApplicantEntity(
+    id: EmbeddedMemberId,
+    privacy: EmbeddedPrivacy?,
+    education: EmbeddedEducation?
+) {
     @EmbeddedId
-    val id: EmbeddedMemberId,
+    var id: EmbeddedMemberId = id
+        protected set
 
     @Embedded
-    val privacy: EmbeddedPrivacy?,
+    var privacy: EmbeddedPrivacy? = privacy
+        protected set
 
     @Embedded
-    val education: EmbeddedEducation?
-)
+    var education: EmbeddedEducation? = education
+        protected set
+}

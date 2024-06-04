@@ -1,31 +1,32 @@
 package com.dgswiphak.ida.domain.applicant.dto.request
 
 import com.dgswiphak.ida.common.model.PhoneNumber
-import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.Address
-import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.Parent
+import com.dgswiphak.ida.domain.applicant.model.value.privacy.value.Address
+import com.dgswiphak.ida.domain.applicant.model.value.privacy.value.Parent
 import com.fasterxml.jackson.annotation.JsonFormat
-import java.time.LocalDate
+import java.time.Instant
 
 data class UpdateParentInfoRequest(
-    var name: String,
-    var relation: String,
+    val name: String,
+
+    val relation: String,
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    var birth: LocalDate,
+    val birth: Instant,
 
-    var telephone: String,
+    val phone: String,
 
-    var streetAddress: String,
+    val streetAddress: String,
 
-    var detailAddress: String,
+    val detailAddress: String,
 
-    var zipCode: Int
+    val zipCode: Int
 ) {
     fun toParent(): Parent {
         return Parent(
             name = name,
             relation = relation,
-            phone = PhoneNumber.of(telephone),
+            phone = PhoneNumber(phone),
             brith = birth
         )
     }

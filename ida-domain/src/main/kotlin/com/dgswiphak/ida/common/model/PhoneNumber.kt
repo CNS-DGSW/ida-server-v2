@@ -1,11 +1,10 @@
 package com.dgswiphak.ida.common.model
 
-data class PhoneNumber(
-    val number: String
+@JvmInline
+value class PhoneNumber(
+    val value: String
 ) {
-    companion object {
-        fun of(number: String) : PhoneNumber {
-            return PhoneNumber(number)
-        }
+    init {
+        if (value.isBlank()) throw IllegalArgumentException("Phone number must not be empty")
     }
 }

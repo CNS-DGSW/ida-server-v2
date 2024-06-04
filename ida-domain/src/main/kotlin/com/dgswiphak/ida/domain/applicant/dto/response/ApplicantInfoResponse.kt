@@ -1,18 +1,20 @@
 package com.dgswiphak.ida.domain.applicant.dto.response
 
-import com.dgswiphak.ida.domain.applicant.domain.value.privacy.Privacy
-import java.time.LocalDate
+import com.dgswiphak.ida.domain.applicant.model.value.privacy.Privacy
+import com.fasterxml.jackson.annotation.JsonFormat
+import java.time.Instant
 
 data class ApplicantInfoResponse(
-    val name: String,
-    val birth: LocalDate?,
-    val phoneNumber: String,
+    val name: String? = "",
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    val birth: Instant?,
+    val phoneNumber: String? = "",
     val gender: String
 ) {
-    constructor(privacy: Privacy) : this(
-        name = privacy.name ?: "",
-        birth = privacy.birth,
-        phoneNumber = privacy.phone?.number ?: "",
-        gender = privacy.gender?.name ?: ""
+    constructor(privacy: Privacy?) : this(
+        name = privacy?.name,
+        birth = privacy?.birth,
+        phoneNumber = privacy?.phone?.value,
+        gender = privacy?.gender!!.value
     )
 }
