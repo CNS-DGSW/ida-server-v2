@@ -1,6 +1,7 @@
 package com.dgswiphak.ida.persistence.school.entity
 
 import com.dgswiphak.ida.common.model.PhoneNumber
+import com.dgswiphak.ida.persistence.BaseTimeEntity
 import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.value.SchoolCodeVO
 import jakarta.persistence.*
 
@@ -13,7 +14,7 @@ class SchoolEntity(
     city: String,
     code: SchoolCodeVO,
     contact: PhoneNumber
-) {
+) : BaseTimeEntity() {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = id
 
