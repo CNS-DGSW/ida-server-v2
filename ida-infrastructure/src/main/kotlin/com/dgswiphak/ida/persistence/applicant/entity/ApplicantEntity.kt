@@ -1,6 +1,7 @@
 package com.dgswiphak.ida.persistence.applicant.entity
 
 import com.dgswiphak.ida.common.embbed.EmbeddedMemberId
+import com.dgswiphak.ida.persistence.BaseTimeEntity
 import com.dgswiphak.ida.persistence.applicant.entity.value.education.EmbeddedEducation
 import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.EmbeddedPrivacy
 import jakarta.persistence.Embedded
@@ -14,7 +15,7 @@ class ApplicantEntity(
     id: EmbeddedMemberId,
     privacy: EmbeddedPrivacy?,
     education: EmbeddedEducation?
-) {
+) : BaseTimeEntity() {
     @EmbeddedId
     var id: EmbeddedMemberId = id
         protected set
