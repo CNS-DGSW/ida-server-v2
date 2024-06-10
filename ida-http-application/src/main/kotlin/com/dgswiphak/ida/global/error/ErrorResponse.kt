@@ -8,7 +8,9 @@ class ErrorResponse(
 ) {
     companion object {
         fun of(errorProperty: ErrorProperty): ErrorResponse {
-            return ErrorResponse(errorProperty.status(), errorProperty.message())
+            return ErrorResponse(
+                status = errorProperty.status(),
+                message =  errorProperty.message())
         }
     }
 }
