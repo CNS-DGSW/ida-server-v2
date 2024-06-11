@@ -1,6 +1,5 @@
 package com.dgswiphak.ida.persistence.notice.entity
 
-import com.dgswiphak.ida.persistence.BaseTimeEntity
 import com.dgswiphak.ida.persistence.notice.entity.value.AttachedVO
 import jakarta.persistence.*
 import java.time.LocalDateTime
@@ -23,4 +22,4 @@ class NoticeEntity(
     @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "notice_attached")
     val attachedVO: List<AttachedVO>? = null
-) : BaseTimeEntity()
+)

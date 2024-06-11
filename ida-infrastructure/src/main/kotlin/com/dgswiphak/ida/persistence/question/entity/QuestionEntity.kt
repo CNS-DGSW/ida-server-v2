@@ -1,6 +1,5 @@
 package com.dgswiphak.ida.persistence.question.entity
 
-import com.dgswiphak.ida.persistence.BaseTimeEntity
 import jakarta.persistence.*
 import java.time.LocalDateTime
 
@@ -14,4 +13,4 @@ class QuestionEntity(
     val title: String,
 
     val content: String
-) : BaseTimeEntity()
+)

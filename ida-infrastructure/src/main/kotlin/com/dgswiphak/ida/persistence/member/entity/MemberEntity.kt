@@ -3,7 +3,6 @@ package com.dgswiphak.ida.persistence.member.entity
 import com.dgswiphak.ida.domain.member.model.value.Password
 import com.dgswiphak.ida.domain.member.model.value.Role
 import com.dgswiphak.ida.common.embbed.EmbeddedMemberId
-import com.dgswiphak.ida.persistence.BaseTimeEntity
 import jakarta.persistence.*
 
 @Entity
@@ -18,4 +17,4 @@ class MemberEntity (
 
    @Enumerated(EnumType.STRING)
    val role: Role
-) : BaseTimeEntity()
+)
