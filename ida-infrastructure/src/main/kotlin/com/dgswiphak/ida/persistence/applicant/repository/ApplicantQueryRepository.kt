@@ -28,7 +28,7 @@ class ApplicantQueryRepository(
             .fetch()
 
         return applicant.map {
-            applicantMapper.toDomain(it)
+            applicantMapper.toDomain(it)!!
         }
     }
 }

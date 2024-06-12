@@ -1,7 +1,7 @@
 package com.dgswiphak.ida.domain.admin.dto
 
 data class UserSchoolCityInfoResponse(
-    val index: Long,
+    val index: Int,
     val city: String,
     val schoolName: String,
     var graduatedMale: Int = 0,

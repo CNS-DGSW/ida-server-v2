@@ -3,9 +3,9 @@ package com.dgswiphak.ida.domain.admin.usecase
 import com.dgswiphak.ida.common.annotation.UseCase
 import com.dgswiphak.ida.domain.admin.dto.AdmissionCompetitionRateResponse
 import com.dgswiphak.ida.domain.admin.dto.UserSchoolCityInfoResponse
-import com.dgswiphak.ida.domain.applicant.domain.value.education.value.type.GraduationType.*
-import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.type.Gender.FEMALE
-import com.dgswiphak.ida.domain.applicant.domain.value.privacy.value.type.Gender.MALE
+import com.dgswiphak.ida.domain.applicant.model.value.education.value.type.GraduationType.*
+import com.dgswiphak.ida.domain.applicant.model.value.privacy.value.type.Gender.FEMALE
+import com.dgswiphak.ida.domain.applicant.model.value.privacy.value.type.Gender.MALE
 import com.dgswiphak.ida.domain.applicant.spi.query.QueryApplicantSpi
 
 @UseCase
@@ -16,23 +16,21 @@ class AdminStatisticsUseCase(
     fun getApplicantCompetitionRate(): AdmissionCompetitionRateResponse {
         val applicants = queryApplicantSpi.findAll()
         val info = AdmissionCompetitionRateResponse()
-        applicants.map {
-            if (it.education.graduationType != null) {
-                when (it.privacy.gender!!) {
-                    MALE -> {
-                        when (it.education.graduationType!!) {
-                            EXPECTED -> info.expectedMale
-                            GRADUATED -> info.graduatedMale
-                            GED -> info.gedMale
-                        }
+        applicants.forEach {
+            when (it.privacy.gender!!) {
+                MALE -> {
+                    when (it.education.graduationType) {
+                        EXPECTED -> info.expectedMale++
+                        GRADUATED -> info.graduatedMale++
+                        GED -> info.gedMale++
                     }
+                }
 
-                    FEMALE -> {
-                        when (it.education.graduationType!!) {
-                            EXPECTED -> info.expectedFemale
-                            GRADUATED -> info.graduatedFemale
-                            GED -> info.gedFemale
-                        }
+                FEMALE -> {
+                    when (it.education.graduationType) {
+                        EXPECTED -> info.expectedFemale++
+                        GRADUATED -> info.graduatedFemale++
+                        GED -> info.gedFemale++
                     }
                 }
             }
@@ -47,8 +45,8 @@ class AdminStatisticsUseCase(
     fun getSchoolOriginByRegion(): List<UserSchoolCityInfoResponse> {
         val applicants = queryApplicantSpi.findAll()
         val userSchoolCityInfoList: MutableList<UserSchoolCityInfoResponse> = mutableListOf()
-        var index: Long = 1
-        applicants.map { applicant ->
+        var index = 1
+        applicants.forEach { applicant ->
             val school = applicant.education.school
             if (school != null && applicant.education.graduationType != GED) {
                 var info: UserSchoolCityInfoResponse? = userSchoolCityInfoList.find {
