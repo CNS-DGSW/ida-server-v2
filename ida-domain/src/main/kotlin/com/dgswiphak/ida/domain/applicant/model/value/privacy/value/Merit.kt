@@ -4,6 +4,6 @@ data class Merit(
     val code: String
 ) {
     init {
-        if (code.isNotBlank()) throw IllegalArgumentException("Merit code cannot be blank.")
+        if (code.isBlank()) throw IllegalArgumentException("Merit code cannot be blank.")
     }
 }

@@ -7,6 +7,6 @@ data class Teacher(
     val contact: PhoneNumber
 ) {
     init {
-        if (name.isNotBlank()) throw IllegalArgumentException("Teacher name cannot be blank.")
+        if (name.isBlank()) throw IllegalArgumentException("Teacher name cannot be blank.")
     }
 }
