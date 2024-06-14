@@ -49,8 +49,6 @@ querydsl-apt = { module = "com.querydsl:querydsl-apt", version.ref = "querydsl" 
 
 ## test
 spring-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "spring-boot" }
-mockito-junit = { module = "org.mockito:mockito-junit-jupiter", version.ref = "mokito"}
-mokito-core = {  module = "org.mockito:mockito-core", version.ref = "mokito"}
 
 kotest = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
 kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest"}
@@ -65,7 +63,7 @@ module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin",
 
 [bundles]
 spring = ["spring-web", "spring-security", "spring-validation"]
-test = ["spring-starter-test", "mockito-junit", "mokito-core", "kotest", "kotest-assertions-core", "mockk"]
+test = ["spring-starter-test", "kotest", "kotest-assertions-core", "mockk"]
 kotlin = ["kotlin-stdlib", "kotlin-reflect"]
 jackson = ["module-kotlin"]
 jjwt-impl = ["jjwt-api"]
