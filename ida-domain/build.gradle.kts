@@ -3,3 +3,8 @@ plugins {
 }
 
 allOpen { annotation("com.dgswiphak.ida.common.annotation.UseCase") }
+
+dependencies {
+    testImplementation(libs.kotest)
+    testImplementation(libs.mockk)
+}
