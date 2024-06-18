@@ -2,6 +2,7 @@ package com.dgswiphak.ida.domain.applicant.dto.response
 
 import com.dgswiphak.ida.domain.applicant.model.value.privacy.Privacy
 import com.fasterxml.jackson.annotation.JsonFormat
+import jakarta.validation.Valid
 import jakarta.validation.constraints.NotBlank
 import java.time.Instant
 

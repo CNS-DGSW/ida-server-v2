@@ -2,6 +2,7 @@ package com.dgswiphak.ida.aggregate.member
 
 import com.dgswiphak.ida.domain.member.dto.SingUpMemberRequest
 import com.dgswiphak.ida.domain.member.usecase.SingUpMemberUseCase
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -17,7 +18,7 @@ class MemberController(
     @PostMapping("/signUp")
     @ResponseStatus(HttpStatus.CREATED)
     fun sighUpMember(
-        @RequestBody request: SingUpMemberRequest
+        @Valid @RequestBody request: SingUpMemberRequest
     ) {
         signUpMemberUseCase.execute(request)
     }

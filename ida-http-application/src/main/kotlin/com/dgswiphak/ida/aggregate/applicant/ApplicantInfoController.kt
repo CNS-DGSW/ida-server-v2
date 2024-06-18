@@ -5,6 +5,7 @@ import com.dgswiphak.ida.domain.applicant.dto.request.UpdateApplicantInfoRequest
 import com.dgswiphak.ida.domain.applicant.dto.response.ApplicantInfoResponse
 import com.dgswiphak.ida.domain.applicant.usecase.ApplicantInfoUseCase
 import com.dgswiphak.ida.global.auth.annotation.AuthenticatedPrincipalId
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PutMapping
@@ -22,7 +23,7 @@ class ApplicantInfoController(
     @ResponseStatus(HttpStatus.OK)
     fun updateInfo(
         @AuthenticatedPrincipalId memberId: MemberId,
-        @RequestBody request: UpdateApplicantInfoRequest
+        @Valid @RequestBody request: UpdateApplicantInfoRequest
     ) {
         applicantInfoUseCase.updateInformation(memberId, request)
     }

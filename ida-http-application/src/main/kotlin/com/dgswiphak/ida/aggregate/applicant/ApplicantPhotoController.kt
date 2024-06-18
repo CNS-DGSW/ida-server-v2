@@ -4,6 +4,7 @@ import com.dgswiphak.ida.common.dto.FileRequest
 import com.dgswiphak.ida.common.model.MemberId
 import com.dgswiphak.ida.domain.applicant.usecase.ApplicantPhotoUseCase
 import com.dgswiphak.ida.global.auth.annotation.AuthenticatedPrincipalId
+import jakarta.validation.constraints.NotNull
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.GetMapping
@@ -22,8 +23,8 @@ class ApplicantPhotoController(
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
     fun updatePhoto(
-        @AuthenticatedPrincipalId memberId: MemberId,
-        @RequestParam(value = "photo", required = true) photo: MultipartFile
+        @NotNull(message = "member id is required") @AuthenticatedPrincipalId memberId: MemberId,
+        @NotNull(message = "file is required") @RequestParam(value = "photo", required = true) photo: MultipartFile
     ) {
         return applicantPhotoUseCase.updatePhoto(
             memberId,
@@ -34,7 +35,7 @@ class ApplicantPhotoController(
     @GetMapping(produces = [MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE])
     @ResponseStatus(HttpStatus.OK)
     fun findPhoto(
-        @AuthenticatedPrincipalId memberId: MemberId,
+        @NotNull @AuthenticatedPrincipalId memberId: MemberId,
     ): String? {
         return applicantPhotoUseCase.findPhoto(memberId)
     }

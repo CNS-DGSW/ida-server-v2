@@ -1,7 +1,8 @@
 package com.dgswiphak.ida.aggregate.notice
 
 import com.dgswiphak.ida.common.dto.FileRequest import com.dgswiphak.ida.domain.notice.usecase.NoticeAttachedUseCase
-import org.jetbrains.annotations.NotNull
+import jakarta.validation.Valid
+import jakarta.validation.constraints.NotNull
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.multipart.MultipartFile
@@ -15,8 +16,8 @@ class NoticeAttachedController(
     @PutMapping("/{notice-id}")
     @ResponseStatus(HttpStatus.CREATED)
     fun saveAttached(
-        @PathVariable("notice-id") @NotNull noticeId: Long,
-        @RequestPart(value = "files") multipartFile: List<MultipartFile>
+        @PathVariable("notice-id") @NotNull(message = "id is required") noticeId: Long,
+        @NotNull(message = "file is required") @RequestPart(value = "files") multipartFile: List<MultipartFile>
     ) {
         val fileRequest = multipartFile.map {
             FileRequest(
@@ -31,8 +32,8 @@ class NoticeAttachedController(
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{notice-id}/{file-name}")
     fun deleteAttached(
-        @PathVariable("notice-id") @NotNull noticeId: Long,
-        @PathVariable("file-name") @NotNull fileName: String
+        @PathVariable("notice-id") @NotNull(message = "id is required") noticeId: Long,
+        @PathVariable("file-name") @NotNull(message = "file name is required") fileName: String
     ) {
         noticeAttachedUseCase.delete(noticeId, fileName)
     }

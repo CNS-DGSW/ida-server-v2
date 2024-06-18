@@ -2,6 +2,7 @@ package com.dgswiphak.ida.aggregate.notice
 
 import com.dgswiphak.ida.common.dto.FileRequest
 import com.dgswiphak.ida.domain.notice.usecase.NoticeImageUseCase
+import jakarta.validation.constraints.NotNull
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.multipart.MultipartFile
@@ -14,7 +15,7 @@ class NoticeImageController(
 
     @PutMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    fun imageSave(@RequestPart("file") multipartFile: MultipartFile): String {
+    fun imageSave( @NotNull(message = "file is required") @RequestPart("file") multipartFile: MultipartFile): String {
         return noticeImageUseCase.saveImage(
             FileRequest(
                 multipartFile.originalFilename!!,
