@@ -2,9 +2,11 @@ package com.dgswiphak.ida.domain.school.dto.response
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
+import jakarta.validation.constraints.NotNull
 
 data class NeisSchoolResponse(
     @get:JsonIgnoreProperties(ignoreUnknown = true)
+    @field:NotNull(message = "school info list is required")
     val schoolInfo: List<SchoolInfo>?
 ) {
     data class SchoolInfo(
@@ -13,6 +15,7 @@ data class NeisSchoolResponse(
     ) {
         data class Head(
             @JsonProperty("list_total_count")
+            @field:NotNull(message = "list total count is required")
             val listTotalCount: Int,
             @JsonProperty("RESULT")
             val result: RESULT?
