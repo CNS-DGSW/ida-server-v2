@@ -3,3 +3,7 @@ plugins {
 }
 
 allOpen { annotation("com.dgswiphak.ida.common.annotation.UseCase") }
+
+dependencies{
+    implementation(libs.spring.validation)
+}
