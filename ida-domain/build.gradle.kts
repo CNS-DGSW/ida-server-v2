@@ -1,9 +1,6 @@
-plugins {
-    alias(libs.plugins.allopen)
+dependencies {
+    testImplementation(libs.bundles.test)
 }
-
-allOpen { annotation("com.dgswiphak.ida.common.annotation.UseCase") }
-
 dependencies{
     implementation(libs.spring.validation)
 }

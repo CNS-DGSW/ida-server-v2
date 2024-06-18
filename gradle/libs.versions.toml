@@ -8,7 +8,8 @@ querydsl = "5.0.0"
 mysql = "8.2.0"
 jjwt = "0.11.5"
 aws = "2.4.4"
-
+kotest = "5.8.1"
+mockk = "1.13.11"
 
 [plugins]
 spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
@@ -48,8 +49,10 @@ querydsl-apt = { module = "com.querydsl:querydsl-apt", version.ref = "querydsl" 
 
 ## test
 spring-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "spring-boot" }
-mockito-junit = { module = "org.mockito:mockito-junit-jupiter", version.ref = "mokito"}
-mokito-core = {  module = "org.mockito:mockito-core", version.ref = "mokito"}
+
+kotest = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest"}
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 
 #aws
 spring-aws = { module = "io.awspring.cloud:spring-cloud-starter-aws", version.ref="aws" }
@@ -60,8 +63,9 @@ module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin",
 
 [bundles]
 spring = ["spring-web", "spring-security", "spring-validation"]
-test = ["spring-starter-test", "mockito-junit", "mokito-core"]
+test = ["spring-starter-test", "kotest", "kotest-assertions-core", "mockk"]
 kotlin = ["kotlin-stdlib", "kotlin-reflect"]
 jackson = ["module-kotlin"]
 jjwt-impl = ["jjwt-api"]
 jjwt-runtime = ["jjwt-implementation", "jjwt-jackson"]
+
