@@ -7,6 +7,7 @@ import com.dgswiphak.ida.domain.applicant.dto.request.UpdateApplicantEducationRe
 import com.dgswiphak.ida.domain.applicant.dto.response.ApplicantEducationResponse
 import com.dgswiphak.ida.domain.applicant.spi.query.CommandApplicantSpi
 import com.dgswiphak.ida.domain.applicant.spi.query.QueryApplicantSpi
+import com.dgswiphak.ida.domain.applicant.usecase.exception.ApplicationNotFoundException
 
 @UseCase
 class ApplicantEducationUseCase(
@@ -14,7 +15,7 @@ class ApplicantEducationUseCase(
     private val commandApplicantSpi: CommandApplicantSpi
 ) {
     fun updateEducation(id: MemberId, request: UpdateApplicantEducationRequest) {
-        val applicant = queryApplicantSpi.findById(id) ?: throw RuntimeException()
+        val applicant = queryApplicantSpi.findById(id) ?: throw ApplicationNotFoundException
 
         applicant.updateEducation(updateSchoolInfo(applicant.education, request))
 
@@ -22,7 +23,7 @@ class ApplicantEducationUseCase(
     }
 
     fun findEducation(id: MemberId): ApplicantEducationResponse{
-        val applicant = queryApplicantSpi.findById(id) ?: throw RuntimeException()
+        val applicant = queryApplicantSpi.findById(id) ?: throw ApplicationNotFoundException
 
         return ApplicantEducationResponse(applicant.education.graduationType, applicant.education.graduateYear, applicant.education.school, applicant.education.teacher)
     }

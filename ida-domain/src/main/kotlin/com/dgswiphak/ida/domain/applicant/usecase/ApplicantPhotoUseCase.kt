@@ -8,6 +8,8 @@ import com.dgswiphak.ida.common.util.FileUtil
 import com.dgswiphak.ida.common.model.Photo
 import com.dgswiphak.ida.domain.applicant.spi.query.CommandApplicantSpi
 import com.dgswiphak.ida.domain.applicant.spi.query.QueryApplicantSpi
+import com.dgswiphak.ida.domain.applicant.usecase.exception.ApplicantTypeException
+import com.dgswiphak.ida.domain.applicant.usecase.exception.ApplicationNotFoundException
 
 @UseCase
 class ApplicantPhotoUseCase(
@@ -19,8 +21,8 @@ class ApplicantPhotoUseCase(
         memberId: MemberId,
         file: FileRequest
     ) {
-        if (!FileUtil.isValidPhotoExtension(file.contentType)) throw RuntimeException("Invalid photo extension: ${file.contentType}")
-        val applicant = queryApplicantSpi.findById(memberId) ?: throw RuntimeException()
+        if (!FileUtil.isValidPhotoExtension(file.contentType)) throw ApplicantTypeException
+        val applicant = queryApplicantSpi.findById(memberId) ?: throw ApplicationNotFoundException
         fileService.upload(file).also {
             applicant.privacy.updatePhoto(
                 Photo(
@@ -34,7 +36,7 @@ class ApplicantPhotoUseCase(
     fun findPhoto(
         memberId: MemberId
     ): String? {
-        val applicant = queryApplicantSpi.findById(memberId) ?: throw RuntimeException()
+        val applicant = queryApplicantSpi.findById(memberId) ?: throw ApplicationNotFoundException
         val photo = applicant.privacy.photo
         return photo?.value
     }

@@ -8,6 +8,7 @@ import com.dgswiphak.ida.domain.applicant.dto.request.UpdateApplicantInfoRequest
 import com.dgswiphak.ida.domain.applicant.dto.response.ApplicantInfoResponse
 import com.dgswiphak.ida.domain.applicant.spi.query.CommandApplicantSpi
 import com.dgswiphak.ida.domain.applicant.spi.query.QueryApplicantSpi
+import com.dgswiphak.ida.domain.applicant.usecase.exception.ApplicationNotFoundException
 
 @UseCase
 class ApplicantInfoUseCase(
@@ -15,7 +16,7 @@ class ApplicantInfoUseCase(
     private val queryApplicantSpi: QueryApplicantSpi
 ) {
     fun updateInformation(id: MemberId, request: UpdateApplicantInfoRequest) {
-        val applicant = queryApplicantSpi.findById(id) ?: throw RuntimeException()
+        val applicant = queryApplicantSpi.findById(id) ?: throw ApplicationNotFoundException
         applicant.updatePrivacy(
             Privacy(
                 name = request.name,
@@ -28,7 +29,7 @@ class ApplicantInfoUseCase(
     }
 
     fun findInformation(id: MemberId) : ApplicantInfoResponse{
-        val applicant = queryApplicantSpi.findById(id) ?: throw RuntimeException()
+        val applicant = queryApplicantSpi.findById(id) ?: throw ApplicationNotFoundException
         return ApplicantInfoResponse(applicant.privacy)
     }
 }
