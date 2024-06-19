@@ -5,4 +5,5 @@ object ErrorStatus {
 
     const val NOT_FOUND = 404
     const val UNAUTHORIZED = 401
+    const val BAD_REQUEST = 400
 }
