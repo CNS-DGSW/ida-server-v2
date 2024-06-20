@@ -6,6 +6,7 @@ import com.dgswiphak.ida.global.error.GlobalErrorCode
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.http.converter.HttpMessageNotReadableException
+import org.springframework.validation.BindException
 import org.springframework.web.bind.MethodArgumentNotValidException
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
@@ -25,8 +26,8 @@ class GlobalExceptionHandler {
             .body(ErrorResponse.of(GlobalErrorCode.INTERNATIONAL_SERVER_ERROR))
     }
 
-    @ExceptionHandler(MethodArgumentNotValidException::class)
-    fun handleMethodArgumentNotValidException(ex: MethodArgumentNotValidException): ResponseEntity<ErrorResponse> {
+    @ExceptionHandler(BindException::class)
+    fun handleMethodArgumentNotValidException(ex: BindException): ResponseEntity<ErrorResponse> {
         val errorMessage = ex.bindingResult.allErrors.map { it.defaultMessage }.joinToString(", ")
         return ResponseEntity(
             ErrorResponse(status = 400, message = errorMessage ?: "Validation failed"),
