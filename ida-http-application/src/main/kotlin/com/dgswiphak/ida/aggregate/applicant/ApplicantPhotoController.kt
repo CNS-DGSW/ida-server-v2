@@ -23,8 +23,8 @@ class ApplicantPhotoController(
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
     fun updatePhoto(
-        @NotNull(message = "member id is required") @AuthenticatedPrincipalId memberId: MemberId,
-        @NotNull(message = "file is required") @RequestParam(value = "photo", required = true) photo: MultipartFile
+        @AuthenticatedPrincipalId memberId: MemberId,
+        @RequestParam(value = "photo", required = true) photo: MultipartFile
     ) {
         return applicantPhotoUseCase.updatePhoto(
             memberId,
@@ -35,7 +35,7 @@ class ApplicantPhotoController(
     @GetMapping(produces = [MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE])
     @ResponseStatus(HttpStatus.OK)
     fun findPhoto(
-        @NotNull @AuthenticatedPrincipalId memberId: MemberId,
+        @AuthenticatedPrincipalId memberId: MemberId,
     ): String? {
         return applicantPhotoUseCase.findPhoto(memberId)
     }

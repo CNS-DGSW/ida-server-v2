@@ -1,13 +1,9 @@
 package com.dgswiphak.ida.domain.question.dto.response
 
 import com.dgswiphak.ida.domain.question.model.Question
-import jakarta.validation.constraints.NotEmpty
-import jakarta.validation.constraints.NotNull
 
 data class QuestionResponse(
-    @field:NotNull(message = "id is required")
     val id: Long,
-    @field:NotEmpty(message = "title is required")
     val title: String,
     val content: String? = null
 ) {
@@ -30,6 +26,5 @@ data class QuestionResponse(
 }
 
 data class QuestionsResponse(
-    @field:NotNull(message = "notices is required")
     val notices: List<QuestionResponse>
 )
