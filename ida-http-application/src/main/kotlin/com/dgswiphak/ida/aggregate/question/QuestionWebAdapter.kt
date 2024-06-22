@@ -5,6 +5,7 @@ import com.dgswiphak.ida.domain.question.dto.request.UpdateQuestionRequest
 import com.dgswiphak.ida.domain.question.dto.response.QuestionResponse
 import com.dgswiphak.ida.domain.question.dto.response.QuestionsResponse
 import com.dgswiphak.ida.domain.question.usecase.*
+import jakarta.validation.Valid
 import org.jetbrains.annotations.NotNull
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
@@ -21,7 +22,7 @@ class QuestionWebAdapter(
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun createNotice(@RequestBody request: CreateQuestionRequest) {
+    fun createNotice(@Valid @RequestBody request: CreateQuestionRequest) {
         createQuestionUseCase.execute(request)
     }
 

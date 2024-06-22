@@ -5,6 +5,7 @@ import com.dgswiphak.ida.domain.applicant.dto.request.UpdateApplicantEducationRe
 import com.dgswiphak.ida.domain.applicant.dto.response.ApplicantEducationResponse
 import com.dgswiphak.ida.domain.applicant.usecase.ApplicantEducationUseCase
 import com.dgswiphak.ida.global.auth.annotation.AuthenticatedPrincipalId
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PutMapping
@@ -30,7 +31,7 @@ class ApplicantEducationController(
     @ResponseStatus(HttpStatus.OK)
     fun updateEducation(
         @AuthenticatedPrincipalId id: MemberId,
-        @RequestBody request: UpdateApplicantEducationRequest
+        @Valid @RequestBody request: UpdateApplicantEducationRequest
     ) {
         return applicantEducationUseCase.updateEducation(id, request)
     }

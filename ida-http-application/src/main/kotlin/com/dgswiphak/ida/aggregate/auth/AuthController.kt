@@ -3,6 +3,7 @@ package com.dgswiphak.ida.aggregate.auth
 import com.dgswiphak.ida.domain.auth.dto.SignInRequest
 import com.dgswiphak.ida.domain.auth.dto.SignInResponse
 import com.dgswiphak.ida.domain.auth.usecase.SignInUseCase
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -18,7 +19,7 @@ class AuthController (
     @PostMapping("/signIn")
     @ResponseStatus(HttpStatus.OK)
     fun execute(
-        @RequestBody request: SignInRequest
+        @Valid @RequestBody request: SignInRequest
     ) : SignInResponse {
         return signInUseCase.execute(request)
     }

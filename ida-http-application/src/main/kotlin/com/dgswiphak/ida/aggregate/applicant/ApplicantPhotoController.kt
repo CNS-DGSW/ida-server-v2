@@ -4,6 +4,7 @@ import com.dgswiphak.ida.common.dto.FileRequest
 import com.dgswiphak.ida.common.model.MemberId
 import com.dgswiphak.ida.domain.applicant.usecase.ApplicantPhotoUseCase
 import com.dgswiphak.ida.global.auth.annotation.AuthenticatedPrincipalId
+import jakarta.validation.constraints.NotNull
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.GetMapping

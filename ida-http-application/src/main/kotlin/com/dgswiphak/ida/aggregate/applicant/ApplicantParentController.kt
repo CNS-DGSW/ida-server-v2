@@ -5,6 +5,7 @@ import com.dgswiphak.ida.domain.applicant.dto.request.UpdateParentInfoRequest
 import com.dgswiphak.ida.domain.applicant.dto.response.ApplicantParentInfoResponse
 import com.dgswiphak.ida.domain.applicant.usecase.ApplicantParentUseCase
 import com.dgswiphak.ida.global.auth.annotation.AuthenticatedPrincipalId
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PutMapping
@@ -22,7 +23,7 @@ class ApplicantParentController(
     @ResponseStatus(HttpStatus.OK)
     fun updateParentInfo(
         @AuthenticatedPrincipalId memberId: MemberId,
-        @RequestBody request: UpdateParentInfoRequest
+        @Valid @RequestBody request: UpdateParentInfoRequest
     ) {
         applicantParentUseCase.updateParentInfo(memberId, request)
     }
