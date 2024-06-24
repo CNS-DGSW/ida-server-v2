@@ -1,6 +1,7 @@
 package com.dgswiphak.ida.common.util
 
-import com.dgswiphak.ida.domain.applicant.usecase.exception.error.ApplicantErrorCode
+import com.dgswiphak.ida.common.exception.FileTypeErrorException
+
 
 object FileUtil {
     fun isValidPhotoExtension(extension: String) =
@@ -10,7 +11,7 @@ object FileUtil {
         }
     fun validatePhotoExtension(contentType: String) {
         if (!isValidPhotoExtension(contentType)) {
-            ApplicantErrorCode.TYPE_ERROR
+            FileTypeErrorException
         }
     }
 }
