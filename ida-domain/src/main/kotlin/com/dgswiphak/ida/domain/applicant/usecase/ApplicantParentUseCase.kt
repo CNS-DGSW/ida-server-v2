@@ -8,6 +8,7 @@ import com.dgswiphak.ida.domain.applicant.dto.request.UpdateParentInfoRequest
 import com.dgswiphak.ida.domain.applicant.dto.response.ApplicantParentInfoResponse
 import com.dgswiphak.ida.domain.applicant.spi.query.CommandApplicantSpi
 import com.dgswiphak.ida.domain.applicant.spi.query.QueryApplicantSpi
+import com.dgswiphak.ida.domain.applicant.usecase.exception.ApplicationNotFoundException
 
 
 @UseCase
@@ -16,7 +17,7 @@ class ApplicantParentUseCase(
     private val commandApplicantSpi: CommandApplicantSpi
 ) {
     fun updateParentInfo(memberId: MemberId, parentRequest: UpdateParentInfoRequest) {
-        val applicant = queryApplicantSpi.findById(memberId) ?: throw RuntimeException()
+        val applicant = queryApplicantSpi.findById(memberId) ?: throw ApplicationNotFoundException
         applicant.updatePrivacy(
             updateParentAndAddress(
                 applicant.privacy,
@@ -27,7 +28,7 @@ class ApplicantParentUseCase(
     }
 
     fun findParentInfo(memberId: MemberId): ApplicantParentInfoResponse {
-        val applicant: Applicant = queryApplicantSpi.findById(memberId) ?: throw RuntimeException()
+        val applicant: Applicant = queryApplicantSpi.findById(memberId) ?: throw ApplicationNotFoundException
         return ApplicantParentInfoResponse(
             applicant.privacy.parent,
             applicant.privacy.address
