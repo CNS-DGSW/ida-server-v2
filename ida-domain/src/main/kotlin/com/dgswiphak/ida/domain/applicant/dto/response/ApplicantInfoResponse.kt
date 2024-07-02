@@ -2,12 +2,12 @@ package com.dgswiphak.ida.domain.applicant.dto.response
 
 import com.dgswiphak.ida.domain.applicant.model.value.privacy.Privacy
 import com.fasterxml.jackson.annotation.JsonFormat
-import java.time.Instant
+import java.time.LocalDate
 
 data class ApplicantInfoResponse(
     val name: String? = "",
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    val birth: Instant?,
+    val birth: LocalDate?,
     val phoneNumber: String? = "",
     val gender: String
 ) {

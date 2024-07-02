@@ -3,7 +3,7 @@ package com.dgswiphak.ida.persistence.applicant.entity.value.privacy.value
 import com.dgswiphak.ida.common.model.PhoneNumber
 import jakarta.persistence.Column
 import jakarta.persistence.Embeddable
-import java.time.Instant
+import java.time.LocalDate
 
 @Embeddable
 class ParentVO(
@@ -17,5 +17,5 @@ class ParentVO(
     val phone: PhoneNumber,
 
     @Column(name = "parent_birth")
-    val brith: Instant
+    val brith: LocalDate
 )

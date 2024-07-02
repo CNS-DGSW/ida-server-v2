@@ -1,13 +1,13 @@
 package com.dgswiphak.ida.domain.applicant.model.value.privacy.value
 
 import com.dgswiphak.ida.common.model.PhoneNumber
-import java.time.Instant
+import java.time.LocalDate
 
 data class Parent(
     val name: String,
     val relation: String,
     val phone: PhoneNumber,
-    val brith: Instant
+    val brith: LocalDate
 ) {
     init {
         if (name.isBlank()) throw IllegalArgumentException("Name cannot be blank")

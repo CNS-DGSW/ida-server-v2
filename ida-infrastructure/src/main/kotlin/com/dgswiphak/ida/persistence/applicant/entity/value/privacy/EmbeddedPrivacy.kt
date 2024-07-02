@@ -8,7 +8,7 @@ import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.value.MeritV
 import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.value.ParentVO
 import com.dgswiphak.ida.persistence.applicant.entity.value.privacy.value.SchoolCodeVO
 import jakarta.persistence.*
-import java.time.Instant
+import java.time.LocalDate
 
 @Embeddable
 data class EmbeddedPrivacy(
@@ -16,7 +16,7 @@ data class EmbeddedPrivacy(
     val name: String?,
 
     @Column
-    val birth: Instant?,
+    val birth: LocalDate?,
 
     @Column
     @Enumerated(EnumType.STRING)

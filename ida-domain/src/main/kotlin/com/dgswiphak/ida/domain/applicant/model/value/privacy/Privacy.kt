@@ -5,11 +5,11 @@ import com.dgswiphak.ida.common.model.Photo
 import com.dgswiphak.ida.common.model.SchoolCode
 import com.dgswiphak.ida.domain.applicant.model.value.privacy.value.type.Gender
 import com.dgswiphak.ida.domain.applicant.model.value.privacy.value.*
-import java.time.Instant
+import java.time.LocalDate
 
 data class Privacy(
     val name: String? = null,
-    val birth: Instant? = null,
+    val birth: LocalDate? = null,
     val gender: Gender? = null,
     var phone: PhoneNumber? = null,
     var photo: Photo? = null,

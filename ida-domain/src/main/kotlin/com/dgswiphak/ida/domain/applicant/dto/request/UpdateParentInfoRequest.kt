@@ -4,7 +4,7 @@ import com.dgswiphak.ida.common.model.PhoneNumber
 import com.dgswiphak.ida.domain.applicant.model.value.privacy.value.Address
 import com.dgswiphak.ida.domain.applicant.model.value.privacy.value.Parent
 import com.fasterxml.jackson.annotation.JsonFormat
-import java.time.Instant
+import java.time.LocalDate
 
 data class UpdateParentInfoRequest(
     val name: String,
@@ -12,7 +12,7 @@ data class UpdateParentInfoRequest(
     val relation: String,
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    val birth: Instant,
+    val birth: LocalDate,
 
     val phone: String,
 
