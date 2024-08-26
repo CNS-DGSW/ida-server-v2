@@ -2,7 +2,7 @@ package com.dgswiphak.ida.persistence.admission.admission.repository
 
 import com.dgswiphak.ida.domain.admission.admission.model.Admission
 import com.dgswiphak.ida.domain.admission.admission.spi.QueryAdmissionSpi
-import com.dgswiphak.ida.persistence.admission.entity.QAdmissionEntity
+import com.dgswiphak.ida.persistence.admission.admission.entity.QAdmissionEntity
 import com.dgswiphak.ida.persistence.admission.admission.mapper.AdmissionMapper
 import com.querydsl.jpa.impl.JPAQueryFactory
 import org.springframework.stereotype.Repository

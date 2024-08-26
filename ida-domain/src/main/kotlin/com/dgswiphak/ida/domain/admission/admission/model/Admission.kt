@@ -25,6 +25,10 @@ class Admission(
         this.applicant = applicant
     }
 
+    fun updateDocument(document: Document) {
+        this.document = document
+    }
+
     fun updateScore(score: Score) {
         this.score = score
     }
