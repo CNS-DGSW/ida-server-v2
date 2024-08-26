@@ -22,6 +22,9 @@ dependencies {
 
 	implementation(libs.spring.aws.s3)
 
+	implementation(libs.apache.poi)
+	implementation(libs.apache.poi.ooxml)
+
 	testImplementation(libs.bundles.test)
 
 	implementation(files("libs/lsh.jar"))
