@@ -3,7 +3,6 @@ package com.dgswiphak.ida.persistence.admission.score.mapper
 import com.dgswiphak.ida.common.mapper.Mapper
 import com.dgswiphak.ida.domain.admission.score.model.GedScore
 import com.dgswiphak.ida.domain.admission.score.model.value.grade.GedGrade
-import com.dgswiphak.ida.persistence.admission.score.entity.EmbeddedScoreId
 import com.dgswiphak.ida.persistence.admission.score.entity.GedScoreEntity
 import com.dgswiphak.ida.persistence.admission.score.entity.value.GedGradeVO
 import org.springframework.stereotype.Component

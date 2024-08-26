@@ -1,17 +1,13 @@
 package com.dgswiphak.ida.persistence.admission.score.repository
 
-import com.dgswiphak.ida.domain.admission.admission.model.Admission
-import com.dgswiphak.ida.domain.admission.admission.spi.QueryAdmissionSpi
 import com.dgswiphak.ida.domain.admission.score.model.Score
 import com.dgswiphak.ida.domain.admission.score.spi.query.CommandScoreSpi
-import com.dgswiphak.ida.persistence.admission.admission.repository.AdmissionRepository
 import com.dgswiphak.ida.persistence.admission.score.mapper.ScoreMapper
 import org.springframework.stereotype.Repository
 
 @Repository
 class ScoreCommandRepository(
     private val scoreRepository: ScoreRepository,
-    private val admissionRepository: AdmissionRepository,
     private val scoreMapper: ScoreMapper
 ) : CommandScoreSpi{
     override fun save(score: Score) {

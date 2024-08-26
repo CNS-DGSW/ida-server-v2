@@ -5,7 +5,6 @@ import com.dgswiphak.ida.persistence.admission.score.entity.value.AttendanceVO
 import com.dgswiphak.ida.persistence.admission.score.entity.value.LeaderShipVO
 import com.dgswiphak.ida.persistence.admission.score.entity.value.SchoolGradeVO
 import com.dgswiphak.ida.persistence.admission.score.entity.value.VolunteerVO
-import com.dgswiphak.ida.persistence.score.entity.value.*
 import jakarta.persistence.*
 
 @Entity
