@@ -18,7 +18,6 @@ class AdmissionQueryRepository(
             .where(admissionEntity.applicant.memberId.value.eq(id))
             .fetchOne()
 
-        println(admission?.applicant?.memberId)
         return admissionMapper.toDomain(admission)
     }
 }
