@@ -1,4 +1,4 @@
-가package com.dgswiphak.ida.common.excel.style.config
+package com.dgswiphak.ida.common.excel.style.config
 
 import com.dgswiphak.ida.common.excel.style.align.ExcelAlign
 import com.dgswiphak.ida.common.excel.style.align.NoExcelAlign

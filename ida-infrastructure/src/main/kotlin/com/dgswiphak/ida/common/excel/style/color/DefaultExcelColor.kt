@@ -18,9 +18,10 @@ class DefaultExcelColor(
         private const val MAX_RGB = 255
 
         fun rgb(red: Int, green: Int, blue: Int): DefaultExcelColor {
-            if (red < MIN_RGB || red > MAX_RGB || green < MIN_RGB || green > MAX_RGB || blue < MIN_RGB || blue > MAX_RGB) {
-                throw IllegalArgumentException("Wrong RGB($red $green $blue)")
+            if (!listOf(red, green, blue).all { it in MIN_RGB..MAX_RGB }) {
+                throw IllegalArgumentException("Wrong RGB($red, $green, $blue)")
             }
+
             return DefaultExcelColor(red.toByte(), green.toByte(), blue.toByte())
         }
     }
