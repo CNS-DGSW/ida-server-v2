@@ -61,6 +61,11 @@ spring-aws-s3 = {module = "com.amazonaws:aws-java-sdk-s3", version = "1.12.619"}
 #jackson
 module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref =  "jackson" }
 
+#apache POI
+apache-poi = { module = "org.apache.poi:poi", version = "5.2.2"}
+apache-poi-ooxml = { module = "org.apache.poi:poi-ooxml", version = "5.2.2"}
+
+
 [bundles]
 spring = ["spring-web", "spring-security", "spring-validation"]
 test = ["spring-starter-test", "kotest", "kotest-assertions-core", "mockk"]
