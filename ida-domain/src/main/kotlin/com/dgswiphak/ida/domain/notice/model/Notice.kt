@@ -13,7 +13,7 @@ data class Notice(
 
     val isMajor: Boolean,
 
-    val createdAt: LocalDateTime,
+    val createdDate: LocalDateTime? = null,
 
     val attached: List<Attached>? = null
 )

@@ -15,7 +15,8 @@ data class NoticeResponse(
     @field:NotNull(message = "isMajor is required")
     val isMajor: Boolean,
     @field:NotNull(message = "createDate is required")
-    val createDate: LocalDateTime,
+
+    val createDate: LocalDateTime? = null,
     @field:NotNull(message = "fileResponse is required")
     val fileResponse: List<AttachedResponse>? = null
 ) {
@@ -26,7 +27,7 @@ data class NoticeResponse(
                 id = notice.id!!,
                 title = notice.title,
                 isMajor = notice.isMajor,
-                createDate = notice.createdAt
+                createDate = notice.createdDate
             )
         }
 
@@ -36,7 +37,7 @@ data class NoticeResponse(
                 title = notice.title,
                 content = notice.content,
                 isMajor = notice.isMajor,
-                createDate = notice.createdAt,
+                createDate = notice.createdDate,
                 fileResponse = notice.attached?.map {
                     AttachedResponse(
                     it.originalName,
