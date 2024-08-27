@@ -7,7 +7,7 @@ enum class AdmissionErrorCode(
     private val status: Int,
     private val message: String
 ) : ErrorProperty {
-    NON_FOUND(ErrorStatus.NOT_FOUND, "지원자를 찾지 못하였습니다.")
+    NOT_FOUND(ErrorStatus.NOT_FOUND, "지원자를 찾지 못하였습니다.")
     ;
     override fun status(): Int = status
     override fun message(): String = message
