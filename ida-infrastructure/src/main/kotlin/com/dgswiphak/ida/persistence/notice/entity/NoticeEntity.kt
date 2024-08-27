@@ -18,8 +18,6 @@ class NoticeEntity(
 
     val isMajor: Boolean,
 
-    val createdAt: LocalDateTime,
-
     @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "notice_attached")
     val attachedVO: List<AttachedVO>? = null

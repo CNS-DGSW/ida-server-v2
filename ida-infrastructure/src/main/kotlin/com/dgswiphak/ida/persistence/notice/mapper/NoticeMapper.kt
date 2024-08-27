@@ -19,7 +19,7 @@ class NoticeMapper: Mapper<Notice, NoticeEntity> {
                 title = it.title,
                 content = it.content,
                 isMajor = it.isMajor,
-                createdAt = it.createdAt,
+                createdDate = it.createdDate,
                 attached = attachedMapper.toDomain(it.attachedVO)
             )
         }
@@ -31,7 +31,6 @@ class NoticeMapper: Mapper<Notice, NoticeEntity> {
             title = domain.title,
             content = domain.content,
             isMajor = domain.isMajor,
-            createdAt = domain.createdAt,
             attachedVO = domain.attached?.let { attachedMapper.toEntity(it) }
         )
     }

@@ -28,7 +28,7 @@ class NoticeQueryRepository(
         val entity = jpaQueryFactory.selectFrom(noticeEntity)
             .orderBy(
                 noticeEntity.isMajor.desc(),
-                noticeEntity.createdAt.desc()
+                noticeEntity.createdDate.desc()
             )
             .fetch()
 
