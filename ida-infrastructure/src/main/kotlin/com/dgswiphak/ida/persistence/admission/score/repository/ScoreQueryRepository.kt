@@ -2,7 +2,7 @@ package com.dgswiphak.ida.persistence.admission.score.repository
 
 import com.dgswiphak.ida.domain.admission.score.model.Score
 import com.dgswiphak.ida.domain.admission.score.spi.query.QueryScoreSpi
-import com.dgswiphak.ida.persistence.score.entity.QScoreEntity
+import com.dgswiphak.ida.persistence.admission.score.entity.QScoreEntity
 import com.dgswiphak.ida.persistence.admission.score.mapper.ScoreMapper
 import com.querydsl.jpa.impl.JPAQueryFactory
 import org.springframework.stereotype.Repository
