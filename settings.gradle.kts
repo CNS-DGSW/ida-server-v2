@@ -8,6 +8,7 @@ include("core")
 include("core:data")
 
 include("member")
+include("member:member-id")
 include("member:member-domain")
 include("member:member-application")
 include("member:member-jpa-adapter")
