@@ -1,7 +1,7 @@
-package com.applydgsw.member.domain.member
+package com.applydgsw.member.domain
 
-import com.applydgsw.member.domain.member.value.Password
-import com.applydgsw.member.domain.member.value.Role
+import com.applydgsw.member.domain.value.Password
+import com.applydgsw.member.domain.value.Role
 import com.applydgsw.member.id.MemberId
 
 class Member(

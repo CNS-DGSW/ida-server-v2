@@ -1,4 +1,4 @@
-package com.applydgsw.member.domain.member.value
+package com.applydgsw.member.domain.value
 
 @JvmInline
 value class Password(
