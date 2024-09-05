@@ -5,6 +5,7 @@ include("ida-infrastructure")
 include("ida-http-application")
 
 include("core")
+include("core:data")
 
 include("member")
 include("member:member-domain")
