@@ -1,4 +1,4 @@
-package com.applydgsw.member.domain.value
+package com.daegusw.apply.member.domain.value
 
 enum class Role(
         val role: String

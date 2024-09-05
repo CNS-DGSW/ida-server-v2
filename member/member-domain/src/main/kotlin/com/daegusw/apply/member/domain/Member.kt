@@ -1,8 +1,8 @@
-package com.applydgsw.member.domain
+package com.daegusw.apply.member.domain
 
-import com.applydgsw.member.domain.value.Password
-import com.applydgsw.member.domain.value.Role
-import com.applydgsw.member.id.MemberId
+import com.daegusw.apply.member.domain.value.Password
+import com.daegusw.apply.member.domain.value.Role
+import com.daegusw.apply.member.id.MemberId
 
 class Member(
     val id: MemberId,
