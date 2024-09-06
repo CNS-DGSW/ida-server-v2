@@ -18,8 +18,16 @@ include("member:member-jpa-adapter")
 include("member:member-web-adapter")
 
 include("applicant")
+include("applicant:applicant-domain")
+include("applicant:applicant-application")
+include("applicant:applicant-jpa-adapter")
+include("applicant:applicant-jpa-adapter")
 
 include("notice")
+include("notice:notice-domain")
+include("notice:notice-application")
+include("notice:notice-jpa-adapter")
+include("notice:notice-web-adapter")
 
 include("secondary")
 
