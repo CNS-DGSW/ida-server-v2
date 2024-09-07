@@ -1,5 +1,5 @@
 package com.daegusw.apply.member.id
 
 data class MemberId(
-    val id: Long
+    val value: Long
 )
