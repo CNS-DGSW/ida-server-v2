@@ -6,6 +6,7 @@ include("core")
 include("core:data")
 include("core:id-gen")
 include("core:hash")
+include("core:exception-handler")
 
 include("member")
 include("member:member-id")
