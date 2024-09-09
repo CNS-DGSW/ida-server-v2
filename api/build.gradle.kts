@@ -11,6 +11,7 @@ dependencies {
     implementation(project(":secondary:secondary-jpa-adapter"))
     implementation(project(":secondary:secondary-web-adapter"))
 
+    implementation(project(":auth:auth-application"))
     implementation(project(":auth:auth-web-adapter"))
 
     implementation("mysql:mysql-connector-java:8.0.33")

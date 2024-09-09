@@ -5,5 +5,6 @@ import com.daegusw.apply.member.id.MemberId
 
 interface QueryMemberPort {
     fun findById(id: MemberId): Member?
+    fun findByEmail(email: String): Member?
     fun existsByEmail(email: String): Boolean
 }
