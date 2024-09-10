@@ -25,6 +25,7 @@ include("notice:notice-domain")
 include("notice:notice-application")
 include("notice:notice-jpa-adapter")
 include("notice:notice-web-adapter")
+include("notice:notice-s3-adapter")
 
 include("secondary")
 include("secondary:secondary-domain")

@@ -7,6 +7,7 @@ dependencies {
 
     implementation(project(":notice:notice-jpa-adapter"))
     implementation(project(":notice:notice-web-adapter"))
+    implementation(project(":notice:notice-s3-adapter"))
 
     implementation(project(":secondary:secondary-jpa-adapter"))
     implementation(project(":secondary:secondary-web-adapter"))
