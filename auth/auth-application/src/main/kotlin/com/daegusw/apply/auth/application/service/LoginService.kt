@@ -24,6 +24,7 @@ class LoginService(
 
         val payload: MutableSet<Payload> = HashSet()
         payload.add(Payload("memberId", member.id.value.toString()))
+        payload.add(Payload("authorities", member.role.toString()))
 
         return TokenDto(
             jwtUtils.createAccessToken(payload)
