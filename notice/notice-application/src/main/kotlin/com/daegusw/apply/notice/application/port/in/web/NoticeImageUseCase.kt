@@ -1,6 +1,6 @@
 package com.daegusw.apply.notice.application.port.`in`.web
 
-import com.daegusw.apply.core.data.common.dto.FileRequest
+import com.daegusw.apply.notice.application.common.FileRequest
 
 interface NoticeImageUseCase{
 
