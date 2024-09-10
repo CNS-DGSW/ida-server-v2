@@ -1,4 +1,4 @@
-package com.daegusw.apply.core.data.common.dto
+package com.daegusw.apply.notice.application.common
 
 data class FileRequest(
     val filename: String,

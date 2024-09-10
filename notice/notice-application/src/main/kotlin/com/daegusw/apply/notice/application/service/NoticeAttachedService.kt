@@ -1,11 +1,11 @@
 package com.daegusw.apply.notice.application.service
 
-import com.daegusw.apply.core.data.common.dto.FileRequest
+import com.daegusw.apply.notice.application.common.FileRequest
 import com.daegusw.apply.notice.application.port.`in`.web.NoticeAttachedUseCase
 import com.daegusw.apply.notice.application.port.out.persistence.QueryNoticePort
 import com.daegusw.apply.notice.application.exception.AttachedNotFoundException
 import com.daegusw.apply.notice.application.exception.NoticeNotFoundException
-import com.daegusw.apply.notice.application.port.out.persistence.AwsS3Port
+import com.daegusw.apply.notice.application.port.out.aws.s3.AwsS3Port
 import com.dgswiphak.ida.domain.notice.model.value.Attached
 import com.daegusw.apply.notice.application.port.out.persistence.CommandNoticePort
 import org.springframework.stereotype.Service

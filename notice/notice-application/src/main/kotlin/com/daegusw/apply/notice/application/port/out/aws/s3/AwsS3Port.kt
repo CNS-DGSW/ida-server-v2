@@ -1,6 +1,6 @@
-package com.daegusw.apply.notice.application.port.out.persistence
+package com.daegusw.apply.notice.application.port.out.aws.s3
 
-import com.daegusw.apply.core.data.common.dto.FileRequest
+import com.daegusw.apply.notice.application.common.FileRequest
 
 interface AwsS3Port {
 

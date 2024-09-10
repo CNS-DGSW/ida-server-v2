@@ -6,8 +6,8 @@ import com.amazonaws.services.s3.model.CannedAccessControlList
 import com.amazonaws.services.s3.model.DeleteObjectRequest
 import com.amazonaws.services.s3.model.ObjectMetadata
 import com.amazonaws.services.s3.model.PutObjectRequest
-import com.daegusw.apply.core.data.common.dto.FileRequest
-import com.daegusw.apply.notice.application.port.out.persistence.AwsS3Port
+import com.daegusw.apply.notice.application.common.FileRequest
+import com.daegusw.apply.notice.application.port.out.aws.s3.AwsS3Port
 import com.daegusw.apply.s3.adapter.common.properties.AwsS3Properties
 import org.springframework.stereotype.Service
 import java.io.IOException

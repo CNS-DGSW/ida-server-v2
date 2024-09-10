@@ -1,8 +1,8 @@
 package com.daegusw.apply.notice.application.service
 
-import com.daegusw.apply.core.data.common.dto.FileRequest
+import com.daegusw.apply.notice.application.common.FileRequest
 import com.daegusw.apply.notice.application.port.`in`.web.NoticeImageUseCase
-import com.daegusw.apply.notice.application.port.out.persistence.AwsS3Port
+import com.daegusw.apply.notice.application.port.out.aws.s3.AwsS3Port
 import org.springframework.stereotype.Service
 
 @Service

@@ -1,6 +1,6 @@
 package com.daegusw.apply.notice.web.adapter
 
-import com.daegusw.apply.core.data.common.dto.FileRequest
+import com.daegusw.apply.notice.application.common.FileRequest
 import com.daegusw.apply.notice.application.port.`in`.web.NoticeAttachedUseCase
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
