@@ -16,14 +16,24 @@ import java.time.Instant
 class JwtUtils(
     private val properties: JwtProperties
 ) {
+    private val algorithm: Algorithm by lazy { Algorithm.HMAC256(properties.secret) }
+    private val verifier: JWTVerifier by lazy { getVerifier(algorithm) }
+
     fun createAccessToken(payload: Set<Payload>): String {
         val payloadMap = payload.associate { it.key to it.value }
-        println(properties.issuer)
         return createJwt(payloadMap)
     }
 
+    fun isValidToken(token: String): Boolean {
+        return try {
+            verifier.verify(token)
+            true
+        } catch (e: JWTVerificationException) {
+            false
+        }
+    }
+
     fun verify(jwt: String): DecodedJWT {
-        val algorithm = getAlgorithm()
         val verifier = getVerifier(algorithm)
 
         return try {
@@ -35,26 +45,24 @@ class JwtUtils(
         }
     }
 
-    private fun getVerifier(algorithm: Algorithm): JWTVerifier {
-        return JWT.require(algorithm)
-            .withIssuer(properties.issuer)
-            .build()
+    fun getClaim(token: String, claim: String): String {
+        val decodedJWT = verifier.verify(token)
+        return decodedJWT.getClaim(claim).asString()
     }
 
     private fun createJwt(payload: Map<String, String>): String {
-        val algorithm = getAlgorithm()
-        val issuer = properties.issuer
-        val accessTokenExpirySeconds = properties.expSeconds
-        val expiresAt = Instant.now().plusSeconds(accessTokenExpirySeconds)
+        val expiresAt = Instant.now().plusSeconds(properties.expSeconds)
 
         return JWT.create()
-            .withIssuer(issuer)
+            .withIssuer(properties.issuer)
             .withPayload(payload)
             .withExpiresAt(expiresAt)
             .sign(algorithm)
     }
 
-    private fun getAlgorithm(): Algorithm {
-        return Algorithm.HMAC256(properties.secret)
+    private fun getVerifier(algorithm: Algorithm): JWTVerifier {
+        return JWT.require(algorithm)
+            .withIssuer(properties.issuer)
+            .build()
     }
 }
