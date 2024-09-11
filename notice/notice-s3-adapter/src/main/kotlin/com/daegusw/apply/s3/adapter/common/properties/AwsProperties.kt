@@ -1,9 +1,12 @@
 package com.daegusw.apply.s3.adapter.common.properties
 
-import org.springframework.boot.context.properties.ConfigurationProperties
+import org.springframework.beans.factory.annotation.Value
+import org.springframework.context.annotation.PropertySource
+import org.springframework.stereotype.Component
 
-@ConfigurationProperties("cloud.aws.credentials")
+@Component
+@PropertySource("classpath:application.yml")
 class AwsProperties (
-    val accessKey : String,
-    val secretKey : String
+    @Value("\${aws.credentials.accessKey:accessKey}") val accessKey : String,
+    @Value("\${aws.credentials.secretKey:secretKey}") val secretKey : String
 )

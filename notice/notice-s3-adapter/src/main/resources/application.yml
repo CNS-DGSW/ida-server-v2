@@ -1,0 +1,6 @@
+aws:
+  credentials:
+      accessKey: ${aws.credentials.accessKey}
+      secretKey: ${aws.credentials.secretKey}
+  s3:
+    bucket: ${aws.s3.bucket}
