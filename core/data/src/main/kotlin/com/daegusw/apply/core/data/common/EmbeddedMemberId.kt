@@ -20,4 +20,5 @@ class EmbeddedMemberId(
     override fun hashCode(): Int {
         return Objects.hash(value)
     }
+
 }

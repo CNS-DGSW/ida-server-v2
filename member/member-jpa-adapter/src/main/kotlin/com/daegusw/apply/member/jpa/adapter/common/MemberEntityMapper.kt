@@ -18,7 +18,7 @@ class MemberEntityMapper {
 
         fun toEntity(domain: Member): MemberEntity {
             return MemberEntity(
-                id = MemberIdEntityMapper.toEntity(domain.id),
+                memberId = MemberIdEntityMapper.toEntity(domain.id),
                 email = domain.email,
                 password = domain.password,
                 role = domain.role
