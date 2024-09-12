@@ -1,7 +1,7 @@
 package com.daegusw.apply.notice.jpa.adapter.common
 
 import com.dgswiphak.ida.domain.notice.model.Notice
-import com.dgswiphak.ida.persistence.notice.entity.NoticeEntity
+import com.daegusw.apply.core.data.entity.notice.NoticeEntity
 import org.springframework.stereotype.Component
 
 @Component

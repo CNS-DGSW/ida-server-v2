@@ -1,4 +1,4 @@
-package com.dgswiphak.ida.persistence.notice.entity
+package com.daegusw.apply.core.data.entity.notice
 
 import com.daegusw.apply.core.data.common.TimeBaseEntity
 import com.daegusw.apply.core.data.entity.notice.value.AttachedVO

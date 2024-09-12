@@ -1,6 +1,6 @@
 package com.daegusw.apply.notice.jpa.adapter.repository
 
-import com.dgswiphak.ida.persistence.notice.entity.NoticeEntity
+import com.daegusw.apply.core.data.entity.notice.NoticeEntity
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 
