@@ -1,6 +1,7 @@
-aws:
-  credentials:
-      accessKey: ${aws.credentials.accessKey}
-      secretKey: ${aws.credentials.secretKey}
-  s3:
-    bucket: ${aws.s3.bucket}
+cloud:
+  aws:
+    credentials:
+      access-key: ${aws.credentials.accessKey}
+      secret-key: ${aws.credentials.secretKey}
+    s3:
+      bucket: ${aws.s3.bucket}

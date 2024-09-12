@@ -7,6 +7,6 @@ import org.springframework.stereotype.Component
 @Component
 @PropertySource("classpath:application.yml")
 class AwsProperties (
-    @Value("\${aws.credentials.accessKey:accessKey}") val accessKey : String,
-    @Value("\${aws.credentials.secretKey:secretKey}") val secretKey : String
+    @Value("\${cloud.aws.credentials.access-key:access-key}") val accessKey : String,
+    @Value("\${cloud.aws.credentials.secret-key:secret-key}") val secretKey : String
 )
