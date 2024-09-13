@@ -5,8 +5,8 @@ import jakarta.persistence.Embeddable
 @Embeddable
 class InterviewVO(
 
-    val studyCompetence: Int? = 0,
+    val studyCompetence: Double? = 0.0,
 
-    val computingCompetence: Int? = 0
+    val computingCompetence: Double? = 0.0
 
 )

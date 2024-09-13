@@ -1,6 +1,6 @@
 package com.dgswiphak.ida.domain.admin.dto
 
-data class AdmissionCompetitionRateResponse(
+data class ApplicantGraduationTypeCompetitionRate(
     var graduatedMale: Int = 0,
     var graduatedFemale: Int = 0,
     var expectedMale: Int = 0,

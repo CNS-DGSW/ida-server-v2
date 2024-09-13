@@ -1,6 +1,8 @@
 package com.dgswiphak.ida.aggregate.admin
 
-import com.dgswiphak.ida.domain.admin.dto.AdmissionCompetitionRateResponse
+import com.dgswiphak.ida.domain.admin.dto.ApplicantSchoolCompetitionRate
+import com.dgswiphak.ida.domain.admin.dto.ApplicantCompetitionRate
+import com.dgswiphak.ida.domain.admin.dto.ApplicantGraduationTypeCompetitionRate
 import com.dgswiphak.ida.domain.admin.dto.UserSchoolCityInfoResponse
 import com.dgswiphak.ida.domain.admin.usecase.AdminStatisticsUseCase
 import org.springframework.web.bind.annotation.GetMapping
@@ -13,13 +15,23 @@ class AdminStatisticsController(
     private val adminStatisticsUseCase: AdminStatisticsUseCase
 ) {
 
-    @GetMapping("/school")
-    fun getSchoolOriginByRegion(): List<UserSchoolCityInfoResponse> {
-        return adminStatisticsUseCase.getSchoolOriginByRegion()
+    @GetMapping("/applicant")
+    fun applyCompetitionRate(): List<ApplicantCompetitionRate> {
+        return adminStatisticsUseCase.getApplicantCompetitionRate()
     }
 
-    @GetMapping("/applicant")
-    fun getApplicantCompetitionRate(): AdmissionCompetitionRateResponse {
-        return adminStatisticsUseCase.getApplicantCompetitionRate()
+    @GetMapping("/applicant/school")
+    fun applicantSchoolCompetitionRate(): List<ApplicantSchoolCompetitionRate> {
+        return adminStatisticsUseCase.getApplicantSchoolCompetitionRate()
+    }
+
+    @GetMapping("/applicant/graduation")
+    fun applicantGraduationTypeCompetitionRate(): ApplicantGraduationTypeCompetitionRate {
+        return adminStatisticsUseCase.getApplicantGraduationTypeCompetitionRate()
+    }
+
+    @GetMapping("/school")
+    fun schoolOriginByRegion(): List<UserSchoolCityInfoResponse> {
+        return adminStatisticsUseCase.getSchoolOriginByRegion()
     }
 }

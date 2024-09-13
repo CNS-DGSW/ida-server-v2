@@ -7,7 +7,7 @@ class ExcelRenderResource(
     private val styleMap: PreCalculatedCellStyleMap,
     private val excelHeaderNames: Map<String, String>,
     private val dataFieldNames: List<String>,
-    private val width: Int
+    private val width: List<Int>
 ) {
 
     fun getCellStyle(dataFieldName: String, excelRenderLocation: ExcelRenderLocation): CellStyle? {
@@ -22,7 +22,7 @@ class ExcelRenderResource(
         return dataFieldNames
     }
 
-    fun getSellWidth(): Int {
+    fun getSellWidth(): List<Int> {
         return width
     }
 }

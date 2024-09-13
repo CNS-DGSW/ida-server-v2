@@ -16,7 +16,7 @@ class ExcelRenderResourceFactory {
         val styleMap = PreCalculatedCellStyleMap(dataFormatDecider)
         val headerNamesMap = LinkedHashMap<String, String>()
         val fieldNames = mutableListOf<String>()
-        var cellWidth = 1024
+        val cellWidth = mutableListOf<Int>()
 
         val classDefinedHeaderStyle = getHeaderExcelColumnStyle(type)
         val classDefinedBodyStyle = getBodyExcelColumnStyle(type)
@@ -38,7 +38,7 @@ class ExcelRenderResourceFactory {
                 )
                 fieldNames.add(field.name)
                 headerNamesMap[field.name] = annotation.headerName
-                cellWidth = annotation.width
+                cellWidth.add(annotation.width)
             }
         }
 
