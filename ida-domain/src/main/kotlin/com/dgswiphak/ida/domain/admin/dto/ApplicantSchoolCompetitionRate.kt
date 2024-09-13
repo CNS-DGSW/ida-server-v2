@@ -1,6 +1,6 @@
 package com.dgswiphak.ida.domain.admin.dto
 
-data class AdmissionsSchoolCompetitionRate(
+data class ApplicantSchoolCompetitionRate(
     val apply: String,
     var graduatedMale: Int = 0,
     var graduatedFemale: Int = 0,

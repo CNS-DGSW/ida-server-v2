@@ -19,9 +19,9 @@ data class PassApplicantTableResponse(
     val address: String? = "",
     val applyType: String? = "",
     val applyDetailType: String? = "",
-//    val firstApplyType: String? = "",
-//    val isFinalPass: Boolean,
-//    val finalApplyType: String? = ""
+    val firstApplyType: String? = "",
+    val isFinalPass: String? = "",
+    val finalApplyType: String? = ""
 ) {
     constructor(index: Int, admission: Admission?, applicant: Applicant?) : this(
         index = index,
@@ -48,7 +48,8 @@ data class PassApplicantTableResponse(
                 else -> ""
             }
         } ?: "",
-        applyDetailType = admission?.applicant?.applyType?.value
+        applyDetailType = admission?.applicant?.applyType?.value,
+        // TODO :: firstApplyType, isFinalPass, finalApplyType 추가하기
     )
 }
 

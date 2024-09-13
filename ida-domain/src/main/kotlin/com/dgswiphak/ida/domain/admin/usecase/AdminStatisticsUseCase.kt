@@ -1,9 +1,9 @@
 package com.dgswiphak.ida.domain.admin.usecase
 
 import com.dgswiphak.ida.common.annotation.UseCase
-import com.dgswiphak.ida.domain.admin.dto.AdmissionsSchoolCompetitionRate
-import com.dgswiphak.ida.domain.admin.dto.ApplyCompetitionRate
-import com.dgswiphak.ida.domain.admin.dto.TotalAdmissionCompetitionRateResponse
+import com.dgswiphak.ida.domain.admin.dto.ApplicantSchoolCompetitionRate
+import com.dgswiphak.ida.domain.admin.dto.ApplicantCompetitionRate
+import com.dgswiphak.ida.domain.admin.dto.ApplicantGraduationTypeCompetitionRate
 import com.dgswiphak.ida.domain.admin.dto.UserSchoolCityInfoResponse
 import com.dgswiphak.ida.domain.admission.admission.model.value.type.ApplyType
 import com.dgswiphak.ida.domain.admission.admission.model.value.type.Progress
@@ -21,23 +21,23 @@ class AdminStatisticsUseCase(
     private val queryAdmissionSpi: QueryAdmissionSpi
 ) {
 
-    fun getApplyCompetitionRate(): List<ApplyCompetitionRate> {
+    fun getApplicantCompetitionRate(): List<ApplicantCompetitionRate> {
         val admission = queryAdmissionSpi.findAllByProgress(Progress.APPLY)
-        val rateList: MutableList<ApplyCompetitionRate> = mutableListOf(
-            ApplyCompetitionRate("일반전형"),
-            ApplyCompetitionRate("특별전형(사회통합)"),
-            ApplyCompetitionRate("특별전형(마이스터인재)"),
-            ApplyCompetitionRate("특별전형(지역우선)"),
-            ApplyCompetitionRate("특례입학")
+        val rateList: MutableList<ApplicantCompetitionRate> = mutableListOf(
+            ApplicantCompetitionRate("일반전형"),
+            ApplicantCompetitionRate("특별전형(사회통합)"),
+            ApplicantCompetitionRate("특별전형(마이스터인재)"),
+            ApplicantCompetitionRate("특별전형(지역우선)"),
+            ApplicantCompetitionRate("특례입학")
         )
 
         admission.map {
-            var rate: ApplyCompetitionRate? = rateList.find { item ->
+            var rate: ApplicantCompetitionRate? = rateList.find { item ->
                 item.applyType == applyDetail(it.applicant!!.applyType)
             }
             val applicantInfo: Applicant? = queryApplicantSpi.findById(it.applicant!!.memberId)
 
-            if (rate == null) rate = ApplyCompetitionRate(applyDetail(it.applicant!!.applyType))
+            if (rate == null) rate = ApplicantCompetitionRate(applyDetail(it.applicant!!.applyType))
 
             if (applicantInfo!!.privacy.gender == MALE) {
                 if (applicantInfo.privacy.address!!.streetAddress.contains("대구광역시")) rate.daeguMen++
@@ -56,19 +56,19 @@ class AdminStatisticsUseCase(
         return rateList
     }
 
-    fun getAdmissionsSchoolCompetitionRate(): List<AdmissionsSchoolCompetitionRate> {
+    fun getApplicantSchoolCompetitionRate(): List<ApplicantSchoolCompetitionRate> {
         val applicants = queryApplicantSpi.findAll()
-        val rateList: MutableList<AdmissionsSchoolCompetitionRate> = mutableListOf(
-            AdmissionsSchoolCompetitionRate("일반전형"),
-            AdmissionsSchoolCompetitionRate("특별전형(사회통합)"),
-            AdmissionsSchoolCompetitionRate("특별전형(마이스터인재)"),
-            AdmissionsSchoolCompetitionRate("특별전형(지역우선)"),
-            AdmissionsSchoolCompetitionRate("특례입학")
+        val rateList: MutableList<ApplicantSchoolCompetitionRate> = mutableListOf(
+            ApplicantSchoolCompetitionRate("일반전형"),
+            ApplicantSchoolCompetitionRate("특별전형(사회통합)"),
+            ApplicantSchoolCompetitionRate("특별전형(마이스터인재)"),
+            ApplicantSchoolCompetitionRate("특별전형(지역우선)"),
+            ApplicantSchoolCompetitionRate("특례입학")
         )
 
         applicants.forEach { applicant ->
             val admission = queryAdmissionSpi.findByMemberId(applicant.id.value)
-            val rate: AdmissionsSchoolCompetitionRate? = rateList.find { item ->
+            val rate: ApplicantSchoolCompetitionRate? = rateList.find { item ->
                 item.apply == applyDetail(admission!!.applicant!!.applyType)
             }
 
@@ -105,10 +105,9 @@ class AdminStatisticsUseCase(
         return rateList
     }
 
-
-    fun getApplicantCompetitionRate(): TotalAdmissionCompetitionRateResponse {
+    fun getApplicantGraduationTypeCompetitionRate(): ApplicantGraduationTypeCompetitionRate {
         val applicants = queryApplicantSpi.findAll()
-        val info = TotalAdmissionCompetitionRateResponse()
+        val info = ApplicantGraduationTypeCompetitionRate()
         applicants.forEach {
             when (it.privacy.gender!!) {
                 MALE -> {

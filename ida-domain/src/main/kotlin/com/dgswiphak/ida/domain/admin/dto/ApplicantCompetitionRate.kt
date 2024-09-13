@@ -1,6 +1,6 @@
 package com.dgswiphak.ida.domain.admin.dto
 
-data class ApplyCompetitionRate(
+data class ApplicantCompetitionRate(
     val applyType: String,
     val personnel: Int = when(applyType) {
         "일반전형" -> 41
