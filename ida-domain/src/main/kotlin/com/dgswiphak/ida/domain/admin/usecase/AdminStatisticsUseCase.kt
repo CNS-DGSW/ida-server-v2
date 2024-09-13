@@ -40,16 +40,16 @@ class AdminStatisticsUseCase(
             if (rate == null) rate = ApplicantCompetitionRate(applyDetail(it.applicant!!.applyType))
 
             if (applicantInfo!!.privacy.gender == MALE) {
-                if (applicantInfo.privacy.address!!.streetAddress.contains("대구광역시")) rate.daeguMen++
-                else rate.otherMen++
+                if (applicantInfo.privacy.address!!.streetAddress.contains("대구광역시")) rate.daeguMale++
+                else rate.otherMale++
             } else {
-                if (applicantInfo.privacy.address!!.streetAddress.contains("대구광역시")) rate.daeguWomen++
-                else rate.otherWomen++
+                if (applicantInfo.privacy.address!!.streetAddress.contains("대구광역시")) rate.daeguFemale++
+                else rate.otherFemale++
             }
         }
 
         rateList.forEach {
-            it.total = it.daeguMen + it.daeguWomen + it.otherMen + it.otherWomen
+            it.total = it.daeguMale + it.daeguFemale + it.otherMale + it.otherFemale
             it.rate = round((it.total / (if (it.personnel == 0) 1.0 else it.personnel.toDouble())) * 100) / 100.0
         }
 
@@ -171,6 +171,8 @@ class AdminStatisticsUseCase(
         userSchoolCityInfoList.sortBy { it.index }
         return userSchoolCityInfoList
     }
+
+    // TODO :: 날짜 및 지역별 가입, 작성, 제출 비율 테이블 추가
 
     private fun applyDetail(applyType: ApplyType): String {
         var apply = ""

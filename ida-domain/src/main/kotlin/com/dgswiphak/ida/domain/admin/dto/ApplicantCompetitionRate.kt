@@ -9,10 +9,10 @@ data class ApplicantCompetitionRate(
         "특별전형(지역우선)" -> 4
         else -> 0
     },
-    var daeguMen: Int = 0,
-    var daeguWomen: Int = 0,
-    var otherMen: Int = 0,
-    var otherWomen: Int = 0,
+    var daeguMale: Int = 0,
+    var daeguFemale: Int = 0,
+    var otherMale: Int = 0,
+    var otherFemale: Int = 0,
     var total: Int = 0,
     var rate: Double = 0.0
 )

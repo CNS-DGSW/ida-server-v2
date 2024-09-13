@@ -51,6 +51,6 @@ data class FirstTableResponse(
         absenceScore = admission?.score?.absence,
         volunteerScore = admission?.score?.volunteer,
         additionalScore = admission?.score?.additional
-        // TODO :: firstScore 추가하기
+        // firstScore 1차 성적
     )
 }

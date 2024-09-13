@@ -58,10 +58,10 @@ data class ApplicantTableResponse(
         absenceScore = admission?.score?.absence,
         volunteerScore = admission?.score?.volunteer,
         additionalScore = admission?.score?.additional,
-//        firstScore,
-//        isSubmission,
-//        submissionType,
-//        submissionStatus,
+//        firstScore 1차 성적 기능 추가
+//        isSubmission 사이트 원서 제출 여부
+//        submissionType 서류 제출 방법
+//        submissionStatus 진행 상태
         progress = admission?.progress?.name,
         studentTelNumber = applicant?.privacy?.phone?.value,
         parentTelNumber = applicant?.privacy?.parent?.phone?.value,

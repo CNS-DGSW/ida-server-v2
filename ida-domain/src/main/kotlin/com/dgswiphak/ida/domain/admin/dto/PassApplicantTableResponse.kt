@@ -49,7 +49,9 @@ data class PassApplicantTableResponse(
             }
         } ?: "",
         applyDetailType = admission?.applicant?.applyType?.value,
-        // TODO :: firstApplyType, isFinalPass, finalApplyType 추가하기
+        // firstApplyType 1차 합격 전형
+        // isFinalPass 최종 합격 여부
+        // finalApplyType 최종 합격 전형
     )
 }
 

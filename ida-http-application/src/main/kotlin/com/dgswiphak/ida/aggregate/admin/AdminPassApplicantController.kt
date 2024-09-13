@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/admin/passApplicant")
+@RequestMapping("/admin/pass-applicant")
 class AdminPassApplicantController(
     val adminPassApplicantUseCase: AdminPassApplicantUseCase
 ) {

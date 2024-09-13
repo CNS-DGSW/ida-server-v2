@@ -42,23 +42,23 @@ data class SecondaryTableResponse(
         city = applicant?.education?.school?.city,
         school = applicant?.education?.school?.name,
         graduationType = applicant?.education?.graduationType?.value,
-//        firstApplyType,
-//        firstDetailApplyType,
+//        firstApplyType 1차 합격 전형
+//        firstDetailApplyType 1차 합격 세부 전형
         generalScore = admission?.score?.generalScore,
         specialScore = admission?.score?.specialScore,
         absenceScore = admission?.score?.absence,
         volunteerScore = admission?.score?.volunteer,
         additionalScore = admission?.score?.additional,
-//        firstScore,
+//        firstScore 1차 성적
         jopScore = secondary?.aptitude?.jopScore,
         studyCompetence = secondary?.interview?.studyCompetence,
         computingCompetence = secondary?.interview?.computingCompetence,
-//        interviewTotalScore,
-//        secondarySpecialScore,
-//        secondaryRanking,
-//        secondaryCommonScore,
-//        secondaryCommonRankin,
-//        isFinalPass,
-//        finalPassApplyType
+//        interviewTotalScore 심층 면접 총 점수
+//        secondarySpecialScore 2차 특별전형 성적
+//        secondaryRanking 2차 특별전형 석차
+//        secondaryCommonScore 2차 일반전형 성적
+//        secondaryCommonRankin 2차 특별전형 석차
+//        isFinalPass 최종 합격 여부
+//        finalPassApplyType 최종 합격 전형
     )
 }
