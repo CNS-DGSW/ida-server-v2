@@ -5,6 +5,6 @@ import jakarta.persistence.Embeddable
 @Embeddable
 class AptitudeVO(
     
-    var jopScore: Int? = 0
+    var jopScore: Double? = 0.0
 
 )

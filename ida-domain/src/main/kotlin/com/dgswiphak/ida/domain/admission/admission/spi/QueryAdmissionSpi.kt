@@ -10,4 +10,6 @@ interface QueryAdmissionSpi : QuerySpi<Admission, Long> {
     fun findAllByProgress(progress: Progress): List<Admission>
 
     fun findByMemberId(memberId: Long): Admission?
+
+    fun findAll(): List<Admission>
 }

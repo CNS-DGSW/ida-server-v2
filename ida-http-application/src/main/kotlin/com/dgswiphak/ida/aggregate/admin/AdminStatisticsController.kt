@@ -1,8 +1,8 @@
 package com.dgswiphak.ida.aggregate.admin
 
-import com.dgswiphak.ida.domain.admin.dto.AdmissionsSchoolCompetitionRate
-import com.dgswiphak.ida.domain.admin.dto.ApplyCompetitionRate
-import com.dgswiphak.ida.domain.admin.dto.TotalAdmissionCompetitionRateResponse
+import com.dgswiphak.ida.domain.admin.dto.ApplicantSchoolCompetitionRate
+import com.dgswiphak.ida.domain.admin.dto.ApplicantCompetitionRate
+import com.dgswiphak.ida.domain.admin.dto.ApplicantGraduationTypeCompetitionRate
 import com.dgswiphak.ida.domain.admin.dto.UserSchoolCityInfoResponse
 import com.dgswiphak.ida.domain.admin.usecase.AdminStatisticsUseCase
 import org.springframework.web.bind.annotation.GetMapping
@@ -15,23 +15,23 @@ class AdminStatisticsController(
     private val adminStatisticsUseCase: AdminStatisticsUseCase
 ) {
 
-    @GetMapping("/apply")
-    fun getApplyCompetitionRate(): List<ApplyCompetitionRate> {
-        return adminStatisticsUseCase.getApplyCompetitionRate()
-    }
-
-    @GetMapping("/school")
-    fun getSchoolOriginByRegion(): List<UserSchoolCityInfoResponse> {
-        return adminStatisticsUseCase.getSchoolOriginByRegion()
-    }
-
     @GetMapping("/applicant")
-    fun getApplicantCompetitionRate(): TotalAdmissionCompetitionRateResponse {
+    fun applyCompetitionRate(): List<ApplicantCompetitionRate> {
         return adminStatisticsUseCase.getApplicantCompetitionRate()
     }
 
-    @GetMapping("/admissions")
-    fun getAdmissionsSchoolCompetitionRate(): List<AdmissionsSchoolCompetitionRate> {
-        return adminStatisticsUseCase.getAdmissionsSchoolCompetitionRate()
+    @GetMapping("/applicant/school")
+    fun applicantSchoolCompetitionRate(): List<ApplicantSchoolCompetitionRate> {
+        return adminStatisticsUseCase.getApplicantSchoolCompetitionRate()
+    }
+
+    @GetMapping("/applicant/graduation")
+    fun applicantGraduationTypeCompetitionRate(): ApplicantGraduationTypeCompetitionRate {
+        return adminStatisticsUseCase.getApplicantGraduationTypeCompetitionRate()
+    }
+
+    @GetMapping("/school")
+    fun schoolOriginByRegion(): List<UserSchoolCityInfoResponse> {
+        return adminStatisticsUseCase.getSchoolOriginByRegion()
     }
 }

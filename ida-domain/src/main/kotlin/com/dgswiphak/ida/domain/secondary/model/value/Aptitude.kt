@@ -2,6 +2,6 @@ package com.dgswiphak.ida.domain.secondary.model.value
 
 data class Aptitude(
 
-    val jopScore: Int? = 0
+    val jopScore: Double? = 0.0
 
 )

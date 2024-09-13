@@ -41,4 +41,14 @@ class AdmissionQueryRepository(
 
         return admissionMapper.toDomain(admission)
     }
+
+    override fun findAll(): List<Admission> {
+        val admissionEntity = QAdmissionEntity.admissionEntity
+        val admission = jpaQueryFactory.selectFrom(admissionEntity)
+            .fetch()
+
+        return admission.map {
+            admissionMapper.toDomain(it)!!
+        }
+    }
 }

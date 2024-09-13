@@ -1,1 +1,51 @@
+spring:
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://ida-db.cb8gqqaagkoq.ap-northeast-2.rds.amazonaws.com:3306/ida_db
+    username: admin
+    password: dgswcns9226!
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQLDialect
+    database: mysql
+    generate-ddl: true
 
+server:
+  servlet:
+    multipart:
+      maxFileSize: 50MB
+      maxRequestSize: 100MB
+
+logging:
+  level:
+    org:
+      springframework:
+        security:
+          DEBUG
+
+jwt:
+  accessTokenSecretKey: gnui442jibvhudvzihse732bihbczu3rbivux8834
+  refreshTokenSecretKey: fhv83w27thnbhu87vh9shgnf89w4thnvis984rb9
+  accessExpirationMillis: 1800000
+  refreshExpirationMillis: 10800000
+
+neis:
+  key: 48b2e7e10aa141c582d8c054fb636b13
+
+cloud:
+  aws:
+    credentials:
+      access-key: AKIAZQ3DOMN5L5JSVTHK
+      secret-key: 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
+    s3:
+      bucket: ida-v2-storage

@@ -12,7 +12,7 @@ class AdminPassApplicantController(
     val adminPassApplicantUseCase: AdminPassApplicantUseCase
 ) {
 
-    @GetMapping
+    @GetMapping("/table")
     fun passApplicantTable() : List<PassApplicantTableResponse> {
         return adminPassApplicantUseCase.getPassApplicantTable()
     }
