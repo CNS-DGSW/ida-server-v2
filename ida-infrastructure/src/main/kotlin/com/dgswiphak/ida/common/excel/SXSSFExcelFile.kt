@@ -40,7 +40,7 @@ abstract class SXSSFExcelFile<T>(
         val row: Row = sheet.createRow(rowIndex)
         var columnIndex = columnStartIndex
         for (dataFieldName in renderResource.getDataFieldNames()) {
-            sheet.setColumnWidth(columnIndex, renderResource.getSellWidth())
+            sheet.setColumnWidth(columnIndex, renderResource.getSellWidth()[columnIndex])
             val cell: Cell = row.createCell(columnIndex++)
             cell.cellStyle = renderResource.getCellStyle(dataFieldName, ExcelRenderLocation.HEADER)
             cell.setCellValue(renderResource.getExcelHeaderName(dataFieldName))
