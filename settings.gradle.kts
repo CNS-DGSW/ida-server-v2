@@ -20,6 +20,12 @@ include("applicant:applicant-application")
 include("applicant:applicant-jpa-adapter")
 include("applicant:applicant-web-adapter")
 
+include("admission")
+include("admission:admission-domain")
+include("admission:admission-application")
+include("admission:admission-jpa-adapter")
+include("admission:admission-web-adapter")
+
 include("notice")
 include("notice:notice-domain")
 include("notice:notice-application")
