@@ -1,4 +1,4 @@
-package com.dgswiphak.ida.domain.admission.admission.model.value.type
+package com.daegusw.apply.admission.domain.admission.constant
 
 enum class ApplyType(
     val value: String,
