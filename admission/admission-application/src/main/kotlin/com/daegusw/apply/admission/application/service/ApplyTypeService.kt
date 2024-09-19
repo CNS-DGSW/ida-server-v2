@@ -9,18 +9,21 @@ import com.daegusw.apply.admission.domain.admission.constant.ApplyType
 import com.daegusw.apply.admission.domain.admission.value.AdmissionApplicant
 import com.daegusw.apply.member.id.MemberId
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 
 @Service
 class ApplyTypeService(
     private val queryAdmissionPort: QueryAdmissionPort,
     private val commandAdmissionPort: CommandAdmissionPort
 ) : ApplyTypeUseCase {
+    @Transactional(readOnly = true)
     override fun find(id: MemberId): ApplyType {
         val admission = queryAdmissionPort.findByMemberId(id) ?: throw AdmissionDoesNotExistException(id)
 
         return admission.applicant!!.type
     }
 
+    @Transactional
     override fun update(id: MemberId, type: ApplyType) {
         val admission = queryAdmissionPort.findByMemberId(id) ?: Admission()
 
