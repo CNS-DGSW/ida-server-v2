@@ -45,6 +45,14 @@ class JwtUtils(
         }
     }
 
+    fun getTokenFromHeader(headerValue: String?): String? {
+        if (headerValue != null && headerValue.startsWith("Bearer ")) {
+            return headerValue.replace("Bearer ", "")
+        }
+
+        return null
+    }
+
     fun getClaim(token: String, claim: String): String {
         val decodedJWT = verifier.verify(token)
         return decodedJWT.getClaim(claim).asString()

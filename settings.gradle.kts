@@ -35,4 +35,7 @@ include("secondary:secondary-web-adapter")
 include("auth")
 include("auth:auth-application")
 include("auth:auth-web-adapter")
-include("auth:auth-security-adapter")
+
+include("core:authentication")
+include("core:authentication:authentication-security")
+include("core:authentication:authentication-resolver")

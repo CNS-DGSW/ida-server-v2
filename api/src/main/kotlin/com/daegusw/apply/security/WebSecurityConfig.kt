@@ -11,7 +11,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 class WebSecurityConfig(
-    private val authenticationProvider: AuthenticationProvider
+    private val jwtAuthenticationFilter: JwtAuthenticationFilter
 ) {
     companion object {
         private const val ROLE_TEACHER = "TEACHER"
@@ -31,8 +31,7 @@ class WebSecurityConfig(
             .anyRequest().permitAll()
 
         http
-            .addFilterBefore(JwtAuthenticationFilter(authenticationProvider),
-                UsernamePasswordAuthenticationFilter::class.java)
+            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter::class.java)
 
         return http.build()
     }
