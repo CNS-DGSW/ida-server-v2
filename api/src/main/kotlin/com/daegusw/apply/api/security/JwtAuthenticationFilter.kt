@@ -1,4 +1,4 @@
-package com.daegusw.apply.security
+package com.daegusw.apply.api.security
 
 import com.daegusw.apply.auth.application.common.exception.AuthException
 import com.daegusw.apply.auth.application.common.utils.JwtUtils

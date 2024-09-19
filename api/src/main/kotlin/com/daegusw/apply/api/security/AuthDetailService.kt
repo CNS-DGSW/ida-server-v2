@@ -1,4 +1,4 @@
-package com.daegusw.apply.security
+package com.daegusw.apply.api.security
 
 import com.daegusw.apply.member.domain.Member
 import com.daegusw.apply.member.id.MemberId

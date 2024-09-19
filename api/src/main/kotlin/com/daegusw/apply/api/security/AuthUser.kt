@@ -1,4 +1,4 @@
-package com.daegusw.apply.security
+package com.daegusw.apply.api.security
 
 import com.daegusw.apply.member.id.MemberId
 import org.springframework.security.core.GrantedAuthority
@@ -10,7 +10,7 @@ class AuthUser(
     private val password: String,
     private val authority: MutableCollection<out GrantedAuthority>
 ): UserDetails {
-    override fun getAuthorities(): MutableCollection<out GrantedAuthority> =
+    override fun getAuthorities(): MutableCollection<out GrantedAuthority>? =
         authority
 
     override fun getPassword(): String = password

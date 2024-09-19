@@ -3,7 +3,6 @@ package com.daegusw.apply.admission.domain.admission
 import com.daegusw.apply.admission.domain.admission.constant.Progress
 import com.daegusw.apply.admission.domain.admission.value.AdmissionApplicant
 import com.daegusw.apply.admission.domain.admission.value.Document
-import com.daegusw.apply.admission.domain.score.Score
 
 class Admission(
     val id: Long? = 0,
