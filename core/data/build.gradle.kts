@@ -6,6 +6,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
     implementation(project(":member:member-domain"))
+    implementation(project(":applicant:applicant-domain"))
+    implementation(project(":admission:admission-domain"))
 }
 
 allOpen {

@@ -1,4 +1,4 @@
-package com.daegusw.apply.core.data.entity
+package com.daegusw.apply.core.data.entity.member
 
 import com.daegusw.apply.core.data.common.EmbeddedMemberId
 import com.daegusw.apply.core.data.common.TimeBaseEntity
