@@ -1,5 +1,7 @@
 package com.daegusw.apply.memnber.application.service
 
+import com.daegusw.apply.applicant.application.port.out.persistence.CommandApplicantPort
+import com.daegusw.apply.applicant.domain.applicant.Applicant
 import com.daegusw.apply.core.hash.Sha512Encoder
 import com.daegusw.apply.core.idgen.IdGenerator
 import com.daegusw.apply.member.domain.Member
@@ -17,11 +19,12 @@ import org.springframework.stereotype.Service
 class SignupApplicantService(
     private val queryMemberPort: QueryMemberPort,
     private val commandMemberPort: CommandMemberPort,
+    private val commandApplicantPort: CommandApplicantPort,
     private val sha512Encoder: Sha512Encoder
 ) : SignupApplicantUseCase {
     override fun signupApplicant(memberCommand: MemberCommand) {
         if (queryMemberPort.existsByEmail(memberCommand.email)) {
-            throw DuplicateEmailException("${memberCommand.email}는 이미 등록된 이메일 입니다.")
+            throw DuplicateEmailException(memberCommand.email)
         }
 
         commandMemberPort.saveMember(
@@ -31,6 +34,6 @@ class SignupApplicantService(
                 password = Password(sha512Encoder.encode(memberCommand.password)),
                 role = Role.ROLE_APPLICANT
             )
-        )
+        ).also { commandApplicantPort.save(Applicant(it.id)) }
     }
 }
