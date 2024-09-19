@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository
 class CommandMemberAdapter(
     private val memberJpaRepository: MemberJpaRepository
 ): CommandMemberPort {
-    override fun saveMember(member: Member) {
-        memberJpaRepository.save(MemberEntityMapper.toEntity(member))
+    override fun saveMember(member: Member): Member {
+        return MemberEntityMapper.toDomain(memberJpaRepository.save(MemberEntityMapper.toEntity(member)))!!
     }
 }

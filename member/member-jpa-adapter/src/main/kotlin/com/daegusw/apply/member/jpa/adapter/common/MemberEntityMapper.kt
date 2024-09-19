@@ -1,6 +1,6 @@
 package com.daegusw.apply.member.jpa.adapter.common
 
-import com.daegusw.apply.core.data.entity.MemberEntity
+import com.daegusw.apply.core.data.entity.member.MemberEntity
 import com.daegusw.apply.member.domain.Member
 
 class MemberEntityMapper {
