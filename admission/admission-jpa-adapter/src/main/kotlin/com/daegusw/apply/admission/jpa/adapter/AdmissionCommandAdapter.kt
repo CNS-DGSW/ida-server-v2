@@ -4,7 +4,9 @@ import com.daegusw.apply.admission.jpa.adapter.repository.AdmissionJpaRepository
 import com.daegusw.apply.admission.application.port.out.persistence.CommandAdmissionPort
 import com.daegusw.apply.admission.domain.admission.Admission
 import com.daegusw.apply.admission.jpa.adapter.common.AdmissionEntityMapper
+import org.springframework.stereotype.Repository
 
+@Repository
 class AdmissionCommandAdapter(
     private val admissionJpaRepository: AdmissionJpaRepository
 ) : CommandAdmissionPort  {

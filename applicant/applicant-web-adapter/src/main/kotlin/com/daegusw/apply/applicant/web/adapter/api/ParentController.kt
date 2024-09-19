@@ -7,6 +7,7 @@ import com.daegusw.apply.core.authentication.AuthenticatedPrincipalId
 import com.daegusw.apply.member.id.MemberId
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseStatus
@@ -25,7 +26,7 @@ class ParentController(
         return ParentResponse(parentUseCase.find(id))
     }
 
-    @GetMapping
+    @PutMapping
     @ResponseStatus(HttpStatus.OK)
     fun updateParent(
         @AuthenticatedPrincipalId id: MemberId,

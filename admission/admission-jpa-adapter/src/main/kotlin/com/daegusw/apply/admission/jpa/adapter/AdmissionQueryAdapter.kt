@@ -6,7 +6,9 @@ import com.daegusw.apply.admission.jpa.adapter.common.AdmissionEntityMapper
 import com.daegusw.apply.admission.jpa.adapter.repository.AdmissionJpaRepository
 import com.daegusw.apply.core.data.common.EmbeddedMemberId
 import com.daegusw.apply.member.id.MemberId
+import org.springframework.stereotype.Repository
 
+@Repository
 class AdmissionQueryAdapter(
     private val admissionJpaRepository: AdmissionJpaRepository
 ) : QueryAdmissionPort {
