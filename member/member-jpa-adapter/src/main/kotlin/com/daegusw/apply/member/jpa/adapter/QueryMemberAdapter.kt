@@ -17,6 +17,10 @@ class QueryMemberAdapter(
         return MemberEntityMapper.toDomain(memberJpaRepository.findByIdOrNull(MemberIdEntityMapper.toEntity(id)))
     }
 
+    override fun findByEmail(email: String): Member? {
+        return MemberEntityMapper.toDomain(memberJpaRepository.findByEmail(email))
+    }
+
     override fun existsByEmail(email: String): Boolean {
         return memberJpaRepository.existsByEmail(email)
     }

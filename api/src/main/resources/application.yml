@@ -1,56 +1,20 @@
 spring:
-  profiles:
-    active: local
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:ida}
+    username: ${DB_USERNAME:cns}
+    password: ${DB_PASSWORD:cns}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+    hikari:
+      maximum-pool-size: 4
+      pool-name: HIKARI_CONNECTION_POOL
 
   jpa:
-    show-sql: true
-
-    database: mysql
+    hibernate:
+      ddl-auto: update
     database-platform: org.hibernate.dialect.MySQL8Dialect
     properties:
       hibernate:
         show_sql: true
         format_sql: true
-        dialect: org.hibernate.dialect.MySQL8Dialect
-
-    generate-ddl: true
-    hibernate:
-      ddl-auto: validate
-
-  datasource:
-    url: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?useSSL=false&allowPublicKeyRetrieval=true
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
-
-  servlet:
-    multipart:
-      max-request-size: 30MB
-      max-file-size: 30MB
-
----
-spring:
-  config:
-    activate:
-      on-profile: prod
-
----
-
-spring:
-  config:
-    activate:
-      on-profile: local
-  jpa:
-    properties:
-      hibernate:
-        format_sql: true
-
-    generate-ddl: true
-    hibernate:
-      ddl-auto: update
-
-  datasource:
-    url: jdbc:mysql://127.0.0.1:3306/ida
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: cns
-    password: cns
