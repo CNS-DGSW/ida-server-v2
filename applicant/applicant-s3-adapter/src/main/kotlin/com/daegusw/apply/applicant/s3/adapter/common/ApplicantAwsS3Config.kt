@@ -9,10 +9,10 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-class AwsS3Config(
-    private val awsProperties: AwsProperties
+class ApplicantAwsS3Config(
+    private val awsProperties: ApplicantAwsProperties
 ) {
-    @Bean
+    @Bean(name = ["applicantS3Client"])
     fun amazonS3Client(): AmazonS3Client {
         val awsCredentials = BasicAWSCredentials(awsProperties.accessKey, awsProperties.secretKey)
         return AmazonS3ClientBuilder.standard()

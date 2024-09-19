@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component
 
 @Component
 @PropertySource("classpath:application.yml")
-class AwsS3Properties(
-    @Value("\${cloud.aws.s3.bucket:bucket}") val bucket: String
+class ApplicantAwsProperties (
+    @Value("\${cloud.aws.credentials.access-key:access-key}") val accessKey : String,
+    @Value("\${cloud.aws.credentials.secret-key:secret-key}") val secretKey : String
 )
