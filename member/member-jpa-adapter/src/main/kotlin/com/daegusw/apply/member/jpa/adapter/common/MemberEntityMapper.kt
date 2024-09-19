@@ -1,6 +1,6 @@
 package com.daegusw.apply.member.jpa.adapter.common
 
-import com.daegusw.apply.core.data.entity.MemberEntity
+import com.daegusw.apply.core.data.entity.member.MemberEntity
 import com.daegusw.apply.member.domain.Member
 
 class MemberEntityMapper {
@@ -18,7 +18,7 @@ class MemberEntityMapper {
 
         fun toEntity(domain: Member): MemberEntity {
             return MemberEntity(
-                id = MemberIdEntityMapper.toEntity(domain.id),
+                memberId = MemberIdEntityMapper.toEntity(domain.id),
                 email = domain.email,
                 password = domain.password,
                 role = domain.role

@@ -1,5 +1,6 @@
 package com.daegusw.apply.core.data.common
 
+import com.daegusw.apply.member.id.MemberId
 import java.io.Serializable
 import java.util.*
 import javax.persistence.Column
@@ -20,4 +21,9 @@ class EmbeddedMemberId(
     override fun hashCode(): Int {
         return Objects.hash(value)
     }
+
+    companion object {
+        fun of(id: MemberId) = EmbeddedMemberId(id.value)
+    }
+
 }

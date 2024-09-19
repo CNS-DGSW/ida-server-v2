@@ -1,12 +1,12 @@
 package com.daegusw.apply.applicant.domain.applicant.privacy.value
 
-import java.time.Instant
+import java.time.LocalDate
 
 data class Parent(
     val name: String,
     val relation: String,
     val phone: String,
-    val brith: Instant
+    val birth: LocalDate
 ) {
     init {
         if (name.isBlank()) throw IllegalArgumentException("Name cannot be blank")
