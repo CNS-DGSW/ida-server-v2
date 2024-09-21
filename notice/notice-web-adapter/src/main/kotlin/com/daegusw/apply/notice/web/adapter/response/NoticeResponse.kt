@@ -1,6 +1,6 @@
 package com.daegusw.apply.notice.web.adapter.response
 
-import com.dgswiphak.ida.domain.notice.model.Notice
+import com.daegusw.apply.notice.domain.Notice
 import java.time.LocalDateTime
 import javax.validation.constraints.NotEmpty
 import javax.validation.constraints.NotNull

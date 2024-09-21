@@ -1,6 +1,6 @@
 package com.daegusw.apply.notice.application.port.out.persistence
 
-import com.dgswiphak.ida.domain.notice.model.Notice
+import com.daegusw.apply.notice.domain.Notice
 
 interface QueryNoticePort {
 

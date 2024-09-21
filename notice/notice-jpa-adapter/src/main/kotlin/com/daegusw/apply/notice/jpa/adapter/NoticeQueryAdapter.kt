@@ -4,7 +4,7 @@ package com.daegusw.apply.notice.jpa.adapter
 import com.daegusw.apply.notice.application.port.out.persistence.QueryNoticePort
 import com.daegusw.apply.notice.jpa.adapter.common.NoticeEntityMapper
 import com.daegusw.apply.notice.jpa.adapter.repository.NoticeJpaRepository
-import com.dgswiphak.ida.domain.notice.model.Notice
+import com.daegusw.apply.notice.domain.Notice
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Repository
 

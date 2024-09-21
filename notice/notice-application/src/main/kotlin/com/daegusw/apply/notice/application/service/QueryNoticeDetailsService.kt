@@ -3,7 +3,7 @@ package com.daegusw.apply.notice.application.service
 import com.daegusw.apply.notice.application.exception.NoticeNotFoundException
 import com.daegusw.apply.notice.application.port.`in`.web.QueryNoticeDetailsUseCase
 import com.daegusw.apply.notice.application.port.out.persistence.QueryNoticePort
-import com.dgswiphak.ida.domain.notice.model.Notice
+import com.daegusw.apply.notice.domain.Notice
 import org.springframework.stereotype.Service
 
 @Service

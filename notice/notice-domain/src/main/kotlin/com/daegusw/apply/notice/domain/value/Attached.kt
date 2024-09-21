@@ -1,4 +1,4 @@
-package com.dgswiphak.ida.domain.notice.model.value
+package com.daegusw.apply.notice.domain.value
 
 data class Attached(
     val originalName: String,

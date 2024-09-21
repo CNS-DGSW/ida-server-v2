@@ -5,7 +5,7 @@ import com.daegusw.apply.notice.web.adapter.request.CreateNoticeRequest
 import com.daegusw.apply.notice.web.adapter.request.UpdateNoticeRequest
 import com.daegusw.apply.notice.web.adapter.response.NoticeResponse
 import com.daegusw.apply.notice.web.adapter.response.NoticesResponse
-import com.dgswiphak.ida.domain.notice.model.Notice
+import com.daegusw.apply.notice.domain.Notice
 import org.jetbrains.annotations.NotNull
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*

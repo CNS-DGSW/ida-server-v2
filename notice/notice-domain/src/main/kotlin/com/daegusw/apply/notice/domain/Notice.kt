@@ -1,6 +1,6 @@
-package com.dgswiphak.ida.domain.notice.model
+package com.daegusw.apply.notice.domain
 
-import com.dgswiphak.ida.domain.notice.model.value.Attached
+import com.daegusw.apply.notice.domain.value.Attached
 import java.time.LocalDateTime
 
 data class Notice(

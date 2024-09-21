@@ -1,7 +1,7 @@
 package com.daegusw.apply.notice.jpa.adapter.common
 
 import com.daegusw.apply.core.data.entity.notice.value.AttachedVO
-import com.dgswiphak.ida.domain.notice.model.value.Attached
+import com.daegusw.apply.notice.domain.value.Attached
 
 class AttachedVOMapper {
 
