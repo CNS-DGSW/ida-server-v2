@@ -2,10 +2,12 @@ package com.daegusw.apply.admission.jpa.adapter.common
 
 import com.daegusw.apply.admission.domain.admission.Admission
 import com.daegusw.apply.admission.domain.admission.value.AdmissionApplicant
+import com.daegusw.apply.admission.domain.admission.value.AdmissionStatus
 import com.daegusw.apply.admission.domain.admission.value.Document
 import com.daegusw.apply.core.data.common.EmbeddedMemberId
 import com.daegusw.apply.core.data.entity.admission.AdmissionEntity
 import com.daegusw.apply.core.data.entity.admission.value.AdmissionApplicantVO
+import com.daegusw.apply.core.data.entity.admission.value.AdmissionStatusVO
 import com.daegusw.apply.core.data.entity.admission.value.DocumentVO
 import com.daegusw.apply.member.id.MemberId
 
@@ -15,7 +17,8 @@ object AdmissionEntityMapper {
             id = domain.id,
             progress = domain.progress,
             applicant = domain.applicant?.let { toAdmissionApplicantVO(it) },
-            document = domain.document?.let { toDocumentVO(it) }
+            document = domain.document?.let { toDocumentVO(it) },
+            admissionStatus = domain.admissionStatus?.let { toAdmissionStatusVO(it) }
         )
     }
 
@@ -25,7 +28,8 @@ object AdmissionEntityMapper {
                 id = it.id,
                 progress = it.progress,
                 applicant = it.applicant?.let { toAdmissionApplicant(it) },
-                document = it.document?.let { toDocument(it) }
+                document = it.document?.let { toDocument(it) },
+                admissionStatus = it.admissionStatus?.let { toAdmissionStatus(it) }
             )
         }
     }
@@ -44,6 +48,13 @@ object AdmissionEntityMapper {
         )
     }
 
+    private fun toAdmissionStatusVO(admissionStatus: AdmissionStatus): AdmissionStatusVO {
+        return AdmissionStatusVO(
+            firstAdmissionStatus = admissionStatus.firstAdmissionStatus,
+            lastAdmissionStatus = admissionStatus.lastAdmissionStatus
+        )
+    }
+
     private fun toAdmissionApplicant(applicant: AdmissionApplicantVO?): AdmissionApplicant? {
         return applicant?.let {
             AdmissionApplicant(
@@ -59,6 +70,15 @@ object AdmissionEntityMapper {
             Document(
                 introduce = document.introduce,
                 studyPlan = document.studyPlan
+            )
+        }
+    }
+
+    private fun toAdmissionStatus(admissionStatus: AdmissionStatusVO?): AdmissionStatus? {
+        return admissionStatus?.let {
+            AdmissionStatus(
+                firstAdmissionStatus = it.firstAdmissionStatus,
+                lastAdmissionStatus = it.lastAdmissionStatus
             )
         }
     }

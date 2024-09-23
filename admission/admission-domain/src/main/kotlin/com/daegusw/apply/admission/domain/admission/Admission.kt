@@ -2,6 +2,7 @@ package com.daegusw.apply.admission.domain.admission
 
 import com.daegusw.apply.admission.domain.admission.constant.Progress
 import com.daegusw.apply.admission.domain.admission.value.AdmissionApplicant
+import com.daegusw.apply.admission.domain.admission.value.AdmissionStatus
 import com.daegusw.apply.admission.domain.admission.value.Document
 
 class Admission(
@@ -9,6 +10,7 @@ class Admission(
     val progress: Progress? = Progress.NONE,
     var applicant: AdmissionApplicant? = null,
     var document: Document? = null,
+    var admissionStatus: AdmissionStatus? = AdmissionStatus()
 ) {
     fun updateDocument(document: Document) {
         this.document = document
