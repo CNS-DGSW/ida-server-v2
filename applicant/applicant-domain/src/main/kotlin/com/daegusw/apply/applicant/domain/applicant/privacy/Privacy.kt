@@ -11,17 +11,21 @@ data class Privacy(
     var birth: LocalDate,
     var gender: Gender,
     var phone: String,
-    var photo: String,
+    var photo: String?,
     var address: Address?,
     var parent: Parent?,
     var merit: Merit?,
 ) {
-    fun updateInformation(name: String, birth: LocalDate, gender: Gender, phone: String) {
-        this.name = name
-        this.birth = birth
-        this.gender = gender
-        this.phone = phone
-    }
+    constructor(name: String, birth: LocalDate, gender: Gender, phone: String): this(
+        name = name,
+        birth = birth,
+        gender = gender,
+        phone = phone,
+        photo = null,
+        address = null,
+        parent = null,
+        merit = null
+    )
 
     fun updateParent(parent: Parent) {
         this.parent = parent
