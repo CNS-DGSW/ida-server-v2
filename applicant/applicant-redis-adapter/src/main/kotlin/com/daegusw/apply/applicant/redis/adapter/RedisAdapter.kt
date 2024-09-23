@@ -10,15 +10,28 @@ class RedisAdapter(
     private val redisTemplate: RedisTemplate<String, String>,
 ) : RedisPort {
     override fun save(key: String, value: String, expiration: Long) {
-        redisTemplate.opsForValue().set(key, value, Duration.ofMinutes(expiration))
+        try{
+            redisTemplate.opsForValue().set(key, value, Duration.ofMinutes(expiration))
+
+        }catch(e:Exception){
+            throw e
+        }
     }
 
     override fun delete(key: String) {
-        redisTemplate.delete(key)
+        try{
+            redisTemplate.delete(key)
+        }catch(e:Exception){
+            throw e
+        }
     }
 
     override fun get(key: String): String? {
-        return redisTemplate.opsForValue().get(key)
+        try {
+            return redisTemplate.opsForValue().get(key)
+        }catch(e:Exception){
+            throw e
+        }
     }
 
 }

@@ -7,6 +7,9 @@ import org.springframework.data.redis.connection.RedisConnectionFactory
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory
 import org.springframework.data.redis.core.RedisTemplate
 import org.springframework.data.redis.serializer.StringRedisSerializer
+import org.springframework.transaction.PlatformTransactionManager
+import org.springframework.transaction.TransactionManager
+
 
 @Configuration
 class RedisConfig(
