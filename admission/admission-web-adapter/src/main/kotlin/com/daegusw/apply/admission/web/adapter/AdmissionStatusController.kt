@@ -1,8 +1,6 @@
 package com.daegusw.apply.admission.web.adapter
 
 import com.daegusw.apply.admission.application.port.`in`.web.AdmissionStatusUseCase
-import com.daegusw.apply.admission.domain.admission.constant.FirstAdmissionStatus
-import com.daegusw.apply.admission.domain.admission.constant.LastAdmissionStatus
 import com.daegusw.apply.admission.web.adapter.response.AdmissionStatusResponse
 import com.daegusw.apply.core.authentication.AuthenticatedPrincipalId
 import com.daegusw.apply.member.id.MemberId
@@ -22,7 +20,7 @@ class AdmissionStatusController (
     @ResponseStatus(HttpStatus.OK)
     fun findFirstAdmissionStatus(
         @AuthenticatedPrincipalId id: MemberId
-    ): AdmissionStatusResponse<FirstAdmissionStatus>{
+    ): AdmissionStatusResponse{
         return AdmissionStatusResponse(admissionStatusUseCase.findFirstStatus(id))
     }
 
@@ -31,9 +29,8 @@ class AdmissionStatusController (
     @ResponseStatus(HttpStatus.OK)
     fun findLastAdmissionStatus(
         @AuthenticatedPrincipalId id: MemberId
-    ): AdmissionStatusResponse<LastAdmissionStatus>{
+    ): AdmissionStatusResponse{
         return AdmissionStatusResponse(admissionStatusUseCase.findLastStatus(id))
     }
-
 
 }
