@@ -11,3 +11,5 @@ cloud:
     credentials:
       access-key: ${aws.credentials.accessKey}
       secret-key: ${aws.credentials.secretKey}
+      send-mail-to: dgswcns@gmail.com
+    region: ap-northeast-2

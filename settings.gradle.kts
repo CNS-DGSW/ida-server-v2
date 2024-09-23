@@ -24,6 +24,7 @@ include("applicant:applicant-jpa-adapter")
 include("applicant:applicant-s3-adapter")
 include("applicant:applicant-smtp-adapter")
 include("applicant:applicant-web-adapter")
+include("applicant:applicant-redis-adapter")
 
 include("admission")
 include("admission:admission-domain")
