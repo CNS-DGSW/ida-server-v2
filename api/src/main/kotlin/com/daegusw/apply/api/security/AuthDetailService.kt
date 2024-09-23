@@ -2,6 +2,7 @@ package com.daegusw.apply.api.security
 
 import com.daegusw.apply.member.domain.Member
 import com.daegusw.apply.member.id.MemberId
+import com.daegusw.apply.memnber.application.common.MemberDoesNotExistException
 import com.daegusw.apply.memnber.application.port.out.persistence.QueryMemberPort
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
@@ -15,7 +16,7 @@ class AuthDetailService (
 ): UserDetailsService {
     override fun loadUserByUsername(username: String): UserDetails {
         val id = username.toLong()
-        val member = queryMemberPort.findById(MemberId(id)) ?: throw RuntimeException()
+        val member = queryMemberPort.findById(MemberId(id)) ?: throw MemberDoesNotExistException(id)
         return toUserDetails(member)
     }
 

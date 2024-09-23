@@ -1,6 +1,6 @@
-package com.daegusw.apply.member.web.adpater
+package com.daegusw.apply.member.web.adpater.api
 
-import com.daegusw.apply.member.web.adpater.request.SignupMemberRequest
+import com.daegusw.apply.member.web.adpater.api.request.SignupMemberRequest
 import com.daegusw.apply.memnber.application.port.`in`.web.SignupApplicantUseCase
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.PostMapping

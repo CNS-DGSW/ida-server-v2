@@ -1,4 +1,4 @@
-package com.daegusw.apply.member.web.adpater.request
+package com.daegusw.apply.member.web.adpater.api.request
 
 import com.daegusw.apply.memnber.application.common.MemberCommand
 import javax.validation.constraints.Email
