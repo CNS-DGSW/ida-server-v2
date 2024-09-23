@@ -1,0 +1,4 @@
+jwt:
+  secret: ${jwt.secret}
+  issuer: ${jwt.issuer}
+  exp-seconds: ${jwt.exp-seconds}

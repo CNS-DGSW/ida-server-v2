@@ -1,0 +1,7 @@
+cloud:
+  aws:
+    credentials:
+      access-key: ${aws.credentials.accessKey}
+      secret-key: ${aws.credentials.secretKey}
+    s3:
+      bucket: ${aws.s3.bucket}

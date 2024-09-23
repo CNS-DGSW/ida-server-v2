@@ -1,0 +1,10 @@
+package com.daegusw.apply.notice.application.port.`in`.web
+
+import com.daegusw.apply.notice.domain.Notice
+
+
+interface QueryNoticeDetailsUseCase {
+
+    fun queryNoticeDerails(noticeId: Long): Notice
+
+}

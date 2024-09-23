@@ -1,3 +1,4 @@
+/*
 plugins {
 	alias(libs.plugins.kotlin.spring)
 	alias(libs.plugins.kotlin.jpa)
@@ -40,4 +41,4 @@ noArg {
 	annotation("jakarta.persistence.Entity")
 	annotation("jakarta.persistence.MappedSuperclass")
 	annotation("jakarta.persistence.Embeddable")
-}
+}*/
