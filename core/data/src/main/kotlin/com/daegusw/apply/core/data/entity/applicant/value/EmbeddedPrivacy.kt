@@ -15,7 +15,7 @@ data class EmbeddedPrivacy(
 
     val phone: String,
 
-    val photo: String,
+    val photo: String?,
 
     @Embedded
     val address: AddressVO?,
