@@ -8,13 +8,19 @@ data class AdmissionStatusResponse(
     val applyType: ApplyType,
     val admissionStatus: String
 ) {
-    constructor(pair: Pair<FirstAdmissionStatus, ApplyType>) : this(
-        applyType = pair.second,
-        admissionStatus = pair.first.message
-    )
+    companion object {
+        fun fromFirst(pair: Pair<FirstAdmissionStatus, ApplyType>): AdmissionStatusResponse {
+            return AdmissionStatusResponse(
+                applyType = pair.second,
+                admissionStatus = pair.first.message
+            )
+        }
 
-    constructor(pair: Pair<LastAdmissionStatus, ApplyType>) : this(
-        applyType = pair.second,
-        admissionStatus = pair.first.message
-    )
+        fun fromLast(pair: Pair<LastAdmissionStatus, ApplyType>): AdmissionStatusResponse {
+            return AdmissionStatusResponse(
+                applyType = pair.second,
+                admissionStatus = pair.first.message
+            )
+        }
+    }
 }
