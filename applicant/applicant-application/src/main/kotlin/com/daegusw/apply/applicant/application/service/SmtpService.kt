@@ -14,6 +14,7 @@ class SmtpService(
     override suspend fun verify(email: String, code: String): String {
         val value = redisPort.get(email)
         if((value != null) && value == code){
+            redisPort.update(email, "verified")
             return "verified"
         }
         throw RuntimeException("Smtp verification failed")

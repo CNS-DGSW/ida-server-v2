@@ -34,4 +34,12 @@ class RedisAdapter(
         }
     }
 
+    override fun update(key: String, value: String) {
+        try{
+            redisTemplate.opsForValue().set(key, value)
+        }catch(e:Exception){
+            throw e
+        }
+    }
+
 }
