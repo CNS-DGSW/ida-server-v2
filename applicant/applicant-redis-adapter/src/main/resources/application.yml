@@ -1,4 +1,4 @@
 spring:
   redis:
-    host: localhost
+    host: ${redis.host}
     port: 6379

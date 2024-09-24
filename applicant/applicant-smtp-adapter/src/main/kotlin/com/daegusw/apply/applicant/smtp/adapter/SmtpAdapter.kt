@@ -4,14 +4,14 @@ import aws.sdk.kotlin.runtime.auth.credentials.StaticCredentialsProvider
 import aws.sdk.kotlin.services.ses.SesClient
 import aws.sdk.kotlin.services.ses.model.*
 import com.daegusw.apply.applicant.application.port.out.smtp.SmtpPort
-import com.daegusw.apply.applicant.smtp.adapter.common.ApplicantStmpProperties
+import com.daegusw.apply.applicant.smtp.adapter.common.ApplicantSmtpProperties
 import org.springframework.stereotype.Component
 import org.thymeleaf.context.Context
 import org.thymeleaf.spring5.SpringTemplateEngine
 
 @Component
 class SmtpAdapter(
-    private val applicantStmpProperties: ApplicantStmpProperties,
+    private val applicantSmtpProperties: ApplicantSmtpProperties,
     private val templateEngine: SpringTemplateEngine,
     ) : SmtpPort {
     override suspend fun send(e: String) : String {
@@ -37,15 +37,15 @@ class SmtpAdapter(
                     }
                 }
 
-                source = applicantStmpProperties.sendEmail
+                source = applicantSmtpProperties.sendEmailTo
             }
 
             SesClient {
-                region = applicantStmpProperties.region
+                region = applicantSmtpProperties.region
 
                 credentialsProvider = StaticCredentialsProvider {
-                    accessKeyId = applicantStmpProperties.accessKey
-                    secretAccessKey = applicantStmpProperties.secretKey
+                    accessKeyId = applicantSmtpProperties.accessKey
+                    secretAccessKey = applicantSmtpProperties.secretKey
                 }
             }.use {
                 it.sendEmail(emailRequest)

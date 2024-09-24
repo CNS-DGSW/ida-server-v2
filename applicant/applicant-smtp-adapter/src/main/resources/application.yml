@@ -1,3 +1,10 @@
+cloud:
+  aws:
+    credentials:
+      access-key: ${aws.credentials.accessKey}
+      secret-key: ${aws.credentials.secretKey}
+      send-mail-to: ${aws.credentials.sendMail}
+    region: ${aws.region}
 spring:
   thymeleaf:
     prefix: classpath:/templates
@@ -6,10 +13,3 @@ spring:
     encoding: UTF-8
     check-template-location: true
     cache: false
-cloud:
-  aws:
-    credentials:
-      access-key: ${aws.credentials.accessKey}
-      secret-key: ${aws.credentials.secretKey}
-      send-mail-to: dgswcns@gmail.com
-    region: ap-northeast-2
