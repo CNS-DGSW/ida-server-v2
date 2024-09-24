@@ -27,6 +27,6 @@ class EducationController(
         @AuthenticatedPrincipalId id: MemberId,
         @RequestBody request: EducationRequest
     ) {
-        educationUseCase.update(id, request.toEducationDto())
+        educationUseCase.update(id, request.graduationType)
     }
 }
