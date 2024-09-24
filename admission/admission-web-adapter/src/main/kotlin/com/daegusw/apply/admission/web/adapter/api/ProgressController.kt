@@ -1,7 +1,7 @@
-package com.daegusw.apply.admission.web.adapter
+package com.daegusw.apply.admission.web.adapter.api
 
 import com.daegusw.apply.admission.application.port.`in`.web.ProgressUseCase
-import com.daegusw.apply.admission.web.adapter.response.ProgressResponse
+import com.daegusw.apply.admission.web.adapter.api.response.ProgressResponse
 import com.daegusw.apply.core.authentication.AuthenticatedPrincipalId
 import com.daegusw.apply.member.id.MemberId
 import org.springframework.web.bind.annotation.GetMapping

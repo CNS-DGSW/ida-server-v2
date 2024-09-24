@@ -1,7 +1,7 @@
-package com.daegusw.apply.admission.web.adapter
+package com.daegusw.apply.admission.web.adapter.api
 
 import com.daegusw.apply.admission.application.port.`in`.web.AdmissionStatusUseCase
-import com.daegusw.apply.admission.web.adapter.response.AdmissionStatusResponse
+import com.daegusw.apply.admission.web.adapter.api.response.AdmissionStatusResponse
 import com.daegusw.apply.core.authentication.AuthenticatedPrincipalId
 import com.daegusw.apply.member.id.MemberId
 import org.springframework.http.HttpStatus
@@ -20,7 +20,7 @@ class AdmissionStatusController (
     @ResponseStatus(HttpStatus.OK)
     fun findFirstAdmissionStatus(
         @AuthenticatedPrincipalId id: MemberId
-    ): AdmissionStatusResponse{
+    ): AdmissionStatusResponse {
         return AdmissionStatusResponse.fromFirst(admissionStatusUseCase.findFirstStatus(id))
     }
 
@@ -29,7 +29,7 @@ class AdmissionStatusController (
     @ResponseStatus(HttpStatus.OK)
     fun findLastAdmissionStatus(
         @AuthenticatedPrincipalId id: MemberId
-    ): AdmissionStatusResponse{
+    ): AdmissionStatusResponse {
         return AdmissionStatusResponse.fromLast(admissionStatusUseCase.findLastStatus(id))
     }
 

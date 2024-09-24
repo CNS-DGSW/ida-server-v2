@@ -1,5 +1,6 @@
 package com.daegusw.apply.member.web.adpater.advice
 
+import com.daegusw.apply.memnber.application.common.DuplicateEmailException
 import com.daegusw.apply.memnber.application.common.MemberDoesNotExistException
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.ExceptionHandler
@@ -11,6 +12,12 @@ class MemberExceptionAdvice {
     @ExceptionHandler(MemberDoesNotExistException::class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     fun handleMemberDoesNotExistException(exception: MemberDoesNotExistException): ErrorResponse {
+        return ErrorResponse.of(exception.message)
+    }
+
+    @ExceptionHandler(DuplicateEmailException::class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    fun handleDuplicateEmailException(exception: DuplicateEmailException): ErrorResponse {
         return ErrorResponse.of(exception.message)
     }
 }

@@ -9,7 +9,7 @@ import com.daegusw.apply.member.domain.value.Password
 import com.daegusw.apply.member.domain.value.Role
 import com.daegusw.apply.member.id.MemberId
 import com.daegusw.apply.memnber.application.common.MemberCommand
-import com.daegusw.apply.memnber.application.exception.DuplicateEmailException
+import com.daegusw.apply.memnber.application.common.DuplicateEmailException
 import com.daegusw.apply.memnber.application.port.`in`.web.SignupApplicantUseCase
 import com.daegusw.apply.memnber.application.port.out.persistence.CommandMemberPort
 import com.daegusw.apply.memnber.application.port.out.persistence.QueryMemberPort
