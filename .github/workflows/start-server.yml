@@ -19,6 +19,6 @@ jobs:
           username: ${{ secrets.SSH_STAGE_USER }}
           key: ${{ secrets.SSH_STAGE_KEY }}
           script: |
-            sudo docker pull cnsdev/ida:latest-stage
+            sudo docker pull cnsdev/ida:latest
             sudo docker ps -aq | xargs docker stop | xargs docker rm
-            sudo docker run -d -p 8080:8080 cnsdev/ida:latest-stage
+            sudo docker run -d -p 8080:8080 --env-file .env --name ida cnsdev/ida:latest
