@@ -1,4 +1,4 @@
-package com.daegusw.apply.admission.web.adapter.response
+package com.daegusw.apply.admission.web.adapter.api.response
 
 import com.daegusw.apply.admission.application.common.dto.DocumentDto
 

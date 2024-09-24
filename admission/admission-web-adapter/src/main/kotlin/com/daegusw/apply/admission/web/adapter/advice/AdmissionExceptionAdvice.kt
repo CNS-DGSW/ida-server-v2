@@ -1,16 +1,16 @@
-package com.daegusw.apply.applicant.web.adapter.advice
+package com.daegusw.apply.admission.web.adapter.advice
 
-import com.daegusw.apply.applicant.application.common.exception.ApplicantDoesNotExistException
+import com.daegusw.apply.admission.application.common.exception.AdmissionDoesNotExistException
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestControllerAdvice
 
 @RestControllerAdvice
-class ApplicantExceptionHandler {
+class AdmissionExceptionAdvice {
+    @ExceptionHandler(AdmissionDoesNotExistException::class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(ApplicantDoesNotExistException::class)
-    fun handleApplicantDoesNotExistException(exception: ApplicantDoesNotExistException): ErrorResponse {
+    fun handleMemberDoesNotExistException(exception: AdmissionDoesNotExistException): ErrorResponse {
         return ErrorResponse.of(exception.message)
     }
 }

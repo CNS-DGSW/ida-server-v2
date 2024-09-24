@@ -1,8 +1,8 @@
-package com.daegusw.apply.admission.web.adapter
+package com.daegusw.apply.admission.web.adapter.api
 
 import com.daegusw.apply.admission.application.port.`in`.web.DocumentUseCase
-import com.daegusw.apply.admission.web.adapter.request.DocumentRequest
-import com.daegusw.apply.admission.web.adapter.response.DocumentResponse
+import com.daegusw.apply.admission.web.adapter.api.request.DocumentRequest
+import com.daegusw.apply.admission.web.adapter.api.response.DocumentResponse
 import com.daegusw.apply.core.authentication.AuthenticatedPrincipalId
 import com.daegusw.apply.member.id.MemberId
 import org.springframework.http.HttpStatus
