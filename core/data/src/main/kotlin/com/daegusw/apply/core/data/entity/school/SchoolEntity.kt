@@ -14,6 +14,7 @@ class SchoolEntity(
     state: String,
     city: String,
     code: String,
+    contact: String,
     graduateYear: Short
 ) {
     @Embedded
@@ -30,6 +31,9 @@ class SchoolEntity(
         protected set
 
     var code: String = code
+        protected set
+
+    var contact: String = contact
         protected set
 
     var graduateYear: Short = graduateYear

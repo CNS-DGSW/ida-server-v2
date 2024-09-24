@@ -9,5 +9,6 @@ class School(
     val state: String,
     val city: String,
     val code: String,
+    val contact: String,
     val graduateYear: Short,
 )
