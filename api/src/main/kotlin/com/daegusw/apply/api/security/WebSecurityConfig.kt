@@ -1,5 +1,6 @@
 package com.daegusw.apply.api.security
 
+import com.daegusw.apply.api.security.exception.SecurityErrorCode
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.Customizer
@@ -12,7 +13,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 class WebSecurityConfig(
-    private val jwtAuthenticationFilter: JwtAuthenticationFilter
+    private val jwtAuthenticationFilter: JwtAuthenticationFilter,
+    private val responseSender: ErrorResponseSender
 ) {
     companion object {
         private const val ROLE_TEACHER = "TEACHER"
@@ -33,6 +35,14 @@ class WebSecurityConfig(
         http
             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter::class.java)
 
+            .exceptionHandling {
+                it.authenticationEntryPoint { _, response, _ ->
+                    responseSender.send(response, SecurityErrorCode.NOT_FOUND)
+                }
+                it.accessDeniedHandler { _, response, _ ->
+                    responseSender.send(response, SecurityErrorCode.FORBIDDEN_REQUEST)
+                }
+            }
         return http.build()
     }
 }
