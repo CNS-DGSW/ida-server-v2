@@ -1,0 +1,15 @@
+cloud:
+  aws:
+    credentials:
+      access-key: ${aws.credentials.accessKey}
+      secret-key: ${aws.credentials.secretKey}
+      send-mail-to: ${aws.credentials.sendMail}
+    region: ${aws.region}
+spring:
+  thymeleaf:
+    prefix: classpath:/templates
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    check-template-location: true
+    cache: false

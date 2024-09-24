@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body>
+<div style="font-family: 'Apple SD Gothic Neo', 'sans-serif' !important; width: 540px; height: 600px; border-top: 4px solid #2A7AF3; margin: 100px auto; padding: 30px 0; box-sizing: border-box;">
+    <h1 style="margin: 0; padding: 0 5px; font-size: 28px; font-weight: 400;">
+        <span style="color: #2A7AF3">IDA 인증번호</span> 안내입니다.
+    </h1>
+    <p style="font-size: 16px; line-height: 26px; margin-top: 20px; padding: 0 5px;">
+        아래 <b style="color: #2A7AF3">인증번호</b>를 <b>3분내로</b> 입력해주세요.
+    </p>
+
+    <div style="color: #FFF; text-decoration: none; text-align: center;">
+        <p style="display: inline-block; width: 210px; height: 45px; margin: 30px 5px 40px; background: #2A7AF3; line-height: 45px; vertical-align: middle; font-size: 16px;" th:text="${code}"></p>
+    </div>
+
+    <div style="border-top: 1px solid #DDD; padding: 5px;">
+        <p style="font-size: 13px; line-height: 21px; color: #555;">
+            아무에게도 이 번호를 공유하지마세요. 회원 정보가 유출되는 문제가 발생 할 수 있습니다.<br/>
+        </p>
+    </div>
+</div>
+</body>
+</html>

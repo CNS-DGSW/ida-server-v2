@@ -9,6 +9,8 @@ dependencies {
     implementation(project(":applicant:applicant-jpa-adapter"))
     implementation(project(":applicant:applicant-web-adapter"))
     implementation(project(":applicant:applicant-s3-adapter"))
+    implementation(project(":applicant:applicant-redis-adapter"))
+    implementation(project(":applicant:applicant-smtp-adapter"))
 
     implementation(project(":admission:admission-application"))
     implementation(project(":admission:admission-jpa-adapter"))
