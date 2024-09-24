@@ -21,7 +21,7 @@ class AdmissionStatusController (
     fun findFirstAdmissionStatus(
         @AuthenticatedPrincipalId id: MemberId
     ): AdmissionStatusResponse{
-        return AdmissionStatusResponse(admissionStatusUseCase.findFirstStatus(id))
+        return AdmissionStatusResponse.fromFirst(admissionStatusUseCase.findFirstStatus(id))
     }
 
 
@@ -30,7 +30,7 @@ class AdmissionStatusController (
     fun findLastAdmissionStatus(
         @AuthenticatedPrincipalId id: MemberId
     ): AdmissionStatusResponse{
-        return AdmissionStatusResponse(admissionStatusUseCase.findLastStatus(id))
+        return AdmissionStatusResponse.fromLast(admissionStatusUseCase.findLastStatus(id))
     }
 
 }
