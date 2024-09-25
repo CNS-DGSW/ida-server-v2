@@ -5,4 +5,6 @@ import com.daegusw.apply.member.id.MemberId
 
 interface QueryApplicantPort {
     fun findById(id: MemberId): Applicant?
+
+    fun findAll(): List<Applicant>
 }
