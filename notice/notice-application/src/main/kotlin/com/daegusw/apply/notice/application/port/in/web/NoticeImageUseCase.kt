@@ -1,10 +1,10 @@
 package com.daegusw.apply.notice.application.port.`in`.web
 
-import com.daegusw.apply.notice.application.common.FileRequest
+import org.springframework.web.multipart.MultipartFile
 
 interface NoticeImageUseCase{
 
-    fun saveImage(fileRequest: FileRequest): String
+    fun saveImage(fileRequest: MultipartFile): String
 
     fun deleteImage(imageName: String)
 }

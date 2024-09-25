@@ -1,14 +1,15 @@
 package com.daegusw.apply.notice.application.service
 
-import com.daegusw.apply.notice.application.common.FileRequest
-import com.daegusw.apply.notice.application.port.`in`.web.NoticeAttachedUseCase
-import com.daegusw.apply.notice.application.port.out.persistence.QueryNoticePort
+import com.daegusw.apply.core.file.toFile
 import com.daegusw.apply.notice.application.exception.AttachedNotFoundException
 import com.daegusw.apply.notice.application.exception.NoticeNotFoundException
+import com.daegusw.apply.notice.application.port.`in`.web.NoticeAttachedUseCase
 import com.daegusw.apply.notice.application.port.out.aws.s3.AwsS3Port
-import com.daegusw.apply.notice.domain.value.Attached
 import com.daegusw.apply.notice.application.port.out.persistence.CommandNoticePort
+import com.daegusw.apply.notice.application.port.out.persistence.QueryNoticePort
+import com.daegusw.apply.notice.domain.value.Attached
 import org.springframework.stereotype.Service
+import org.springframework.web.multipart.MultipartFile
 
 @Service
 class NoticeAttachedService(
@@ -17,7 +18,7 @@ class NoticeAttachedService(
     private val commandNoticeSpi: CommandNoticePort
 ) : NoticeAttachedUseCase {
 
-    override fun saveAttached(noticeId: Long, request: List<FileRequest>) {
+    override fun saveAttached(noticeId: Long, request: List<MultipartFile>) {
         val notice = queryNoticeSpi.findById(noticeId)
             ?: throw NoticeNotFoundException("해당 게시글이 존재 하지 않습니다.")
 
@@ -26,7 +27,7 @@ class NoticeAttachedService(
         attached = attached?.plus(
             request.map { req ->
                 Attached(
-                    originalName = req.filename,
+                    originalName = req.toFile().name,
                     filePath = awsS3Port.upload(
                         fileRequest = req
                     )

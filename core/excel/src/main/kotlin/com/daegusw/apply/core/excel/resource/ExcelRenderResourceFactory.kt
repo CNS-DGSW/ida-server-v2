@@ -66,7 +66,7 @@ class ExcelRenderResourceFactory {
     }
 
     private fun getCellStyle(excelColumnStyle: ExcelColumnStyle): ExcelCellStyle {
-        val excelCellStyleClass = Class.forName(excelColumnStyle.excelCellStyleClass)
+        val excelCellStyleClass = excelColumnStyle.excelCellStyleClass.java
 
         if (excelCellStyleClass.isEnum) {
             val enumName = excelColumnStyle.enumName
