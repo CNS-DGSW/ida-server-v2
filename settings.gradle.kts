@@ -9,6 +9,9 @@ include("core:hash")
 include("core:file")
 include("core:exception-handler")
 include("core:authentication")
+include("core:excel")
+
+include("admin")
 
 include("member")
 include("member:member-id")
