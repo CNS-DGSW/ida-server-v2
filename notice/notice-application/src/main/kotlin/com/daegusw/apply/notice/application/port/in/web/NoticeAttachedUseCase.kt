@@ -1,11 +1,11 @@
 package com.daegusw.apply.notice.application.port.`in`.web
 
-import com.daegusw.apply.notice.application.common.FileRequest
+import java.io.File
 
 
 interface NoticeAttachedUseCase{
 
-    fun saveAttached(noticeId: Long, request: List<FileRequest>)
+    fun saveAttached(noticeId: Long, files: List<File>)
 
     fun deleteAttached(noticeId: Long, fileName: String)
 }

@@ -16,4 +16,10 @@ class ApplicantQueryAdapter(
     override fun findById(id: MemberId): Applicant? {
         return ApplicantEntityMapper.toDomain(applicantJpaRepository.findByIdOrNull(EmbeddedMemberId(id.value)))
     }
+
+    override fun findAll(): List<Applicant> {
+        return applicantJpaRepository.findAll().map {
+            ApplicantEntityMapper.toDomain(it)!!
+        }
+    }
 }

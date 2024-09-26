@@ -8,6 +8,9 @@ include("core:id-gen")
 include("core:file")
 include("core:exception-handler")
 include("core:authentication")
+include("core:excel")
+
+include("admin")
 
 include("member")
 include("member:member-id")
@@ -35,12 +38,6 @@ include("notice:notice-application")
 include("notice:notice-jpa-adapter")
 include("notice:notice-web-adapter")
 include("notice:notice-s3-adapter")
-
-include("secondary")
-include("secondary:secondary-domain")
-include("secondary:secondary-application")
-include("secondary:secondary-jpa-adapter")
-include("secondary:secondary-web-adapter")
 
 include("auth")
 include("auth:auth-web-adapter")

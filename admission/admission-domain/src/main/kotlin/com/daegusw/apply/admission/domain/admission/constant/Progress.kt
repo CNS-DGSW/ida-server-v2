@@ -4,5 +4,7 @@ enum class Progress {
     NONE,
     APPLY,
     FIRST,
-    SECOND
+    SECOND,
+    PASSED,
+    FAILED
 }
