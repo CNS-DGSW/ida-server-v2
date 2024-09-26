@@ -2,7 +2,7 @@ package com.daegusw.apply.api.security
 
 import com.daegusw.apply.member.domain.Member
 import com.daegusw.apply.member.id.MemberId
-import com.daegusw.apply.memnber.application.common.MemberDoesNotExistException
+import com.daegusw.apply.memnber.application.common.exception.MemberDoesNotExistException
 import com.daegusw.apply.memnber.application.port.out.persistence.QueryMemberPort
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
