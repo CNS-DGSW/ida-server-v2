@@ -1,10 +1,10 @@
-package com.daegusw.apply.core.hash
+package com.daegusw.apply.memnber.application.common.util
 
 import org.springframework.stereotype.Component
 import java.security.MessageDigest
 
 @Component
-final class Sha512Encoder {
+class PasswordEncoder {
     fun encode(rawString: String): String {
         val sb = StringBuilder()
         val md = MessageDigest.getInstance("SHA-512")
@@ -18,5 +18,5 @@ final class Sha512Encoder {
     }
 
     fun matches(rawString: String, encodedString: String): Boolean =
-        encodedString == encode(rawString);
+        encodedString == encode(rawString)
 }
