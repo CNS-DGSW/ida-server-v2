@@ -1,7 +1,7 @@
 package com.daegusw.apply.member.web.adpater.advice
 
-import com.daegusw.apply.memnber.application.common.DuplicateEmailException
-import com.daegusw.apply.memnber.application.common.MemberDoesNotExistException
+import com.daegusw.apply.memnber.application.common.exception.DuplicateEmailException
+import com.daegusw.apply.memnber.application.common.exception.MemberDoesNotExistException
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.ResponseStatus
