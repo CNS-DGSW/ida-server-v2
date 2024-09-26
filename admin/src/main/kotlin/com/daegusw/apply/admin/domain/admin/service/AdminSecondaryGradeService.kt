@@ -10,7 +10,7 @@ import com.daegusw.apply.applicant.application.port.out.persistence.QueryApplica
 import org.springframework.stereotype.Service
 
 @Service
-class AdminSecondaryService(
+class AdminSecondaryGradeService(
     private val queryApplicantPort: QueryApplicantPort,
     private val queryAdmissionPort: QueryAdmissionPort,
     private val secondarySpi: SecondaryRepository

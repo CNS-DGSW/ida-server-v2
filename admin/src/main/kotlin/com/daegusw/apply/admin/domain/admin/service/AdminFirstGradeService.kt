@@ -6,7 +6,7 @@ import com.daegusw.apply.applicant.application.port.out.persistence.QueryApplica
 import org.springframework.stereotype.Service
 
 @Service
-class AdminFirstService(
+class AdminFirstGradeService(
         private val queryApplicantPort: QueryApplicantPort,
         private val queryAdmissionPort: QueryAdmissionPort
 ) {
