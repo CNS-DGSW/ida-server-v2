@@ -7,7 +7,7 @@ class MemberIdEntityMapper {
     companion object {
         fun toDomain(entity: EmbeddedMemberId): MemberId {
             return MemberId(
-                entity.value
+                entity.id
             )
         }
 

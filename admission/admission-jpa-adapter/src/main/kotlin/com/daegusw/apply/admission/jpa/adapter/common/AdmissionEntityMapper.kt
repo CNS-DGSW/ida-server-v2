@@ -58,7 +58,7 @@ object AdmissionEntityMapper {
     private fun toAdmissionApplicant(applicant: AdmissionApplicantVO?): AdmissionApplicant? {
         return applicant?.let {
             AdmissionApplicant(
-                member = MemberId(it.member.value),
+                member = MemberId(it.member.id),
                 type = it.type
             )
         }

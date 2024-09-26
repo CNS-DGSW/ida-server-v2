@@ -12,7 +12,7 @@ import com.daegusw.apply.member.id.MemberId
 object ApplicantEntityMapper {
     fun toEntity(applicant: Applicant): ApplicantEntity {
         return ApplicantEntity(
-            id = EmbeddedMemberId(applicant.id.value),
+            memberId = EmbeddedMemberId(applicant.id.value),
             privacy = applicant.privacy?.let { toEmbeddedPrivacy(it) },
             education = applicant.education?.let { toEmbeddedEducation(it) }
         )
@@ -21,7 +21,7 @@ object ApplicantEntityMapper {
     fun toDomain(entity: ApplicantEntity?): Applicant? {
         return entity?.let {
             Applicant(
-                id = MemberId(it.id.value),
+                id = MemberId(it.id.id),
                 privacy = it.privacy?.let { toPrivacy(it) },
                 education = it.education?.let { toEducation(it) }
             )

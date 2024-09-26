@@ -1,4 +1,7 @@
 dependencies {
+    implementation(project(":core:id-gen:core"))
+    implementation(project(":core:id-gen:tsid"))
+
     implementation(project(":member:member-id"))
     implementation(project(":member:member-domain"))
     implementation(project(":member:member-application"))
