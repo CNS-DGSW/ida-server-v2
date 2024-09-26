@@ -38,7 +38,7 @@ class AdminSecondaryController(
         val excelFile: OneSheetExcelFile<InterviewExcel> = OneSheetExcelFile(interviewExcel, InterviewExcel::class.java)
         val name = URLEncoder.encode("심층면접.xlsx","UTF-8")
         response.contentType = "ms-vnd/excel"
-        response.setHeader("Content-Disposition", "attachment;filename=freeBoard.xlsx")
+        response.setHeader("Content-Disposition", "attachment;filename=$name")
         excelFile.write(response.outputStream)
     }
 }

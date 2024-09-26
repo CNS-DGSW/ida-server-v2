@@ -6,12 +6,11 @@ import com.amazonaws.services.s3.model.CannedAccessControlList
 import com.amazonaws.services.s3.model.DeleteObjectRequest
 import com.amazonaws.services.s3.model.ObjectMetadata
 import com.amazonaws.services.s3.model.PutObjectRequest
-import com.daegusw.apply.core.file.toFile
 import com.daegusw.apply.notice.application.port.out.aws.s3.AwsS3Port
 import com.daegusw.apply.notice.s3.adapter.common.properties.NoticeAwsS3Properties
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.stereotype.Service
-import org.springframework.web.multipart.MultipartFile
+import java.io.File
 import java.io.IOException
 
 @Service
@@ -21,21 +20,22 @@ class NoticeAwsS3Adapter(
     private val amazonS3Client: AmazonS3Client
 ) : AwsS3Port {
 
-    override fun upload(fileRequest: MultipartFile): String {
-        uploadS3(fileRequest)
+    override fun upload(file: File): String {
+        uploadS3(file)
 
-        return getResourceUrl(fileRequest.toFile().name)
+        return getResourceUrl(file.name)
     }
 
-    private fun uploadS3(fileRequest: MultipartFile) {
+    private fun uploadS3(file: File) {
         try {
-            val inputStream = fileRequest.toFile().inputStream()
+            val inputStream = file.inputStream()
             val objectMetadata = ObjectMetadata().apply {
-                this.contentType = Mimetypes.getInstance().getMimetype(fileRequest.contentType)
+                this.contentType = Mimetypes.getInstance().getMimetype(file.canonicalFile)
+                this.contentLength = file.length()
             }
 
             amazonS3Client.putObject(
-                PutObjectRequest(awsProperties.bucket, fileRequest.toFile().name, inputStream, objectMetadata)
+                PutObjectRequest(awsProperties.bucket, file.name, inputStream, objectMetadata)
                     .withCannedAcl(
                         CannedAccessControlList.PublicRead
                     )

@@ -14,7 +14,7 @@ class AdminPassApplicantService(
 
     fun getPassApplicantTable(): List<PassApplicantTableResponse> {
         val tableResponse: MutableList<PassApplicantTableResponse> = mutableListOf()
-        val admission = queryAdmissionPort.findAllByProgress(Progress.APPLY)
+        val admission = queryAdmissionPort.findAllByProgress(Progress.PASSED)
         var index = 1
         admission.forEach {
             val applicant = queryApplicantPort.findById(it.applicant!!.member)

@@ -1,6 +1,6 @@
 package com.daegusw.apply.notice.web.adapter
 
-import com.daegusw.apply.notice.application.common.FileRequest
+import com.daegusw.apply.core.file.toFile
 import com.daegusw.apply.notice.application.port.`in`.web.NoticeAttachedUseCase
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
@@ -20,11 +20,7 @@ class NoticeAttachedController(
         @NotNull(message = "file is required") @RequestPart(value = "files") multipartFile: List<MultipartFile>
     ) {
         val fileRequest = multipartFile.map {
-            FileRequest(
-                filename = it.originalFilename!!,
-                contentType = it.contentType!!,
-                fileData = it.bytes
-            )
+            it.toFile()
         }
         noticeAttachedUseCase.saveAttached(noticeId, fileRequest)
     }

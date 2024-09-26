@@ -1,6 +1,6 @@
 package com.daegusw.apply.notice.web.adapter
 
-import com.daegusw.apply.notice.application.common.FileRequest
+import com.daegusw.apply.core.file.toFile
 import com.daegusw.apply.notice.application.port.`in`.web.NoticeImageUseCase
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
@@ -16,13 +16,7 @@ class NoticeImageController(
     @PutMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     fun imageSave(@NotNull(message = "file is required") @RequestPart("file") multipartFile: MultipartFile): String {
-        return noticeImageUseCase.saveImage(
-            FileRequest(
-                multipartFile.originalFilename!!,
-                multipartFile.contentType!!,
-                multipartFile.bytes
-            )
-        )
+        return noticeImageUseCase.saveImage(multipartFile.toFile())
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
