@@ -40,12 +40,6 @@ include("notice:notice-jpa-adapter")
 include("notice:notice-web-adapter")
 include("notice:notice-s3-adapter")
 
-include("secondary")
-include("secondary:secondary-domain")
-include("secondary:secondary-application")
-include("secondary:secondary-jpa-adapter")
-include("secondary:secondary-web-adapter")
-
 include("auth")
 include("auth:auth-web-adapter")
 include("auth:auth-application")
