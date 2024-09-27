@@ -17,7 +17,7 @@ abstract class BaseMemberIdEntity(
     @Transient
     private var _isNew = true
 
-    override fun getId(): EmbeddedMemberId = id
+    override fun getId(): EmbeddedMemberId = memberId
 
     override fun isNew(): Boolean = _isNew
 
