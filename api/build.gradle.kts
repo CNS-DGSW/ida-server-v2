@@ -5,7 +5,7 @@ dependencies {
     implementation(project(":member:member-jpa-adapter"))
     implementation(project(":member:member-web-adapter"))
 
-    implementation(project(":admin"))
+    implementation(project(":admin-api"))
 
     implementation(project(":applicant:applicant-application"))
     implementation(project(":applicant:applicant-jpa-adapter"))

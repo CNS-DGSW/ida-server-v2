@@ -1,7 +1,7 @@
 rootProject.name = "ida"
 
 include("api")
-include("admin")
+include("admin-api")
 
 include("core")
 include("core:data")
