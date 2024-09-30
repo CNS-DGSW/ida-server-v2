@@ -1,24 +1,24 @@
-package com.daegusw.apply.admin.domain.admin.service
+package com.daegusw.apply.admin.service
 
-import com.daegusw.apply.admin.domain.admin.dto.ApplicantTableResponse
+import com.daegusw.apply.admin.dto.FirstTableResponse
 import com.daegusw.apply.admission.application.port.out.persistence.QueryAdmissionPort
 import com.daegusw.apply.applicant.application.port.out.persistence.QueryApplicantPort
 import org.springframework.stereotype.Service
 
 @Service
-class AdminApplicantService(
-    private val queryApplicantPort: QueryApplicantPort,
-    private val queryAdmissionPort: QueryAdmissionPort
+class AdminFirstGradeService(
+        private val queryApplicantPort: QueryApplicantPort,
+        private val queryAdmissionPort: QueryAdmissionPort
 ) {
 
-    fun getApplicantTable(): List<ApplicantTableResponse> {
-        val tableResponse: MutableList<ApplicantTableResponse> = mutableListOf()
+    fun getFirstTable(): List<FirstTableResponse> {
+        val tableResponse: MutableList<FirstTableResponse> = mutableListOf()
         val admission = queryAdmissionPort.findAll()
         var index = 1
         admission.forEach {
             val applicant = queryApplicantPort.findById(it.applicant!!.member)
             tableResponse.add(
-                ApplicantTableResponse(
+                FirstTableResponse(
                     index++, applicant, it
                 )
             )

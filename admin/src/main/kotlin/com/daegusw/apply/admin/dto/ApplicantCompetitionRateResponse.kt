@@ -1,4 +1,4 @@
-package com.daegusw.apply.admin.domain.admin.dto
+package com.daegusw.apply.admin.dto
 
 data class ApplicantCompetitionRateResponse(
     val applyType: String,

@@ -1,12 +1,13 @@
-package com.daegusw.apply.admin.domain.admin.dto
+package com.daegusw.apply.admin.dto
 
-data class ApplicantGraduationTypeCompetitionRateResponse(
+data class UserSchoolCityInfoResponse(
+    val index: Int,
+    val city: String,
+    val schoolName: String,
     var graduatedMale: Int = 0,
     var graduatedFemale: Int = 0,
     var expectedMale: Int = 0,
     var expectedFemale: Int = 0,
-    var gedMale: Int = 0,
-    var gedFemale: Int = 0,
     var male: Int = 0,
     var female: Int = 0,
     var total: Int = 0

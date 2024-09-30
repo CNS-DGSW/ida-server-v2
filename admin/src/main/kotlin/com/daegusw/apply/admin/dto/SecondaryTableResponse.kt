@@ -1,8 +1,8 @@
-package com.daegusw.apply.admin.domain.admin.dto
+package com.daegusw.apply.admin.dto
 
-import com.daegusw.apply.admin.domain.secondary.domain.Secondary
 import com.daegusw.apply.admission.domain.admission.Admission
 import com.daegusw.apply.applicant.domain.applicant.Applicant
+import com.daegusw.apply.secondary.domain.Secondary
 
 data class SecondaryTableResponse(
     val index: Int,
@@ -50,9 +50,9 @@ data class SecondaryTableResponse(
 //        volunteerScore = admission?.score?.volunteer,
 //        additionalScore = admission?.score?.additional,
 //        firstScore 1차 성적
-        jopScore = secondary?.aptitude?.jopScore,
-        studyCompetence = secondary?.interview?.studyCompetence,
-        computingCompetence = secondary?.interview?.computingCompetence,
+        jopScore = secondary?.aptitude?.jobScore,
+        studyCompetence = secondary?.interview?.studyScore,
+        computingCompetence = secondary?.interview?.computingScore,
 //        interviewTotalScore 심층 면접 총 점수
 //        secondarySpecialScore 2차 특별전형 성적
 //        secondaryRanking 2차 특별전형 석차

@@ -1,6 +1,6 @@
-package com.daegusw.apply.admin.domain.admin.service
+package com.daegusw.apply.admin.service
 
-import com.daegusw.apply.admin.domain.admin.dto.PassApplicantTableResponse
+import com.daegusw.apply.admin.dto.PassApplicantTableResponse
 import com.daegusw.apply.admission.application.port.out.persistence.QueryAdmissionPort
 import com.daegusw.apply.admission.domain.admission.constant.Progress
 import com.daegusw.apply.applicant.application.port.out.persistence.QueryApplicantPort

@@ -1,7 +1,7 @@
-package com.daegusw.apply.admin.domain.admin.controller
+package com.daegusw.apply.admin.controller
 
-import com.daegusw.apply.admin.domain.admin.dto.ApplicantTableResponse
-import com.daegusw.apply.admin.domain.admin.service.AdminApplicantService
+import com.daegusw.apply.admin.dto.ApplicantTableResponse
+import com.daegusw.apply.admin.service.AdminApplicantService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController

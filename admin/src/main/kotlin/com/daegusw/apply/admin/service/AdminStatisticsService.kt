@@ -1,9 +1,9 @@
-package com.daegusw.apply.admin.domain.admin.service
+package com.daegusw.apply.admin.service
 
-import com.daegusw.apply.admin.domain.admin.dto.ApplicantCompetitionRateResponse
-import com.daegusw.apply.admin.domain.admin.dto.ApplicantGraduationTypeCompetitionRateResponse
-import com.daegusw.apply.admin.domain.admin.dto.ApplicantSchoolCompetitionRateResponse
-import com.daegusw.apply.admin.domain.admin.dto.UserSchoolCityInfoResponse
+import com.daegusw.apply.admin.dto.ApplicantCompetitionRateResponse
+import com.daegusw.apply.admin.dto.ApplicantGraduationTypeCompetitionRateResponse
+import com.daegusw.apply.admin.dto.ApplicantSchoolCompetitionRateResponse
+import com.daegusw.apply.admin.dto.UserSchoolCityInfoResponse
 import com.daegusw.apply.admission.application.port.out.persistence.QueryAdmissionPort
 import com.daegusw.apply.admission.domain.admission.constant.ApplyType
 import com.daegusw.apply.admission.domain.admission.constant.Progress
@@ -21,7 +21,7 @@ class AdminStatisticsService(
 ) {
 
     fun getApplicantCompetitionRate(): List<ApplicantCompetitionRateResponse> {
-        val admission = queryAdmissionPort.findAllByProgress(Progress.APPLY)
+        val admission = queryAdmissionPort.findAllByProgress(Progress.SUBMITTED)
         val rateList: MutableList<ApplicantCompetitionRateResponse> = mutableListOf(
             ApplicantCompetitionRateResponse("일반전형"),
             ApplicantCompetitionRateResponse("특별전형(사회통합)"),
@@ -36,7 +36,8 @@ class AdminStatisticsService(
             }
             val applicantInfo: Applicant? = queryApplicantPort.findById(it.applicant!!.member)
 
-            if (rate == null) rate = ApplicantCompetitionRateResponse(applyDetail(it.applicant!!.type))
+            if (rate == null) rate =
+                ApplicantCompetitionRateResponse(applyDetail(it.applicant!!.type))
 
             if (applicantInfo!!.privacy?.gender == Gender.MALE) {
                 if (applicantInfo.privacy?.address!!.streetAddress.contains("대구광역시")) rate.daeguMale++
