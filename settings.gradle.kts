@@ -1,6 +1,7 @@
 rootProject.name = "ida"
 
 include("api")
+include("admin")
 
 include("core")
 include("core:data")
@@ -9,8 +10,6 @@ include("core:file")
 include("core:exception-handler")
 include("core:authentication")
 include("core:excel")
-
-include("admin")
 
 include("member")
 include("member:member-id")
@@ -31,6 +30,13 @@ include("admission:admission-domain")
 include("admission:admission-application")
 include("admission:admission-jpa-adapter")
 include("admission:admission-web-adapter")
+
+include("secondary")
+include("secondary:secondary-domain")
+include("secondary:secondary-application")
+include("secondary:secondary-jpa-adapter")
+include("secondary:secondary-web-adapter")
+
 
 include("notice")
 include("notice:notice-domain")
