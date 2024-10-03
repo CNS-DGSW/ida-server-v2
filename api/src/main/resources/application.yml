@@ -18,3 +18,8 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+
+logging:
+  level:
+    org:
+      springframework: DEBUG
