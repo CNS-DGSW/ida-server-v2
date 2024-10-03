@@ -2,7 +2,7 @@ package com.daegusw.apply.admission.jpa.adapter.common
 
 import com.daegusw.apply.admission.domain.admission.Admission
 import com.daegusw.apply.admission.domain.admission.value.AdmissionApplicant
-import com.daegusw.apply.admission.domain.admission.value.AdmissionStatus
+import com.daegusw.apply.admission.domain.admission.value.Status
 import com.daegusw.apply.admission.domain.admission.value.Document
 import com.daegusw.apply.core.data.common.EmbeddedMemberId
 import com.daegusw.apply.core.data.entity.admission.AdmissionEntity
@@ -18,7 +18,7 @@ object AdmissionEntityMapper {
             progress = domain.progress,
             applicant = domain.applicant?.let { toAdmissionApplicantVO(it) },
             document = domain.document?.let { toDocumentVO(it) },
-            admissionStatus = domain.admissionStatus?.let { toAdmissionStatusVO(it) }
+            admissionStatus = domain.status?.let { toAdmissionStatusVO(it) }
         )
     }
 
@@ -29,7 +29,7 @@ object AdmissionEntityMapper {
                 progress = it.progress,
                 applicant = it.applicant?.let { toAdmissionApplicant(it) },
                 document = it.document?.let { toDocument(it) },
-                admissionStatus = it.admissionStatus?.let { toAdmissionStatus(it) }
+                status = it.admissionStatus?.let { toAdmissionStatus(it) }
             )
         }
     }
@@ -48,10 +48,13 @@ object AdmissionEntityMapper {
         )
     }
 
-    private fun toAdmissionStatusVO(admissionStatus: AdmissionStatus): AdmissionStatusVO {
+    private fun toAdmissionStatusVO(status: Status): AdmissionStatusVO {
         return AdmissionStatusVO(
-            firstAdmissionStatus = admissionStatus.firstAdmissionStatus,
-            lastAdmissionStatus = admissionStatus.lastAdmissionStatus
+            submission = status.submission,
+            mailArrival = status.mailArrival,
+            review = status.review,
+            submissionTime = status.submissionTime,
+            confirmation = status.confirmation
         )
     }
 
@@ -74,11 +77,14 @@ object AdmissionEntityMapper {
         }
     }
 
-    private fun toAdmissionStatus(admissionStatus: AdmissionStatusVO?): AdmissionStatus? {
+    private fun toAdmissionStatus(admissionStatus: AdmissionStatusVO?): Status? {
         return admissionStatus?.let {
-            AdmissionStatus(
-                firstAdmissionStatus = it.firstAdmissionStatus,
-                lastAdmissionStatus = it.lastAdmissionStatus
+            Status(
+                submission = it.submission,
+                mailArrival = it.mailArrival,
+                review = it.review,
+                submissionTime = it.submissionTime,
+                confirmation = it.confirmation
             )
         }
     }

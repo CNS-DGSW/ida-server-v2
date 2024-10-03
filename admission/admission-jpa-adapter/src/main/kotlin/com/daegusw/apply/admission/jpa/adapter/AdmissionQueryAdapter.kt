@@ -28,4 +28,5 @@ class AdmissionQueryAdapter(
             AdmissionEntityMapper.toDomain(it)!!
         }
     }
+
 }
