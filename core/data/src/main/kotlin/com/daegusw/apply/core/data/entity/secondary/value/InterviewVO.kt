@@ -4,9 +4,6 @@ import javax.persistence.Embeddable
 
 @Embeddable
 class InterviewVO(
-
-    val studyCompetence: Double? = 0.0,
-
-    val computingCompetence: Double? = 0.0
-
+    val studyScore: Double,
+    val computingScore: Double
 )

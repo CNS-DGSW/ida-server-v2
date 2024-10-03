@@ -3,6 +3,7 @@ package com.daegusw.apply.auth.application.service
 import com.daegusw.apply.auth.application.LoginMember
 import com.daegusw.apply.auth.application.TokenDto
 import com.daegusw.apply.auth.application.common.dto.Payload
+import com.daegusw.apply.auth.application.common.exception.LoginFailException
 import com.daegusw.apply.auth.application.common.utils.JwtUtils
 import com.daegusw.apply.auth.application.port.`in`.web.LoginUseCase
 import com.daegusw.apply.memnber.application.common.util.PasswordEncoder
@@ -16,7 +17,7 @@ class LoginService(
     private val jwtUtils: JwtUtils
 ) : LoginUseCase {
     override fun login(loginMember: LoginMember): TokenDto {
-        val member = queryMemberPort.findByEmail(loginMember.email) ?: throw RuntimeException()
+        val member = queryMemberPort.findByEmail(loginMember.email) ?: throw LoginFailException()
 
         if (!passwordEncoder.matches(loginMember.password, member.password.value)) {
             throw RuntimeException()

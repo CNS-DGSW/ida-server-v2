@@ -17,7 +17,7 @@ class ProgressService (
     override fun find(id: MemberId): Progress {
         val admission = queryAdmissionPort.findByMemberId(id) ?: throw AdmissionDoesNotExistException(id)
 
-        return admission.progress?: Progress.NONE
+        return admission.progress
 
     }
 

@@ -4,7 +4,5 @@ import javax.persistence.Embeddable
 
 @Embeddable
 class AptitudeVO(
-    
-    var jopScore: Double? = 0.0
-
+    val jopScore: Double
 )
