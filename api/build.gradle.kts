@@ -1,11 +1,9 @@
 dependencies {
-    implementation(project(":member:member-id"))
-    implementation(project(":member:member-domain"))
+    implementation(project(":admin-api"))
+
     implementation(project(":member:member-application"))
     implementation(project(":member:member-jpa-adapter"))
     implementation(project(":member:member-web-adapter"))
-
-    implementation(project(":admin-api"))
 
     implementation(project(":applicant:applicant-application"))
     implementation(project(":applicant:applicant-jpa-adapter"))
@@ -23,8 +21,12 @@ dependencies {
     implementation(project(":auth:auth-application"))
     implementation(project(":auth:auth-web-adapter"))
 
-    implementation("mysql:mysql-connector-java:8.0.33")
+    implementation(project(":secondary:secondary-application"))
+    implementation(project(":secondary:secondary-jpa-adapter"))
 
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-security")
+
+    implementation("mysql:mysql-connector-java:8.0.33")
 }

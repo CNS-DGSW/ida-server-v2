@@ -6,13 +6,14 @@ import com.daegusw.apply.admin.dto.excel.InterviewExcel
 import com.daegusw.apply.admission.application.port.out.persistence.QueryAdmissionPort
 import com.daegusw.apply.admission.domain.admission.constant.Progress
 import com.daegusw.apply.applicant.application.port.out.persistence.QueryApplicantPort
+import com.daegusw.apply.secondary.application.QuerySecondaryPort
 import org.springframework.stereotype.Service
 
 @Service
 class AdminSecondaryGradeService(
     private val queryApplicantPort: QueryApplicantPort,
     private val queryAdmissionPort: QueryAdmissionPort,
-//    private val secondarySpi: SecondaryRepository
+    private val querySecondaryPort: QuerySecondaryPort
 ) {
 
     fun getSecondaryTable(): List<SecondaryTableResponse> {
@@ -21,12 +22,11 @@ class AdminSecondaryGradeService(
         var index = 1
         admission.forEach {
             val applicant = queryApplicantPort.findById(it.applicant?.member!!)
-            //TODO Secondary Repository
-//           val secondary = secondarySpi.findById(it.applicant?.member!!)
+            val secondary = querySecondaryPort.findByAdmission(it)
 
             tableResponse.add(
                 SecondaryTableResponse(
-                    index++, applicant, it, TODO()
+                    index++, applicant, it, secondary
                 )
             )
         }
@@ -40,9 +40,9 @@ class AdminSecondaryGradeService(
         var index = 1
         admission.forEach {
             val applicant = queryApplicantPort.findById(it.applicant?.member!!)
-/*            val secondary = secondarySpi.findByMemberId(it.applicant?.member!!)*/
+            val secondary = querySecondaryPort.findByAdmission(it)
             response.add(
-                AptitudeExcel(index++, applicant, TODO("secondary"))
+                AptitudeExcel(index++, applicant, secondary)
             )
         }
 
@@ -55,9 +55,9 @@ class AdminSecondaryGradeService(
         var index = 1
         admission.forEach {
             val applicant = queryApplicantPort.findById(it.applicant?.member!!)
-            /*val secondary = secondarySpi.findByMemberId(it.applicant?.member!!)*/
+            val secondary = querySecondaryPort.findByAdmission(it)
             response.add(
-                InterviewExcel(index++, applicant, TODO("secondary"))
+                InterviewExcel(index++, applicant, secondary)
             )
         }
 

@@ -1,24 +1,28 @@
 package com.daegusw.apply.core.data.entity.secondary
 
-import com.daegusw.apply.core.data.common.EmbeddedMemberId
 import com.daegusw.apply.core.data.entity.secondary.value.AptitudeVO
+import com.daegusw.apply.core.data.entity.secondary.value.ExamineeVO
 import com.daegusw.apply.core.data.entity.secondary.value.InterviewVO
-import javax.persistence.Embedded
-import javax.persistence.EmbeddedId
-import javax.persistence.Entity
-import javax.persistence.Table
+import javax.persistence.*
 
 @Entity
 @Table(name = "secondary")
 class SecondaryEntity(
-
-    @EmbeddedId
-    val id: EmbeddedMemberId,
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long,
+    examinee: ExamineeVO,
+    aptitude: AptitudeVO,
+    interview: InterviewVO
+) {
+    @Embedded
+    var examinee: ExamineeVO = examinee
+        protected set
 
     @Embedded
-    val aptitudeVO: AptitudeVO,
+    var aptitude: AptitudeVO = aptitude
+        protected set
 
     @Embedded
-    val interviewVO: InterviewVO
-
-)
+    var interview: InterviewVO = interview
+        protected set
+}
