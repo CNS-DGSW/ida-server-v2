@@ -11,10 +11,10 @@ import javax.persistence.*
 class AdmissionEntity(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = 0,
-    progress: Progress? = Progress.NONE,
+    progress: Progress = Progress.WRITE,
     applicant: AdmissionApplicantVO?,
     document: DocumentVO?,
-    admissionStatus: AdmissionStatusVO? = AdmissionStatusVO(),
+    admissionStatus: AdmissionStatusVO?,
 ) {
     @Enumerated(EnumType.STRING)
     var progress = progress
@@ -31,5 +31,4 @@ class AdmissionEntity(
     @Embedded
     var admissionStatus = admissionStatus
         protected set
-
 }
